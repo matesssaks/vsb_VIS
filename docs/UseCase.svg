@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   data-diagram-type="DESCRIPTION"
+   height="1014.7245"
+   preserveAspectRatio="none"
+   version="1.1"
+   viewBox="0 0 1356.8916 1014.7245"
+   width="1356.8916"
+   zoomAndPan="magnify"
+   id="svg42"
+   sodipodi:docname="UseCase.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   inkscape:export-filename="UseCase.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview42"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.2414454"
+     inkscape:cx="585.20495"
+     inkscape:cy="394.7012"
+     inkscape:window-width="1792"
+     inkscape:window-height="1089"
+     inkscape:window-x="6"
+     inkscape:window-y="46"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg42" />
+  <defs
+     id="defs1" />
+  <rect
+     fill="none"
+     height="1013.7556"
+     rx="1.4608072"
+     ry="4.0164638"
+     style="stroke:#000000;stroke-width:0.968896"
+     width="882.48529"
+     x="321.26758"
+     y="0.48444799"
+     id="rect1" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-weight="bold"
+     lengthAdjust="spacing"
+     textLength="256.27249"
+     x="1353.5488"
+     y="384.53519"
+     id="text1"
+     transform="matrix(0.999979,0,0,1.0520192,-718.93524,-384.97093)">Systém pro správu dětských táborů</text>
+  <g
+     class="entity"
+     data-entity="UC17"
+     data-source-line="13"
+     data-uid="ent0003"
+     id="entity_UC17"
+     transform="translate(-976.16024,-523.08709)">
+    <ellipse
+       cx="1737.1201"
+       cy="711.00043"
+       fill="#ffffff"
+       rx="107.4201"
+       ry="24.370399"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse1" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="161.1299"
+       x="1656.5552"
+       y="710.39337"
+       id="text2">03 - Odeslání notifikací</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="87.985397"
+       x="1693.1274"
+       y="726.88171"
+       id="text3">(email, push)</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC25"
+     data-source-line="14"
+     data-uid="ent0004"
+     id="entity_UC25"
+     transform="translate(-403.73503,14.224366)">
+    <g
+       id="g43"
+       transform="translate(-666.29893,-619.36466)">
+      <ellipse
+         cx="2109.5107"
+         cy="806.00208"
+         fill="#ffffff"
+         rx="111.3107"
+         ry="24.6621"
+         style="stroke:#000000;stroke-width:0.5"
+         id="ellipse3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="200.3203"
+         x="2009.3505"
+         y="810.74628"
+         id="text4">14 - Validace kapacity a věku</text>
+    </g>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC31"
+     data-source-line="15"
+     data-uid="ent0005"
+     id="entity_UC31"
+     transform="translate(-697.63967,-522.59784)">
+    <ellipse
+       cx="1737.1165"
+       cy="622.9953"
+       fill="#ffffff"
+       rx="131.1265"
+       ry="28.625299"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse4" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="212.9873"
+       x="1630.6228"
+       y="621.73511"
+       id="text5">13 - Získání informací o táboře</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="174.9043"
+       x="1649.6643"
+       y="638.22339"
+       id="text6">(volná kapacita, popis, ...)</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC24"
+     data-source-line="20"
+     data-uid="ent0007"
+     id="entity_UC24"
+     transform="translate(-828.55192,-392.71876)">
+    <ellipse
+       cx="1328.26"
+       cy="443.004"
+       fill="#ffffff"
+       rx="143.77"
+       ry="31.153999"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse6" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="269.19919"
+       x="1193.6604"
+       y="447.74811"
+       id="text7">01 - Zobrazení táborového dashboardu</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC12"
+     data-source-line="21"
+     data-uid="ent0008"
+     id="entity_UC12"
+     transform="translate(-828.54777,-402.66266)">
+    <ellipse
+       cx="1328.2559"
+       cy="536.99921"
+       fill="#ffffff"
+       rx="129.6459"
+       ry="28.329201"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse7" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="205.4268"
+       x="1225.5426"
+       y="535.16968"
+       id="text8">02 - Správa přidělených úkolů</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="176.58591"
+       x="1239.963"
+       y="551.65802"
+       id="text9">(změna stavu, komentáře)</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC11"
+     data-source-line="28"
+     data-uid="ent0011"
+     id="entity_UC11"
+     transform="translate(-828.55119,-384.76244)">
+    <ellipse
+       cx="1328.2593"
+       cy="625.00189"
+       fill="#ffffff"
+       rx="111.4593"
+       ry="24.6919"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse9" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="200.6416"
+       x="1227.9385"
+       y="629.74597"
+       id="text10">04 - Tvorba a přidělení úkolů</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC30"
+     data-source-line="29"
+     data-uid="ent0012"
+     id="entity_UC30"
+     transform="translate(-826.50327,-210.88024)">
+    <ellipse
+       cx="1328.2612"
+       cy="710.99823"
+       fill="#ffffff"
+       rx="121.5912"
+       ry="26.718201"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse10" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="222.3936"
+       x="1217.0645"
+       y="715.74237"
+       id="text11">07 - Zobrazení detailu účastníka</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC03"
+     data-source-line="35"
+     data-uid="ent0014"
+     id="entity_UC03"
+     transform="translate(-405.26682,14.224366)">
+    <ellipse
+       cx="907.0152"
+       cy="775.995"
+       fill="#ffffff"
+       rx="119.3252"
+       ry="26.264999"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse11" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="217.5537"
+       x="798.23828"
+       y="780.7392"
+       id="text12">10 - Nastavení informací tábora</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC13"
+     data-source-line="36"
+     data-uid="ent0015"
+     id="entity_UC13"
+     transform="translate(-405.26682,14.224366)">
+    <ellipse
+       cx="907.0166"
+       cy="681.0033"
+       fill="#ffffff"
+       rx="156.4666"
+       ry="33.693298"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse12" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="295.6543"
+       x="759.18951"
+       y="685.7475"
+       id="text13">09 - Tvorba plánu programu týdne «CRUD»</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC07"
+     data-source-line="37"
+     data-uid="ent0016"
+     id="entity_UC07"
+     transform="translate(-405.26682,14.224366)">
+    <ellipse
+       cx="907.02478"
+       cy="584.00098"
+       fill="#ffffff"
+       rx="129.2048"
+       ry="28.240999"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse13" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="237.3916"
+       x="788.32898"
+       y="588.4126"
+       id="text14">08 - Zobrazení osobních informací</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="64.613297"
+       x="874.7182"
+       y="604.90088"
+       id="text15">učastníka</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC01"
+     data-source-line="44"
+     data-uid="ent0019"
+     id="entity_UC01"
+     transform="translate(-405.26682,14.224366)">
+    <ellipse
+       cx="907.01813"
+       cy="865.99762"
+       fill="#ffffff"
+       rx="130.9381"
+       ry="28.587601"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse15" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="242.2314"
+       x="785.9024"
+       y="870.74182"
+       id="text16">11 - Správa uživatelů a rolí «CRUD»</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC02"
+     data-source-line="45"
+     data-uid="ent0020"
+     id="entity_UC02"
+     transform="translate(-405.26682,14.224366)">
+    <ellipse
+       cx="907.01672"
+       cy="953.00128"
+       fill="#ffffff"
+       rx="104.9567"
+       ry="23.3913"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse16" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="186.5049"
+       x="813.76422"
+       y="957.74548"
+       id="text17">12 - Správa táborů «CRUD»</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC10"
+     data-source-line="50"
+     data-uid="ent0021"
+     id="entity_UC10"
+     transform="translate(-1235.3602,-191.98183)">
+    <ellipse
+       cx="1737.1182"
+       cy="528.99762"
+       fill="#ffffff"
+       rx="140.0882"
+       ry="30.417601"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse17" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="261.48831"
+       x="1606.3741"
+       y="533.74182"
+       id="text18">05 - Vygenerování denního plánu léků</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC15"
+     data-source-line="51"
+     data-uid="ent0022"
+     id="entity_UC15"
+     transform="translate(-1235.3648,-15.752459)">
+    <ellipse
+       cx="1737.1228"
+       cy="437.99661"
+       fill="#ffffff"
+       rx="118.2328"
+       ry="26.0466"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse18" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="215.21581"
+       x="1629.5149"
+       y="442.74069"
+       id="text19">06 - Záznam o úrazu/incidentu</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC05"
+     data-source-line="61"
+     data-uid="ent0024"
+     id="entity_UC05"
+     transform="translate(-288.78201,-584.02107)">
+    <ellipse
+       cx="1328.2588"
+       cy="885.99982"
+       fill="#ffffff"
+       rx="116.3488"
+       ry="25.6698"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse19" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="211.1758"
+       x="1222.6709"
+       y="890.7439"
+       id="text20">15 - Registrace osoby na tábor</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="UC08"
+     data-source-line="62"
+     data-uid="ent0025"
+     id="entity_UC08"
+     transform="translate(-697.6437,-463.34367)">
+    <ellipse
+       cx="1737.1205"
+       cy="869.00409"
+       fill="#ffffff"
+       rx="126.9205"
+       ry="27.7841"
+       style="stroke:#000000;stroke-width:0.5"
+       id="ellipse20" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="233.72749"
+       x="1620.2567"
+       y="873.74823"
+       id="text21">16 - Zpracování požadavku rodiče</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="Praktikant"
+     data-source-line="69"
+     data-uid="ent0029"
+     id="entity_Praktikant"
+     transform="translate(-560.07099,-196.95945)">
+    <circle
+       cx="645.30151"
+       cy="240.25999"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       id="ellipse21"
+       r="8" />
+    <path
+       d="m 645.3015,248.26 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+       fill="none"
+       style="stroke:#181818;stroke-width:0.5"
+       id="path21" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="68.502899"
+       x="611.04999"
+       y="305.2952"
+       id="text22">Praktikant</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="Vedouci"
+     data-source-line="73"
+     data-uid="ent0032"
+     id="entity_Vedouci"
+     transform="translate(-412.49296,-15.775634)">
+    <circle
+       cx="498.77951"
+       cy="402.26001"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       id="ellipse22"
+       r="8" />
+    <path
+       d="m 498.7795,410.26 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+       fill="none"
+       style="stroke:#181818;stroke-width:0.5"
+       id="path22" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="102.5391"
+       x="447.51001"
+       y="467.2952"
+       id="text23">Vedoucí tábora</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="HlavniVedouci"
+     data-source-line="77"
+     data-uid="ent0035"
+     id="entity_HlavniVedouci"
+     transform="translate(-227.26282,14.224366)">
+    <circle
+       cx="312.95471"
+       cy="689.26001"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       id="ellipse23"
+       r="8" />
+    <path
+       d="m 312.9547,697.26 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+       fill="none"
+       style="stroke:#181818;stroke-width:0.5"
+       id="path23" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="147.10941"
+       x="239.39999"
+       y="754.29523"
+       id="text24">Hlavní vedoucí tábora</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="Admin"
+     data-source-line="82"
+     data-uid="ent0039"
+     id="entity_Admin"
+     transform="translate(-6.1777344,66.02828)">
+    <circle
+       cx="92.201202"
+       cy="836.26001"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       id="ellipse24"
+       r="8" />
+    <path
+       d="m 92.2012,844.26 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+       fill="none"
+       style="stroke:#181818;stroke-width:0.5"
+       id="path24" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="172.4023"
+       x="6"
+       y="901.29523"
+       id="text25">Administrátor organizace</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="Zdravotnik"
+     data-source-line="86"
+     data-uid="ent0042"
+     id="entity_Zdravotnik"
+     transform="translate(-77.260954,388.94079)">
+    <circle
+       cx="312.95721"
+       cy="136.25999"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       id="ellipse25"
+       r="8" />
+    <path
+       d="m 312.9572,144.26 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+       fill="none"
+       style="stroke:#181818;stroke-width:0.5"
+       id="path25" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="72.734398"
+       x="276.59"
+       y="201.2952"
+       id="text26">Zdravotník</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="Marketing"
+     data-source-line="91"
+     data-uid="ent0046"
+     id="entity_Marketing"
+     transform="translate(-257.36589,-72.718164)">
+    <circle
+       cx="498.7811"
+       cy="240.25999"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       id="ellipse26"
+       r="8" />
+    <path
+       d="m 498.7811,248.26 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+       fill="none"
+       style="stroke:#181818;stroke-width:0.5"
+       id="path26" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="68.202103"
+       x="464.67999"
+       y="305.2952"
+       id="text27">Marketing</text>
+  </g>
+  <g
+     class="entity"
+     data-entity="Shop"
+     data-source-line="95"
+     data-uid="ent0049"
+     id="entity_Shop"
+     transform="translate(-1009.9851,-748.27469)">
+    <circle
+       cx="2325.967"
+       cy="923.26001"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       id="ellipse27"
+       r="8" />
+    <path
+       d="m 2325.967,931.26 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+       fill="none"
+       style="stroke:#181818;stroke-width:0.5"
+       id="path27" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="84.2939"
+       x="2283.8201"
+       y="988.29523"
+       id="text28">API (E-Shop)</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC31"
+     data-entity-2="UC25"
+     data-source-line="16"
+     data-uid="lnk6"
+     id="link_UC31_UC25"
+     transform="translate(-791.14504,-508.52281)">
+    <path
+       d="m 1834.236,637.66173 0.09,43.5693"
+       fill="none"
+       id="UC31-to-UC25"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="#181818"
+       points="2016.758,789.59 2012.1165,792.8237 2021.68,790.47 2013.5244,784.9485 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon28"
+       transform="rotate(80.298757,1991.2831,626.03924)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1908.2"
+       y="766.56842"
+       id="text29"
+       transform="translate(-66.788661,-104.59223)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC24"
+     data-entity-2="UC31"
+     data-source-line="22"
+     data-uid="lnk9"
+     id="link_UC24_UC31"
+     transform="translate(-762.70258,-418.94713)">
+    <path
+       d="m 1405.4442,470.52142 263.9781,47.84544"
+       fill="none"
+       id="UC24-to-UC31"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="#181818"
+       points="1657.8167,597.4488 1652.7731,600.0104 1662.57,599 1655.2551,592.4051 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon29"
+       transform="rotate(-5.5490562,836.8827,483.0887)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1505.03"
+       y="501.5184"
+       id="text30"
+       transform="translate(12.896211,-19.160085)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC12"
+     data-entity-2="UC17"
+     data-source-line="23"
+     data-uid="lnk10"
+     id="link_UC12_UC17"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 1034.4569,118.67241 78.795,1.52382 38.1148,27.44856"
+       fill="none"
+       id="UC12-to-UC17"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="ccc" />
+    <polygon
+       fill="#181818"
+       points="1664.2219,690.4682 1659.2779,693.2173 1669.03,691.84 1661.4728,685.5242 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon30"
+       transform="rotate(21.137442,2866.443,-964.88374)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1505.03"
+       y="604.56842"
+       id="text31"
+       transform="translate(-443.84031,-490.62502)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC11"
+     data-entity-2="UC17"
+     data-source-line="30"
+     data-uid="lnk13"
+     id="link_UC11_UC17"
+     transform="translate(-774.6649,-432.42373)">
+    <path
+       d="m 1385.6637,671.53381 88.7845,-2.87475 36.6189,-22.91352"
+       fill="none"
+       id="UC11-to-UC17"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="ccc" />
+    <polygon
+       fill="#181818"
+       points="1640.3777,691.4088 1643.6847,695.9984 1639.0951,699.3053 1648.62,696.8 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon31"
+       transform="rotate(-44.308491,1516.4994,838.45702)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1505.03"
+       y="669.56842"
+       id="text32"
+       transform="translate(-74.941461,16.470129)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC13"
+     data-entity-2="UC17"
+     data-source-line="38"
+     data-uid="lnk17"
+     id="link_UC13_UC17"
+     transform="translate(-389.2269,-103.88779)">
+    <path
+       d="m 1031.5535,784.34751 133.5586,-104.31433 1.3117,-359.86177"
+       fill="none"
+       id="UC13-to-UC17"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="ccc" />
+    <polygon
+       fill="#181818"
+       points="1676.4513,732.744 1681.7195,734.8047 1679.6588,740.0728 1686.3,732.8 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon32"
+       transform="rotate(-65.204505,1101.3637,931.26714)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1298.76"
+       y="767.56842"
+       id="text33"
+       transform="translate(-125.08071,-155.93395)">«include»</text>
+  </g>
+  <polygon
+     fill="#181818"
+     points="1253.64,689.52 1246.1212,683.1586 1248.8403,688.1191 1243.8797,690.8381 "
+     style="stroke:#181818;stroke-width:1"
+     id="polygon33-6"
+     transform="rotate(-5.8840777,-1038.1228,9102.9172)" />
+  <g
+     id="g42"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 907.69719,518.84092 0.30571,37.05657"
+       fill="none"
+       id="UC07-to-UC30"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="#181818"
+       points="1246.1212,683.1586 1248.8403,688.1191 1243.8797,690.8381 1253.64,689.52 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon33"
+       transform="rotate(-105.6154,1014.0071,732.82216)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1094.49"
+       y="634.55841"
+       id="text34"
+       transform="translate(-177.87512,-92.557335)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC11"
+     data-entity-2="UC10"
+     data-source-line="52"
+     data-uid="lnk23"
+     id="link_UC11_UC10"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 904.00418,292.2188 0.0462,-41.4898"
+       fill="none"
+       id="UC11-to-UC10"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="#181818"
+       points="1635.1888,552.3275 1632.1938,557.1264 1640.06,551.2 1630.3898,549.3325 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon34"
+       transform="rotate(-77.612082,1086.0629,859.29816)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="63.819302"
+       x="1503.03"
+       y="564.86841"
+       id="text35"
+       transform="translate(-588.06819,-286.91067)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC05"
+     data-entity-2="UC08"
+     data-source-line="63"
+     data-uid="lnk26"
+     id="link_UC05_UC08"
+     transform="translate(-579.54775,-488.76471)">
+    <path
+       d="m 1623.5749,816.51288 0.046,49.84199"
+       fill="none"
+       id="UC05-to-UC08"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="#181818"
+       points="1615.03,876.88 1605.7897,873.4717 1610.0405,877.204 1606.3082,881.4549 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon35"
+       transform="rotate(93.87028,1624.6306,875.24302)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1505.03"
+       y="876.56842"
+       id="text36"
+       transform="translate(128.26454,-31.520508)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC05"
+     data-entity-2="UC25"
+     data-source-line="64"
+     data-uid="lnk27"
+     id="link_UC05_UC25"
+     transform="translate(-1045.282,-600.41085)">
+    <path
+       d="m 2089.6211,876.66752 0.048,-49.15307"
+       fill="none"
+       id="UC05-to-UC25"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="#181818"
+       points="2061.1305,837.1064 2067.03,829.22 2057.2229,830.1257 2062.667,831.6623 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon36"
+       transform="rotate(-61.051576,2076.4626,808.98049)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="59.356899"
+       x="1707.62"
+       y="927.56842"
+       id="text37"
+       transform="translate(389.96738,-68.735653)">«include»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC11"
+     data-entity-2="UC08"
+     data-source-line="65"
+     data-uid="lnk28"
+     id="link_UC11_UC08"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 1007.6962,235.68119 99.4733,128.00629 210.0742,27.89414"
+       fill="none"
+       id="UC11-to-UC08"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7"
+       sodipodi:nodetypes="ccc" />
+    <polygon
+       fill="#181818"
+       points="1636.2557,851.3667 1645.9,849.37 1637.9552,843.5493 1641.0141,848.3078 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon37"
+       transform="rotate(-3.5024715,-6005.7238,6006.8348)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="57.192402"
+       x="1506.03"
+       y="748.56842"
+       id="text38"
+       transform="translate(-281.45511,-376.50388)">«extend»</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="Praktikant"
+     data-entity-2="UC12"
+     data-source-line="70"
+     data-uid="lnk30"
+     id="link_Praktikant_UC12"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="M 519.5385,58.538491 775.36171,119.90631"
+       fill="none"
+       id="Praktikant-UC12"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Praktikant"
+     data-entity-2="UC24"
+     data-source-line="71"
+     data-uid="lnk31"
+     id="link_Praktikant_UC24"
+     transform="translate(-564.05668,-214.21017)">
+    <path
+       d="m 678.3556,270.06725 241.53783,-5.05778"
+       fill="none"
+       id="Praktikant-UC24"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Vedouci"
+     data-entity-2="UC11"
+     data-source-line="74"
+     data-uid="lnk33"
+     id="link_Vedouci_UC11"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="M 530.81369,409.72464 794.03575,228.84683"
+       fill="none"
+       id="Vedouci-UC11"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Vedouci"
+     data-entity-2="UC30"
+     data-source-line="75"
+     data-uid="lnk34"
+     id="link_Vedouci_UC30"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 546.77523,442.08778 234.97403,42.00168"
+       fill="none"
+       id="Vedouci-UC30"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="HlavniVedouci"
+     data-entity-2="UC03"
+     data-source-line="78"
+     data-uid="lnk36"
+     id="link_HlavniVedouci_UC03"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 538.29764,725.04546 249.76723,48.48595"
+       fill="none"
+       id="HlavniVedouci-UC03"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="HlavniVedouci"
+     data-entity-2="UC13"
+     data-source-line="79"
+     data-uid="lnk37"
+     id="link_HlavniVedouci_UC13"
+     transform="translate(-428.08554,586.32206)">
+    <path
+       d="M 562.48539,136.23463 773.3775,110.03664"
+       fill="none"
+       id="HlavniVedouci-UC13"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="HlavniVedouci"
+     data-entity-2="UC07"
+     data-source-line="80"
+     data-uid="lnk38"
+     id="link_HlavniVedouci_UC07"
+     transform="translate(-428.08554,586.32206)">
+    <path
+       d="M 561.80441,118.17995 801.06715,14.686707"
+       fill="none"
+       id="HlavniVedouci-UC07"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Admin"
+     data-entity-2="UC01"
+     data-source-line="83"
+     data-uid="lnk40"
+     id="link_Admin_UC01"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="M 550.09416,900.61772 776.0311,866.37769"
+       fill="none"
+       id="Admin-UC01"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Admin"
+     data-entity-2="UC02"
+     data-source-line="84"
+     data-uid="lnk41"
+     id="link_Admin_UC02"
+     transform="translate(-411.01809,230.21642)">
+    <path
+       d="m 556.82616,705.45547 251.00267,30.1881"
+       fill="none"
+       id="Admin-UC02"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Zdravotnik"
+     data-entity-2="UC10"
+     data-source-line="87"
+     data-uid="lnk43"
+     id="link_Zdravotnik_UC10"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 652.36251,488.26568 42.59418,-66.93918 93.67758,-9.38871"
+       fill="none"
+       id="Zdravotnik-UC10"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="ccc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Zdravotnik"
+     data-entity-2="UC15"
+     data-source-line="88"
+     data-uid="lnk44"
+     id="link_Zdravotnik_UC15"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 636.20649,488.17701 34.62705,-114.03672 96.10862,-46.00306"
+       fill="none"
+       id="Zdravotnik-UC15"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="ccc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Zdravotnik"
+     data-entity-2="UC07"
+     data-source-line="89"
+     data-uid="lnk45"
+     id="link_Zdravotnik_UC07"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 667.50988,543.77261 110.86345,37.3381"
+       fill="none"
+       id="Zdravotnik-UC07"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Marketing"
+     data-entity-2="UC11"
+     data-source-line="92"
+     data-uid="lnk47"
+     id="link_Marketing_UC11"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 680.20273,191.2984 114.48756,31.06698"
+       fill="none"
+       id="Marketing-UC11"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Marketing"
+     data-entity-2="UC17"
+     data-source-line="93"
+     data-uid="lnk48"
+     id="link_Marketing_UC17"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 680.64003,174.00716 377.98647,-0.32302"
+       fill="none"
+       id="Marketing-UC17"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC05"
+     data-entity-2="Shop"
+     data-source-line="96"
+     data-uid="lnk50"
+     id="link_UC05_Shop"
+     transform="translate(-418.55761,51.029631)">
+    <path
+       d="m 1571.6993,245.3104 135.6812,-94.09181"
+       fill="none"
+       id="UC05-Shop"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="UC31"
+     data-entity-2="Shop"
+     data-source-line="97"
+     data-uid="lnk51"
+     id="link_UC31_Shop"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 1574.2765,90.524345 120.3316,78.407265"
+       fill="none"
+       id="UC31-Shop"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Marketing"
+     data-entity-2="Praktikant"
+     data-source-line="100"
+     data-uid="lnk53"
+     id="link_Marketing_Praktikant"
+     transform="translate(-409.30515,-161.03904)">
+    <path
+       d="m 548.57322,287.18101 74.83264,62.08574"
+       fill="none"
+       id="Marketing-to-Praktikant"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="none"
+       points="592.71,276 610.71,270 592.71,264 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon39"
+       transform="rotate(-139.87886,573.87412,286.69451)" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="HlavniVedouci"
+     data-entity-2="Vedouci"
+     data-source-line="101"
+     data-uid="lnk54"
+     id="link_HlavniVedouci_Vedouci"
+     transform="translate(-405.26682,14.224366)">
+    <path
+       d="m 491.10438,666.02498 -0.0813,-201.81384"
+       fill="none"
+       id="HlavniVedouci-to-Vedouci"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="none"
+       points="473.09,470.55 458.3284,482.4704 468.433,488.9433 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon40"
+       transform="rotate(-32.153284,439.84458,427.18878)" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="HlavniVedouci"
+     data-entity-2="Vedouci"
+     data-source-line="101"
+     data-uid="lnk54"
+     id="link_HlavniVedouci_Vedouci-7"
+     transform="translate(-405.13865,-296.52334)">
+    <path
+       d="m 491.10438,666.02498 0.0799,-237.12591"
+       fill="none"
+       id="HlavniVedouci-to-Vedouci-5"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="none"
+       points="468.433,488.9433 473.09,470.55 458.3284,482.4704 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon40-6"
+       transform="rotate(-32.153284,379.02832,409.0287)" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Zdravotnik"
+     data-entity-2="Vedouci"
+     data-source-line="102"
+     data-uid="lnk55"
+     id="link_Zdravotnik_Vedouci"
+     transform="rotate(9.5533298,416.74171,-2006.7732)">
+    <path
+       d="m 549.75027,488.42236 87.49106,55.73713"
+       fill="none"
+       id="Zdravotnik-to-Vedouci"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="none"
+       points="471.02,393.27 465.7213,375.0512 455.8498,381.8742 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon41"
+       transform="rotate(158.97796,494.9542,441.89974)" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="Admin"
+     data-entity-2="HlavniVedouci"
+     data-source-line="103"
+     data-uid="lnk56"
+     id="link_Admin_HlavniVedouci"
+     transform="translate(-169.39333,33.691704)">
+    <path
+       d="m 255.45534,853.81196 -0.68483,-95.75909"
+       fill="none"
+       id="Admin-to-HlavniVedouci"
+       style="stroke:#181818;stroke-width:1"
+       sodipodi:nodetypes="cc" />
+    <polygon
+       fill="none"
+       points="254.49,757.62 236.203,762.6781 242.8952,772.6387 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon42"
+       transform="rotate(-56.00477,238.00449,748.4905)" />
+  </g>
+</svg>

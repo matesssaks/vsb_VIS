@@ -1,0 +1,43 @@
+@startuml
+skinparam shadowing false
+
+node "Uživatel – PC" as Client {
+  artifact "Web Browser" as Browser
+}
+
+node "Admin/Dev – Notebook" as Admin {
+  artifact "CLI App (JDK 21)" as CliApp
+}
+
+node "DMZ – Reverse Proxy" as DMZ {
+  node "Nginx" as Nginx
+}
+
+node "Aplikační server\nUbuntu Server 24.04 LTS" as AppSrv {
+  node "Docker" as Docker {
+    artifact "campis.jar\n(Spring Boot 3.3)\nPL+BL+DAL" as BootJar
+  }
+}
+
+node "DB server" as DbSrv {
+  database "PostgreSQL 16+" as PG
+}
+
+node "Souborové úložiště" as Fs {
+  folder "XML archiv/export" as XML
+}
+
+node "SMTP server" as Smtp {
+  artifact "Sendmail" as Sendmail
+}
+
+' Spoje a porty
+Browser -[#blue]-> Nginx : HTTPS 443
+Nginx -[#blue]-> BootJar : HTTP 8080 (upstream)
+CliApp -[#blue]-> BootJar : HTTPS 443 (REST)
+
+BootJar -[#darkgreen]-> PG : TCP 5432
+BootJar -[#darkgreen]-> XML : NFS/FS
+BootJar -[#orange]-> Sendmail : SMTP 25/Submission 587
+
+@enduml

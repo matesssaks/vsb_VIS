@@ -1,0 +1,59 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+
+package "PL – Prezenční vrstva" {
+  [Web App\n(Spring MVC + Thymeleaf)] as WebApp
+  [CLI App] as CLI
+}
+
+package "BL – Business vrstva" {
+  interface "REST API" as IApi
+  [API Façade] as ApiFacade
+  [Aplikační služby] as AppServices
+  [Správa uživatelů] as Users
+  [Správa táborů] as Camps
+  [Evidence účastníků] as Participants
+  [Léky & Denní plán dávek] as Drugs
+  [Úkoly & Notifikace] as Tasks
+  [Repository + UnitOfWork] as RepoUoW
+}
+
+package "DAL – Datová vrstva" {
+  [SQL Gateway\n(PostgreSQL)] as SqlGw
+  [XML Gateway\n(Archiv/Export)] as XmlGw
+  [DB Connection Pool] as Conn
+}
+
+database "PostgreSQL" as Pg
+folder "XML úložiště" as XmlStore
+rectangle "E-shop (externí systém)" as Eshop
+
+' --- poskytované/požadované rozhraní ---
+ApiFacade -- IApi
+Eshop ..> IApi : volá REST API
+
+WebApp ..> AppServices : volání služeb
+CLI ..> IApi : volání přes REST
+
+AppServices --> Users
+AppServices --> Camps
+AppServices --> Participants
+AppServices --> Drugs
+AppServices --> Tasks
+
+' Repozitáře/UoW v BL používají DAL Gateways
+Users ..> RepoUoW
+Camps ..> RepoUoW
+Participants ..> RepoUoW
+Drugs ..> RepoUoW
+Tasks ..> RepoUoW
+
+RepoUoW ..> SqlGw
+RepoUoW ..> XmlGw
+SqlGw ..> Conn
+SqlGw ..> Pg
+XmlGw ..> XmlStore
+
+ApiFacade --> AppServices
+@enduml

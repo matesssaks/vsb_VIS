@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   data-diagram-type="ACTIVITY"
+   height="761px"
+   preserveAspectRatio="none"
+   style="width:1018px;height:761px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 1018 761"
+   width="1018px"
+   zoomAndPan="magnify"
+   id="svg58"
+   sodipodi:docname="ActivityUC04TvorbaUkolu.svg"
+   inkscape:export-filename="ActivityUC04TvorbaUkolu.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview58"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0664404"
+     inkscape:cx="527.9245"
+     inkscape:cy="375.07957"
+     inkscape:window-width="1792"
+     inkscape:window-height="1089"
+     inkscape:window-x="6"
+     inkscape:window-y="46"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg58" />
+  <defs
+     id="defs1" />
+  <g
+     id="g58">
+    <rect
+       fill="none"
+       height="21.1992"
+       style="stroke:none;stroke-width:1;"
+       width="985.7539"
+       x="15"
+       y="12.2969"
+       id="rect1" />
+    <ellipse
+       cx="162.0215"
+       cy="48.4961"
+       fill="#222222"
+       rx="10"
+       ry="10"
+       style="stroke:#222222;stroke-width:1;"
+       id="ellipse1" />
+    <rect
+       fill="#FFFFFF"
+       height="34.1328"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="118.3496"
+       x="102.8467"
+       y="78.4961"
+       id="rect2" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="98.3496"
+       x="112.8467"
+       y="100.0977"
+       id="text2">Zvolí &quot;Nový úkol&quot;</text>
+    <rect
+       fill="#FFFFFF"
+       height="48.2656"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="237.957"
+       x="43.043"
+       y="132.6289"
+       id="rect3" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="214.1602"
+       x="53.043"
+       y="154.2305"
+       id="text3">Vyplní název, popis, termín, prioritu,</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="125.707"
+       x="53.043"
+       y="168.3633"
+       id="text4">a případně opakování</text>
+    <rect
+       fill="#FFFFFF"
+       height="34.1328"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="282.043"
+       x="21"
+       y="200.8945"
+       id="rect4" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="262.043"
+       x="31"
+       y="222.4961"
+       id="text5">Vybere řešitele (1..n) ze seznamu pracovníků</text>
+    <line
+       style="stroke:#000000;stroke-width:1.5;"
+       x1="15"
+       x2="15"
+       y1="12.2969"
+       y2="749.0898"
+       id="line5" />
+    <rect
+       fill="#FFFFFF"
+       height="34.1328"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="167.416"
+       x="607.5164"
+       y="255.0273"
+       id="rect5" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="147.416"
+       x="617.5164"
+       y="276.6289"
+       id="text6">Ověří dostupnost řešitelů</text>
+    <polygon
+       fill="#FFFFFF"
+       points="638.5554,309.1602,743.8933,309.1602,755.8933,321.1602,743.8933,333.1602,638.5554,333.1602,626.5554,321.1602,638.5554,309.1602"
+       style="stroke:#000000;stroke-width:0.5;"
+       id="polygon6" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="105.3379"
+       x="638.5554"
+       y="325.3174"
+       id="text7">&quot;Ověření proběhlo?&quot;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="28.3271"
+       x="598.2283"
+       y="318.8398"
+       id="text8">[Ano]</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="21.4092"
+       x="755.8933"
+       y="318.8398"
+       id="text9">[Ne]</text>
+    <polygon
+       fill="#FFFFFF"
+       points="447.2122,343.1602,570.9568,343.1602,582.9568,355.1602,570.9568,367.1602,447.2122,367.1602,435.2122,355.1602,447.2122,343.1602"
+       style="stroke:#000000;stroke-width:0.5;"
+       id="polygon9" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="123.7446"
+       x="447.2122"
+       y="359.3174"
+       id="text10">&quot;Zjištěna kolize úkolů?&quot;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="28.3271"
+       x="406.885"
+       y="352.8398"
+       id="text11">[Ano]</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="21.4092"
+       x="582.9568"
+       y="352.8398"
+       id="text12">[Ne]</text>
+    <rect
+       fill="#FFFFFF"
+       height="34.1328"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="163.3672"
+       x="320.2061"
+       y="377.1602"
+       id="rect12" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="143.3672"
+       x="330.2061"
+       y="398.7617"
+       id="text13">Zobrazí varování o kolizi</text>
+    <rect
+       fill="#FFFFFF"
+       height="48.2656"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="177.6934"
+       x="313.043"
+       y="446.293"
+       id="rect13" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="133.8164"
+       x="323.043"
+       y="467.8945"
+       id="text14">Připraví založení Úkolu</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="157.6934"
+       x="323.043"
+       y="482.0273"
+       id="text15">se stavem &quot;K přeplánování&quot;</text>
+    <rect
+       fill="#FFFFFF"
+       height="48.2656"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="211.0859"
+       x="510.7363"
+       y="377.1602"
+       id="rect15" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="133.8164"
+       x="520.7363"
+       y="398.7617"
+       id="text16">Připraví založení Úkolu</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="191.0859"
+       x="520.7363"
+       y="412.8945"
+       id="text17">a přiřazení se stavem &quot;Přiděleno&quot;</text>
+    <polygon
+       fill="#FFFFFF"
+       points="509.0845,500.5586,521.0845,512.5586,509.0845,524.5586,497.0845,512.5586,509.0845,500.5586"
+       style="stroke:#000000;stroke-width:0.5;"
+       id="polygon17" />
+    <rect
+       fill="#FFFFFF"
+       height="34.1328"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="179.252"
+       x="419.4585"
+       y="544.5586"
+       id="rect17" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="159.252"
+       x="429.4585"
+       y="566.1602"
+       id="text18">Persistovat Úkol a přiřazení</text>
+    <polygon
+       fill="#FFFFFF"
+       points="456.3027,598.6914,561.8662,598.6914,573.8662,610.6914,561.8662,622.6914,456.3027,622.6914,444.3027,610.6914,456.3027,598.6914"
+       style="stroke:#000000;stroke-width:0.5;"
+       id="polygon18" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="105.5635"
+       x="456.3027"
+       y="614.8486"
+       id="text19">&quot;Uložení úkolu OK?&quot;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="28.3271"
+       x="415.9756"
+       y="608.3711"
+       id="text20">[Ano]</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacing"
+       textLength="21.4092"
+       x="573.8662"
+       y="608.3711"
+       id="text21">[Ne]</text>
+    <rect
+       fill="#FFFFFF"
+       height="34.1328"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="174.7285"
+       x="325.6904"
+       y="632.6914"
+       id="rect21" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="154.7285"
+       x="335.6904"
+       y="654.293"
+       id="text22">UC03 - Odeslání notifikací</text>
+    <ellipse
+       cx="413.0547"
+       cy="711.957"
+       fill="none"
+       rx="11"
+       ry="11"
+       style="stroke:#222222;stroke-width:1;"
+       id="ellipse22" />
+    <ellipse
+       cx="413.0547"
+       cy="711.957"
+       fill="#222222"
+       rx="6"
+       ry="6"
+       style="stroke:#222222;stroke-width:1;"
+       id="ellipse23" />
+    <rect
+       fill="#FFFFFF"
+       height="48.2656"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="169.3906"
+       x="520.4189"
+       y="632.6914"
+       id="rect23" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="145.5938"
+       x="530.4189"
+       y="654.293"
+       id="text23">Zobrazí chybovou hlášku</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="111.0469"
+       x="530.4189"
+       y="668.4258"
+       id="text24">(nelze založit úkol)</text>
+    <ellipse
+       cx="605.1143"
+       cy="726.0898"
+       fill="none"
+       rx="11"
+       ry="11"
+       style="stroke:#222222;stroke-width:1;"
+       id="ellipse24" />
+    <ellipse
+       cx="605.1143"
+       cy="726.0898"
+       fill="#222222"
+       rx="6"
+       ry="6"
+       style="stroke:#222222;stroke-width:1;"
+       id="ellipse25" />
+    <rect
+       fill="#FFFFFF"
+       height="48.2656"
+       rx="12.5"
+       ry="12.5"
+       style="stroke:#000000;stroke-width:0.5;"
+       width="243.084"
+       x="751.8223"
+       y="343.1602"
+       id="rect25" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="145.5938"
+       x="761.8223"
+       y="364.7617"
+       id="text25">Zobrazí chybovou hlášku</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacing"
+       textLength="223.084"
+       x="761.8223"
+       y="378.8945"
+       id="text26">(interní chyba při ověření dostupnosti)</text>
+    <ellipse
+       cx="873.3643"
+       cy="437.4258"
+       fill="none"
+       rx="11"
+       ry="11"
+       style="stroke:#222222;stroke-width:1;"
+       id="ellipse26" />
+    <ellipse
+       cx="873.3643"
+       cy="437.4258"
+       fill="#222222"
+       rx="6"
+       ry="6"
+       style="stroke:#222222;stroke-width:1;"
+       id="ellipse27" />
+    <line
+       style="stroke:#000000;stroke-width:1.5;"
+       x1="307.043"
+       x2="307.043"
+       y1="12.2969"
+       y2="749.0898"
+       id="line27" />
+    <line
+       style="stroke:#000000;stroke-width:1.5;"
+       x1="998.9063"
+       x2="998.9063"
+       y1="12.2969"
+       y2="749.0898"
+       id="line28" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="162.0215"
+       x2="162.0215"
+       y1="58.4961"
+       y2="78.4961"
+       id="line29" />
+    <polygon
+       fill="#181818"
+       points="158.0215,68.4961,162.0215,78.4961,166.0215,68.4961,162.0215,72.4961"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon29" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="162.0215"
+       x2="162.0215"
+       y1="112.6289"
+       y2="132.6289"
+       id="line30" />
+    <polygon
+       fill="#181818"
+       points="158.0215,122.6289,162.0215,132.6289,166.0215,122.6289,162.0215,126.6289"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon30" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="162.0215"
+       x2="162.0215"
+       y1="180.8945"
+       y2="200.8945"
+       id="line31" />
+    <polygon
+       fill="#181818"
+       points="158.0215,190.8945,162.0215,200.8945,166.0215,190.8945,162.0215,194.8945"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon31" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="401.8896"
+       x2="401.8896"
+       y1="411.293"
+       y2="446.293"
+       id="line32" />
+    <polygon
+       fill="#181818"
+       points="397.8896,436.293,401.8896,446.293,405.8896,436.293,401.8896,440.293"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon32" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="435.2122"
+       x2="401.8896"
+       y1="355.1602"
+       y2="355.1602"
+       id="line33" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="401.8896"
+       x2="401.8896"
+       y1="355.1602"
+       y2="377.1602"
+       id="line34" />
+    <polygon
+       fill="#181818"
+       points="397.8896,367.1602,401.8896,377.1602,405.8896,367.1602,401.8896,371.1602"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon34" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="582.9568"
+       x2="616.2793"
+       y1="355.1602"
+       y2="355.1602"
+       id="line35" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="616.2793"
+       x2="616.2793"
+       y1="355.1602"
+       y2="377.1602"
+       id="line36" />
+    <polygon
+       fill="#181818"
+       points="612.2793,367.1602,616.2793,377.1602,620.2793,367.1602,616.2793,371.1602"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon36" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="401.8896"
+       x2="401.8896"
+       y1="494.5586"
+       y2="512.5586"
+       id="line37" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="401.8896"
+       x2="497.0845"
+       y1="512.5586"
+       y2="512.5586"
+       id="line38" />
+    <polygon
+       fill="#181818"
+       points="487.0845,508.5586,497.0845,512.5586,487.0845,516.5586,491.0845,512.5586"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon38" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="616.2793"
+       x2="616.2793"
+       y1="425.4258"
+       y2="512.5586"
+       id="line39" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="616.2793"
+       x2="521.0845"
+       y1="512.5586"
+       y2="512.5586"
+       id="line40" />
+    <polygon
+       fill="#181818"
+       points="531.0845,508.5586,521.0845,512.5586,531.0845,516.5586,527.0845,512.5586"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon40" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="509.0845"
+       x2="509.0845"
+       y1="524.5586"
+       y2="544.5586"
+       id="line41" />
+    <polygon
+       fill="#181818"
+       points="505.0845,534.5586,509.0845,544.5586,513.0845,534.5586,509.0845,538.5586"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon41" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="413.0547"
+       x2="413.0547"
+       y1="666.8242"
+       y2="700.957"
+       id="line42" />
+    <polygon
+       fill="#181818"
+       points="409.0547,690.957,413.0547,700.957,417.0547,690.957,413.0547,694.957"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon42" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="605.1143"
+       x2="605.1143"
+       y1="680.957"
+       y2="715.0898"
+       id="line43" />
+    <polygon
+       fill="#181818"
+       points="601.1143,705.0898,605.1143,715.0898,609.1143,705.0898,605.1143,709.0898"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon43" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="444.3027"
+       x2="413.0547"
+       y1="610.6914"
+       y2="610.6914"
+       id="line44" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="413.0547"
+       x2="413.0547"
+       y1="610.6914"
+       y2="632.6914"
+       id="line45" />
+    <polygon
+       fill="#181818"
+       points="409.0547,622.6914,413.0547,632.6914,417.0547,622.6914,413.0547,626.6914"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon45" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="573.8662"
+       x2="605.1143"
+       y1="610.6914"
+       y2="610.6914"
+       id="line46" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="605.1143"
+       x2="605.1143"
+       y1="610.6914"
+       y2="632.6914"
+       id="line47" />
+    <polygon
+       fill="#181818"
+       points="601.1143,622.6914,605.1143,632.6914,609.1143,622.6914,605.1143,626.6914"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon47" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="509.0845"
+       x2="509.0845"
+       y1="578.6914"
+       y2="598.6914"
+       id="line48" />
+    <polygon
+       fill="#181818"
+       points="505.0845,588.6914,509.0845,598.6914,513.0845,588.6914,509.0845,592.6914"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon48" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="873.3643"
+       x2="873.3643"
+       y1="391.4258"
+       y2="426.4258"
+       id="line49" />
+    <polygon
+       fill="#181818"
+       points="869.3643,416.4258,873.3643,426.4258,877.3643,416.4258,873.3643,420.4258"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon49" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="626.5554"
+       x2="509.0845"
+       y1="321.1602"
+       y2="321.1602"
+       id="line50" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="509.0845"
+       x2="509.0845"
+       y1="321.1602"
+       y2="343.1602"
+       id="line51" />
+    <polygon
+       fill="#181818"
+       points="505.0845,333.1602,509.0845,343.1602,513.0845,333.1602,509.0845,337.1602"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon51" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="755.8933"
+       x2="873.3643"
+       y1="321.1602"
+       y2="321.1602"
+       id="line52" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="873.3643"
+       x2="873.3643"
+       y1="321.1602"
+       y2="343.1602"
+       id="line53" />
+    <polygon
+       fill="#181818"
+       points="869.3643,333.1602,873.3643,343.1602,877.3643,333.1602,873.3643,337.1602"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon53" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="691.2244"
+       x2="691.2244"
+       y1="289.1602"
+       y2="309.1602"
+       id="line54" />
+    <polygon
+       fill="#181818"
+       points="687.2244,299.1602,691.2244,309.1602,695.2244,299.1602,691.2244,303.1602"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon54" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="162.0215"
+       x2="162.0215"
+       y1="235.0273"
+       y2="240.0273"
+       id="line55" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="162.0215"
+       x2="691.2244"
+       y1="240.0273"
+       y2="240.0273"
+       id="line56" />
+    <line
+       style="stroke:#181818;stroke-width:1;"
+       x1="691.2244"
+       x2="691.2244"
+       y1="240.0273"
+       y2="255.0273"
+       id="line57" />
+    <polygon
+       fill="#181818"
+       points="687.2244,245.0273,691.2244,255.0273,695.2244,245.0273,691.2244,249.0273"
+       style="stroke:#181818;stroke-width:1;"
+       id="polygon57" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="18"
+       lengthAdjust="spacing"
+       textLength="242.7627"
+       x="39.6401"
+       y="29.6992"
+       id="text57">Aktér (Marketing / Vedoucí)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="18"
+       lengthAdjust="spacing"
+       textLength="61.8398"
+       x="622.0547"
+       y="29.6992"
+       id="text58">Systém</text>
+    <!--SRC=[XP8nRzim48LdyLSSFCc0cxRePWz5aZ5eNA182ZZjG4jqp8hc4HH5mAhxGrnF7ZiOsGEqYwp_rHDfn0aI88i0dHw_T- -9PI6ruPOlW6TEUkcMy9CbPpmhRYrMEZz7XHQ-pgKJD4QR2nj7Pueqx1TZgzF2DNyif9-uBOIJ-XRUmhN8iSgQNN_5IiUjOsmuyQYQ7VGkqJT_eRalKFL6R7YzD4hJN3VRMlW163Io780JTj7iDBrRYLQwQW3VD0VJhfkTuRdURm0DBuYrfTE1CnLMGBiMxPQMLGBIzoSdkW-rW5BKcYygOl4CFUcBzcv4ctzPbhJwOiM6Ox_VT6Z8iNILqVGyee9OpY3jHPdezZKMf_lDNE77NX_SN6X8RqurVk-p94WdFsIxTViDBKr99MqH8hTtp_N9S89JoskYUcuFaG3ZEJdg19_RjQJjFSrhhh3z5tPeVfEaec9AokYu5mleNNGT2QC8SY1HoubG94blBaNqUmKNUfRjcjTX_eZU7Spt6oKq1gpEvOmn0WfRojAXvovYu2c32eorN1tTxeFR-EAbGgxEtts0Dp3EHQbY7HgTdCc2PnqiISZBF8lrK6CsNqxHOmLpEjrkYovKgeMYln3pIXVz-uzOCSiJv2j4gUcQwiFN61ZmU4METqbsFi4ckFm7]-->
+  </g>
+</svg>

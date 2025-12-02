@@ -1,0 +1,55 @@
+@startuml
+
+|API (E-Shop)|
+start
+:Odešle požadavek "Registrace osoby" \n(údaje o dítěti, zástupci, vybraném táboře);
+
+|Systém|
+:Ověří API volání (API klíč, platnost dat, \npovoleno přihlašování);
+
+if ("Validní požadavek?") then ([Ano])
+	:UC14 – Validace kapacity a věku;
+	:Vyhledat Osobu podle rodného čísla;
+
+	if ("Interní chyba při vyhledání?") then (Ano)
+		:Vrátit chybu (interní chyba systému);
+		stop
+	else ([Ne])
+		if ("Osoba nalezena?") then ([Ano])
+			:Aktualizovat záznam Osoby;
+			if ("Aktualizace OK?") then ([Ano])
+			else ([Ne])
+				:Vrátit chybu (nelze aktualizovat Osobu);
+				stop
+			endif
+		else ([Ne])
+			:Vytvořit nový záznam Osoby;
+			if ("Vytvoření OK?") then ([Ano])
+			else ([Ne])
+				:Vrátit chybu (nelze vytvořit Osobu);
+				stop
+			endif
+		endif
+		:Založit Účastníka pro daný tábor;
+		if ("Založení Účastníka OK?") then ([Ano])
+			:Navýšit počet přihlášených u tábora;
+			if ("Navýšení OK?") then ([Ano])
+				:UC16 – Zpracování požadavku rodiče;
+				stop
+			else ([Ne])
+				:Zahodit provedené změny (rollback);
+				:Vrátit chybu (nelze navýšit počet přihlášených);
+				stop
+			endif
+		else ([Ne])
+			:Zahodit provedené změny (rollback);
+			:Vrátit chybu (nelze založit Účastníka);
+			stop
+		endif
+	endif
+
+else (Ne)
+	:Vrátit chybu (nesprávně zadaná data);
+stop
+endif
+@enduml

@@ -1,0 +1,210 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "BL" {
+  class UnitOfWork <<UoW>> {
+  	+registerCreate(...)
+  	+registerUpdate(...)
+  	+registerDelete(...)
+  	+commit()
+  	+rollback()
+  }
+}
+
+package "DAL.sql" {
+	class DrugGateway <<TableDataGateway>> {
+		+findById(Long): DrugRecord
+		+deleteById(Long)
+		+save(DrugRecord)
+	}
+	class UserGateway <<TableDataGateway>> {
+		+findById(Long): UserRecord
+		+delete(Long)
+		+save(UserRecord)
+	}
+	class PersonGateway <<TableDataGateway>> {
+		+findById(Long): PersonRecord
+		+delete(Long)
+		+save(PersonRecord)
+	}
+	class ParticipantGateway <<TableDataGateway>> {
+		+findById(Long): ParticipantRecord
+		+delete(Long)
+		+save(ParticipantRecord)
+	}
+	class RoleGateway <<TableDataGateway>> {
+		+findById(Long): RoleRecord
+		+delete(Long)
+		+save(RoleRecord)
+	}
+	class CampGateway <<TableDataGateway>> {
+		+findById(Long): CampRecord
+		+delete(Long)
+		+save(CampRecord)
+	}
+	class ParticipantTaskGateway <<TableDataGateway>> {
+		+findByParticipantId(Long): ParticipantTaskRecord
+		+findByTaskId(Long): ParticipantTaskRecord
+		+deleteByTaskId(Long)
+		+deleteByParticipantId(Long)
+		+save(ParticipantTaskRecord)
+	}
+}
+
+package "DAL.xml" {
+	class TaskGateway <<TableDataGateway>> {
+		+findById(Long): TaskRecord
+		+delete(Long)
+		+save(TaskRecord)
+	}
+}
+
+package "DAL" {
+	' Mappers
+	interface "Mapper<T>" <<DataMapper>> {
+		+findById(Long): T
+		+delete(Long)
+		+save(T)
+	}
+
+	class UserMapper <<DataMapper>> {
+		+findById(Long): User
+		+delete(Long)
+		+save(User)
+	}
+	UserMapper -up-|> "Mapper<T>"
+	UserMapper --> UserGateway
+
+	class PersonMapper <<DataMapper>> {
+		+findById(Long): Person
+		+delete(Long)
+		+save(Person)
+	}
+	PersonMapper -up-|> "Mapper<T>"
+	PersonMapper -> PersonGateway
+	PersonMapper -> DrugGateway
+
+	class ParticipantMapper <<DataMapper>> {
+		+findById(Long): Participant
+		+delete(Long)
+		+save(Participant)
+	}
+	ParticipantMapper -up-|> "Mapper<T>"
+	ParticipantMapper -> ParticipantGateway
+	ParticipantMapper -> RoleGateway
+
+	class CampMapper <<DataMapper>> {
+		+findById(Long): Camp
+		+delete(Long)
+		+save(Camp)
+	}
+	CampMapper -up-|> "Mapper<T>"
+	CampMapper --> CampGateway
+
+	class TaskMapper <<DataMapper>> {
+		+findById(Long): Task
+		+delete(Long)
+		+save(Task)
+	}
+	TaskMapper -up-|> "Mapper<T>"
+	TaskMapper -----> TaskGateway
+	TaskMapper --> ParticipantTaskGateway
+
+	' Mapper connection
+	PersonMapper ...> UserMapper : <<uses>>
+	ParticipantMapper ...> PersonMapper : <<uses>>
+	ParticipantMapper ...> CampMapper : <<uses>>
+	ParticipantMapper ...> TaskMapper : <<uses>>
+
+	' Records
+	class UserRecord <<Record>> {
+		+userId: Long
+		+name: String
+		+email: String
+		+password: String
+	}
+	UserMapper .down.> UserRecord
+	UserGateway .up.> UserRecord
+
+	class PersonRecord <<Record>> {
+		+personId: Long
+		+userId: Long
+		+name: String
+		+email: String
+		+phone: String
+		+town: String
+		+street: String
+		+postalCode: Integer
+		+gender: String
+		+bornDate: Instant
+	}
+	PersonMapper .down.> PersonRecord
+	PersonGateway .up.> PersonRecord
+
+	class DrugRecord <<Record>> {
+		+drugId: Long
+		+personId: Long
+		+name: String
+		+dosage: String
+		+description: String
+	}
+	PersonMapper ..down.> DrugRecord
+	DrugGateway ..up.> DrugRecord
+
+	class RoleRecord <<Record>> {
+		+role_id: Long
+		+name: String
+		+canEditCamp: Boolean
+		+canCreateTask: Boolean
+		+canEditTask: Boolean
+		+canViewDrugs: Boolean
+		+canReceiveInfo: Boolean
+	}
+	ParticipantMapper ..down.> RoleRecord
+	RoleGateway ..up.> RoleRecord
+
+	class ParticipantRecord <<Record>> {
+		+participantId: Long
+		+campId: Long
+		+personId
+		+roleId
+	}
+	ParticipantMapper ..down.> ParticipantRecord
+	ParticipantGateway ..up.> ParticipantRecord
+
+	class CampRecord <<Record>> {
+		+campId: Long
+		+name: String
+		+description: String
+		+imgUrl: String
+		+startDate: Instant
+		+endDate: Instant
+		+price: Long
+		+capacity: Long
+		+registered: Long
+	}
+	CampMapper ..down.> CampRecord
+	CampGateway ..up.> CampRecord
+
+	class ParticipantTaskRecord <<Record>> {
+		+participantId: Long
+		+taskId: Long
+	}
+	TaskMapper ..down.> ParticipantTaskRecord
+	ParticipantTaskGateway ..up.> ParticipantTaskRecord
+
+	class TaskRecord <<Record>> {
+		+taskId: Long
+		+shortDescription: String
+		+description: String
+		+createdAt: Instant
+		+startDate: Instant
+		+finishedAt: Instant
+		+dueDate: Instant
+	}
+	TaskMapper ..down.> TaskRecord
+	TaskGateway ..up.> TaskRecord
+}
+UnitOfWork "1" o-down- "0..*" "Mapper<T>"
+
+@enduml

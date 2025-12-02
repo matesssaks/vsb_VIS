@@ -1,0 +1,44 @@
+@startuml
+
+|Zdravotník|
+start
+:Zvolí "Generovat denní plány léků";
+:Vybere turnus tábora;
+
+|Systém|
+:Načte platné dávkovací režimy účastníků;
+
+if ("Načtení režimů OK?") then ([Ano])
+	:Načte dostupnosti zdravotníků \npro výdej dle potřeb dávkování;
+	if ("Načtení dostupností OK?") then ([Ano])
+		:Vygeneruje denní plány dávek \n(podle časů, limitů, dostupností);
+		if ("Generování OK?") then ([Ano])
+			:Zobrazí návrh plánů dávek zdravotníkovi;
+		else ([Ne])
+			:Zobrazí chybovou hlášku \n(nelze vygenerovat plán, uvede důvod);
+		stop
+	  endif
+	else ([Ne])
+		:Zobrazí chybovou hlášku \n(interní chyba při načítání dostupností);
+		stop
+	endif
+else ([Ne])
+	:Zobrazí chybovou hlášku \n(interní chyba při načítání režimů);
+	stop
+endif
+
+|Zdravotník|
+if ("Přijmout návrhy?") then ([Ne])
+	|Zdravotník|
+	:Nepokračuje k ukládání (odmítnuto);
+	stop
+else ([Ano])
+	|Systém|
+	if ("Provedl manuální úpravy?") then ([Ano])
+		:Uloží ruční změny plánů;
+	else ([Ne])
+	endif
+	:UC04 – Tvorba a přidělení úkolů;
+	stop
+endif
+@enduml

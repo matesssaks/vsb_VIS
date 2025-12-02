@@ -1,0 +1,92 @@
+@startuml
+left to right direction
+skinparam linetype polyline
+skinparam packageStyle rectangle
+skinparam usecase {
+	BackgroundColor White
+	BorderColor Black
+}
+skinparam package {
+	BorderColor Black
+}
+
+package "Systém pro správu dětských táborů" {
+	usecase "13 - Získání informací o táboře\n(volná kapacita, popis, ...)" as UC13
+	usecase "14 - Validace kapacity a věku" as UC14
+	UC13 ..> UC14 : <<include>>
+
+	' Marketing
+	usecase "03 - Odeslání notifikací\n(email, push)" as UC03
+
+	' Praktikant
+	usecase "01 - Zobrazení táborového dashboardu" as UC01
+	usecase "02 - Správa přidělených úkolů\n(změna stavu, komentáře)" as UC02
+	UC01 ..> UC13 : <<include>>
+	UC02 ..> UC03 : <<include>>
+
+	' Vedouci
+	usecase "04 - Tvorba a přidělení úkolů" as UC04
+	usecase "07 - Zobrazení detailu účastníka" as UC07
+	UC04 ..> UC03 : <<include>>
+
+	' Hlavní vedoucí
+	usecase "10 - Nastavení informací tábora" as UC10
+	usecase "09 - Tvorba plánu programu týdne <<CRUD>>" as UC09
+	usecase "08 - Zobrazení osobních informací\nučastníka" as UC08
+	UC09 ..> UC03 : <<include>>
+	UC08 ..> UC07 : <<include>>
+
+	' Administrator
+	usecase "11 - Správa uživatelů a rolí <<CRUD>>" as UC11
+	usecase "12 - Správa táborů <<CRUD>>" as UC12
+
+	' Zdravotnik
+	usecase "05 - Vygenerování denního plánu léků" as UC05
+	usecase "06 - Záznam o úrazu/incidentu" as UC06
+	UC05 ..> UC04 : <<include>>
+
+	' Shop
+	together {
+	usecase "15 - Registrace osoby na tábor" as UC15
+	usecase "16 - Zpracování požadavku rodiče" as UC16
+	UC15 ..> UC16 : <<include>>
+	UC15 ..> UC14 : <<include>>
+	UC04 ..> UC16 : <<extend>>
+}
+
+actor "Praktikant" as Praktikant
+Praktikant --- UC01
+Praktikant --- UC02
+
+actor "Vedoucí tábora" as Vedouci
+Vedouci --- UC04
+Vedouci --- UC07
+
+actor "Hlavní vedoucí tábora" as HlavniVedouci
+HlavniVedouci --- UC08
+HlavniVedouci --- UC09
+HlavniVedouci --- UC10
+
+actor "Administrátor organizace" as Admin
+Admin --- UC11
+Admin --- UC12
+
+actor "Zdravotník" as Zdravotnik
+Zdravotnik --- UC05
+Zdravotnik --- UC06
+Zdravotnik --- UC08
+
+actor "Marketing" as Marketing
+Marketing --- UC03
+Marketing --- UC04
+
+actor "API (E-Shop)" as Shop
+UC13 --- Shop
+UC15 --- Shop
+
+Vedouci --|> Praktikant
+Marketing --|> Praktikant
+HlavniVedouci --|> Vedouci
+Zdravotnik --|> Vedouci
+Admin --|> HlavniVedouci
+@enduml

@@ -1,0 +1,1735 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   data-diagram-type="CLASS"
+   height="767px"
+   preserveAspectRatio="none"
+   style="width:975px;height:767px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 975 767"
+   width="975px"
+   zoomAndPan="magnify"
+   id="svg80"
+   sodipodi:docname="Concept.svg"
+   inkscape:export-filename="Concept.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview80"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.68883324"
+     inkscape:cx="539.31776"
+     inkscape:cy="373.09466"
+     inkscape:window-width="896"
+     inkscape:window-height="1089"
+     inkscape:window-x="6"
+     inkscape:window-y="46"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg80" />
+  <defs
+     id="defs1" />
+  <g
+     id="g80">
+    <!--class Organization-->
+    <g
+       class="entity"
+       data-entity="Organization"
+       data-source-line="4"
+       data-uid="ent0002"
+       id="entity_Organization">
+      <rect
+         fill="#F1F1F1"
+         height="64.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="120.1289"
+         x="7"
+         y="272.15"
+         id="rect1" />
+      <ellipse
+         cx="22"
+         cy="288.15"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse1" />
+      <path
+         d="M24.9731,293.7931 Q24.3921,294.0919 23.7529,294.2413 Q23.1138,294.3907 22.4082,294.3907 Q19.9014,294.3907 18.5815,292.7389 Q17.2617,291.087 17.2617,287.9659 Q17.2617,284.8365 18.5815,283.1847 Q19.9014,281.5328 22.4082,281.5328 Q23.1138,281.5328 23.7612,281.6822 Q24.4087,281.8316 24.9731,282.1305 L24.9731,284.8531 Q24.3423,284.2721 23.7488,284.0023 Q23.1553,283.7325 22.5244,283.7325 Q21.1797,283.7325 20.4949,284.7992 Q19.8101,285.8658 19.8101,287.9659 Q19.8101,290.0577 20.4949,291.1244 Q21.1797,292.191 22.5244,292.191 Q23.1553,292.191 23.7488,291.9212 Q24.3423,291.6515 24.9731,291.0704 Z "
+         fill="#000000"
+         id="path1" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="88.1289"
+         x="36"
+         y="293.441"
+         id="text1">Organization</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="8"
+         x2="126.1289"
+         y1="304.15"
+         y2="304.15"
+         id="line1" />
+      <ellipse
+         cx="18"
+         cy="317.8941"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse2" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="37.29"
+         x="27"
+         y="321.6852"
+         id="text2">name</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="8"
+         x2="126.1289"
+         y1="328.6383"
+         y2="328.6383"
+         id="line2" />
+    </g>
+    <!--class User-->
+    <g
+       class="entity"
+       data-entity="User"
+       data-source-line="8"
+       data-uid="ent0003"
+       id="entity_User">
+      <rect
+         fill="#F1F1F1"
+         height="113.9531"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="292.4648"
+         x="50.83"
+         y="7"
+         id="rect2" />
+      <ellipse
+         cx="177.6298"
+         cy="23"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse3" />
+      <path
+         d="M180.6029,28.6431 Q180.0219,28.9419 179.3827,29.0913 Q178.7436,29.2407 178.038,29.2407 Q175.5312,29.2407 174.2113,27.5889 Q172.8915,25.937 172.8915,22.8159 Q172.8915,19.6865 174.2113,18.0347 Q175.5312,16.3828 178.038,16.3828 Q178.7436,16.3828 179.391,16.5322 Q180.0385,16.6816 180.6029,16.9805 L180.6029,19.7031 Q179.9721,19.1221 179.3786,18.8523 Q178.7851,18.5825 178.1542,18.5825 Q176.8095,18.5825 176.1247,19.6492 Q175.4399,20.7158 175.4399,22.8159 Q175.4399,24.9077 176.1247,25.9744 Q176.8095,27.041 178.1542,27.041 Q178.7851,27.041 179.3786,26.7712 Q179.9721,26.5015 180.6029,25.9204 Z "
+         fill="#000000"
+         id="path3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="30.3652"
+         x="198.1298"
+         y="28.291"
+         id="text3">User</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="51.83"
+         x2="342.2948"
+         y1="39"
+         y2="39"
+         id="line3" />
+      <ellipse
+         cx="61.83"
+         cy="52.7441"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse4" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="115.4727"
+         x="70.83"
+         y="56.5352"
+         id="text4">username: String</text>
+      <ellipse
+         cx="61.83"
+         cy="69.2324"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse5" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="85.5244"
+         x="70.83"
+         y="73.0234"
+         id="text5">email: String</text>
+      <rect
+         fill="none"
+         height="6"
+         style="stroke:#C82930;stroke-width:1;"
+         width="6"
+         x="58.83"
+         y="82.7207"
+         id="rect5" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="113.5723"
+         x="70.83"
+         y="89.5117"
+         id="text6">password: String</text>
+      <line
+         style="stroke:#181818;stroke-width:1;"
+         x1="51.83"
+         x2="342.2948"
+         y1="96.4648"
+         y2="96.4648"
+         id="line6" />
+      <ellipse
+         cx="61.83"
+         cy="110.209"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse6" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="266.4648"
+         x="70.83"
+         y="114"
+         id="text7">passwordMatch(password: String): Bool</text>
+    </g>
+    <!--class Role-->
+    <g
+       class="entity"
+       data-entity="Role"
+       data-source-line="16"
+       data-uid="ent0004"
+       id="entity_Role">
+      <rect
+         fill="#F1F1F1"
+         height="146.9297"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="174.0391"
+         x="596.04"
+         y="230.93"
+         id="rect7" />
+      <ellipse
+         cx="664.1601"
+         cy="246.93"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse7" />
+      <path
+         d="M667.1333,252.5731 Q666.5522,252.8719 665.913,253.0213 Q665.2739,253.1707 664.5683,253.1707 Q662.0615,253.1707 660.7417,251.5189 Q659.4218,249.867 659.4218,246.7459 Q659.4218,243.6165 660.7417,241.9647 Q662.0615,240.3128 664.5683,240.3128 Q665.2739,240.3128 665.9213,240.4622 Q666.5688,240.6116 667.1333,240.9105 L667.1333,243.6331 Q666.5024,243.0521 665.9089,242.7823 Q665.3154,242.5125 664.6845,242.5125 Q663.3398,242.5125 662.655,243.5792 Q661.9702,244.6458 661.9702,246.7459 Q661.9702,248.8377 662.655,249.9044 Q663.3398,250.971 664.6845,250.971 Q665.3154,250.971 665.9089,250.7012 Q666.5024,250.4315 667.1333,249.8504 Z "
+         fill="#000000"
+         id="path7" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="29.2988"
+         x="684.6601"
+         y="252.221"
+         id="text8">Role</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="597.04"
+         x2="769.0791"
+         y1="262.93"
+         y2="262.93"
+         id="line8" />
+      <ellipse
+         cx="607.04"
+         cy="276.6741"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse8" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="86.1191"
+         x="616.04"
+         y="280.4652"
+         id="text9">name: String</text>
+      <line
+         style="stroke:#181818;stroke-width:1;"
+         x1="597.04"
+         x2="769.0791"
+         y1="287.4183"
+         y2="287.4183"
+         id="line9" />
+      <ellipse
+         cx="607.04"
+         cy="301.1624"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse9" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="135.8369"
+         x="616.04"
+         y="304.9534"
+         id="text10">canEditCamp(): Bool</text>
+      <ellipse
+         cx="607.04"
+         cy="317.6507"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse10" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="146.7402"
+         x="616.04"
+         y="321.4417"
+         id="text11">canCreateTask(): Bool</text>
+      <ellipse
+         cx="607.04"
+         cy="334.139"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse11" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="128.4404"
+         x="616.04"
+         y="337.93"
+         id="text12">canEditTask(): Bool</text>
+      <ellipse
+         cx="607.04"
+         cy="350.6273"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse12" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="143.4111"
+         x="616.04"
+         y="354.4183"
+         id="text13">canViewDrugs(): Bool</text>
+      <ellipse
+         cx="607.04"
+         cy="367.1155"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse13" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="148.0391"
+         x="616.04"
+         y="370.9066"
+         id="text14">canReceiveInfo(): Bool</text>
+    </g>
+    <!--class Camp-->
+    <g
+       class="entity"
+       data-entity="Camp"
+       data-source-line="29"
+       data-uid="ent0007"
+       id="entity_Camp">
+      <rect
+         fill="#F1F1F1"
+         height="212.8828"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="253.5"
+         x="307.31"
+         y="197.95"
+         id="rect14" />
+      <ellipse
+         cx="410.1601"
+         cy="213.95"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse14" />
+      <path
+         d="M413.1332,219.5931 Q412.5522,219.8919 411.913,220.0413 Q411.2739,220.1907 410.5683,220.1907 Q408.0615,220.1907 406.7416,218.5389 Q405.4218,216.887 405.4218,213.7659 Q405.4218,210.6365 406.7416,208.9847 Q408.0615,207.3328 410.5683,207.3328 Q411.2739,207.3328 411.9213,207.4822 Q412.5688,207.6316 413.1332,207.9305 L413.1332,210.6531 Q412.5024,210.0721 411.9089,209.8023 Q411.3154,209.5325 410.6845,209.5325 Q409.3398,209.5325 408.655,210.5992 Q407.9702,211.6658 407.9702,213.7659 Q407.9702,215.8577 408.655,216.9244 Q409.3398,217.991 410.6845,217.991 Q411.3154,217.991 411.9089,217.7212 Q412.5024,217.4515 413.1332,216.8704 Z "
+         fill="#000000"
+         id="path14" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="39.2998"
+         x="430.6601"
+         y="219.241"
+         id="text15">Camp</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="308.31"
+         x2="559.81"
+         y1="229.95"
+         y2="229.95"
+         id="line15" />
+      <ellipse
+         cx="318.31"
+         cy="243.6941"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse15" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="86.1191"
+         x="327.31"
+         y="247.4852"
+         id="text16">name: String</text>
+      <ellipse
+         cx="318.31"
+         cy="260.1824"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse16" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="124.9063"
+         x="327.31"
+         y="263.9734"
+         id="text17">description: String</text>
+      <ellipse
+         cx="318.31"
+         cy="276.6707"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse17" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="136.2061"
+         x="327.31"
+         y="280.4617"
+         id="text18">startDate: DateTime</text>
+      <ellipse
+         cx="318.31"
+         cy="293.159"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse18" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="130.4365"
+         x="327.31"
+         y="296.95"
+         id="text19">endDate: DateTime</text>
+      <ellipse
+         cx="318.31"
+         cy="309.6473"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse19" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="112.0889"
+         x="327.31"
+         y="313.4383"
+         id="text20">capacity: Integer</text>
+      <ellipse
+         cx="318.31"
+         cy="326.1355"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse20" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="125.6924"
+         x="327.31"
+         y="329.9266"
+         id="text21">registered: Integer</text>
+      <ellipse
+         cx="318.31"
+         cy="342.6238"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse21" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="90.4326"
+         x="327.31"
+         y="346.4148"
+         id="text22">price: Integer</text>
+      <ellipse
+         cx="318.31"
+         cy="359.1121"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse22" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="105.9297"
+         x="327.31"
+         y="362.9031"
+         id="text23">ageMin: Integer</text>
+      <ellipse
+         cx="318.31"
+         cy="375.6004"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse23" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="109.5117"
+         x="327.31"
+         y="379.3914"
+         id="text24">ageMax: Integer</text>
+      <line
+         style="stroke:#181818;stroke-width:1;"
+         x1="308.31"
+         x2="559.81"
+         y1="386.3445"
+         y2="386.3445"
+         id="line24" />
+      <ellipse
+         cx="318.31"
+         cy="400.0887"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse24" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="227.5"
+         x="327.31"
+         y="403.8797"
+         id="text25">canRegister(person: Person): Bool</text>
+    </g>
+    <!--class Person-->
+    <g
+       class="entity"
+       data-entity="Person"
+       data-source-line="43"
+       data-uid="ent0008"
+       id="entity_Person">
+      <rect
+         fill="#F1F1F1"
+         height="179.9063"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="162.9648"
+         x="805.58"
+         y="214.44"
+         id="rect25" />
+      <ellipse
+         cx="859.9667"
+         cy="230.44"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse25" />
+      <path
+         d="M862.9399,236.0831 Q862.3588,236.3819 861.7196,236.5313 Q861.0805,236.6807 860.3749,236.6807 Q857.8681,236.6807 856.5483,235.0289 Q855.2284,233.377 855.2284,230.2559 Q855.2284,227.1265 856.5483,225.4747 Q857.8681,223.8228 860.3749,223.8228 Q861.0805,223.8228 861.7279,223.9722 Q862.3754,224.1216 862.9399,224.4205 L862.9399,227.1431 Q862.309,226.5621 861.7155,226.2923 Q861.122,226.0225 860.4911,226.0225 Q859.1464,226.0225 858.4616,227.0892 Q857.7768,228.1558 857.7768,230.2559 Q857.7768,232.3477 858.4616,233.4144 Q859.1464,234.481 860.4911,234.481 Q861.122,234.481 861.7155,234.2112 Q862.309,233.9415 862.9399,233.3604 Z "
+         fill="#000000"
+         id="path25" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="45.6914"
+         x="880.4667"
+         y="235.731"
+         id="text26">Person</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="806.58"
+         x2="967.5448"
+         y1="246.44"
+         y2="246.44"
+         id="line26" />
+      <ellipse
+         cx="816.58"
+         cy="260.1841"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse26" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="86.1191"
+         x="825.58"
+         y="263.9752"
+         id="text27">name: String</text>
+      <ellipse
+         cx="816.58"
+         cy="276.6724"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse27" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="85.5244"
+         x="825.58"
+         y="280.4634"
+         id="text28">email: String</text>
+      <ellipse
+         cx="816.58"
+         cy="293.1607"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse28" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="99.4629"
+         x="825.58"
+         y="296.9517"
+         id="text29">phone: Integer</text>
+      <ellipse
+         cx="816.58"
+         cy="309.649"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse29" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="82.1406"
+         x="825.58"
+         y="313.44"
+         id="text30">town: String</text>
+      <ellipse
+         cx="816.58"
+         cy="326.1373"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse30" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="87.7666"
+         x="825.58"
+         y="329.9283"
+         id="text31">street: String</text>
+      <ellipse
+         cx="816.58"
+         cy="342.6255"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse31" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="133.335"
+         x="825.58"
+         y="346.4166"
+         id="text32">postalCode: Integer</text>
+      <ellipse
+         cx="816.58"
+         cy="359.1138"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse32" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="96.3867"
+         x="825.58"
+         y="362.9048"
+         id="text33">gender: String</text>
+      <ellipse
+         cx="816.58"
+         cy="375.6021"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse33" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="136.9648"
+         x="825.58"
+         y="379.3931"
+         id="text34">bornDate: DateTime</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="806.58"
+         x2="967.5448"
+         y1="386.3463"
+         y2="386.3463"
+         id="line34" />
+    </g>
+    <!--class Drug-->
+    <g
+       class="entity"
+       data-entity="Drug"
+       data-source-line="54"
+       data-uid="ent0009"
+       id="entity_Drug">
+      <rect
+         fill="#F1F1F1"
+         height="97.4648"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="150.9063"
+         x="811.61"
+         y="520.81"
+         id="rect34" />
+      <ellipse
+         cx="865.9967"
+         cy="536.81"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse34" />
+      <path
+         d="M868.9699,542.4531 Q868.3888,542.7519 867.7496,542.9013 Q867.1105,543.0507 866.4049,543.0507 Q863.8981,543.0507 862.5783,541.3989 Q861.2584,539.747 861.2584,536.6259 Q861.2584,533.4965 862.5783,531.8447 Q863.8981,530.1928 866.4049,530.1928 Q867.1105,530.1928 867.7579,530.3422 Q868.4054,530.4916 868.9699,530.7905 L868.9699,533.5131 Q868.339,532.9321 867.7455,532.6623 Q867.152,532.3925 866.5211,532.3925 Q865.1764,532.3925 864.4916,533.4592 Q863.8068,534.5258 863.8068,536.6259 Q863.8068,538.7177 864.4916,539.7844 Q865.1764,540.851 866.5211,540.851 Q867.152,540.851 867.7455,540.5812 Q868.339,540.3115 868.9699,539.7304 Z "
+         fill="#000000"
+         id="path34" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="33.6328"
+         x="886.4967"
+         y="542.101"
+         id="text35">Drug</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="812.61"
+         x2="961.5163"
+         y1="552.81"
+         y2="552.81"
+         id="line35" />
+      <ellipse
+         cx="822.61"
+         cy="566.5541"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse35" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="86.1191"
+         x="831.61"
+         y="570.3452"
+         id="text36">name: String</text>
+      <ellipse
+         cx="822.61"
+         cy="583.0424"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse36" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="97.6377"
+         x="831.61"
+         y="586.8334"
+         id="text37">dosage: String</text>
+      <ellipse
+         cx="822.61"
+         cy="599.5307"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse37" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="124.9063"
+         x="831.61"
+         y="603.3217"
+         id="text38">description: String</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="812.61"
+         x2="961.5163"
+         y1="610.2748"
+         y2="610.2748"
+         id="line38" />
+    </g>
+    <!--class ProgramItem-->
+    <g
+       class="entity"
+       data-entity="ProgramItem"
+       data-source-line="62"
+       data-uid="ent0011"
+       id="entity_ProgramItem">
+      <rect
+         fill="#F1F1F1"
+         height="97.4648"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="171.5986"
+         x="364.27"
+         y="520.81"
+         id="rect38" />
+      <ellipse
+         cx="402.7298"
+         cy="536.81"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse38" />
+      <path
+         d="M405.7029,542.4531 Q405.1219,542.7519 404.4827,542.9013 Q403.8435,543.0507 403.138,543.0507 Q400.6311,543.0507 399.3113,541.3989 Q397.9915,539.747 397.9915,536.6259 Q397.9915,533.4965 399.3113,531.8447 Q400.6311,530.1928 403.138,530.1928 Q403.8435,530.1928 404.491,530.3422 Q405.1385,530.4916 405.7029,530.7905 L405.7029,533.5131 Q405.0721,532.9321 404.4785,532.6623 Q403.885,532.3925 403.2542,532.3925 Q401.9095,532.3925 401.2246,533.4592 Q400.5398,534.5258 400.5398,536.6259 Q400.5398,538.7177 401.2246,539.7844 Q401.9095,540.851 403.2542,540.851 Q403.885,540.851 404.4785,540.5812 Q405.0721,540.3115 405.7029,539.7304 Z "
+         fill="#000000"
+         id="path38" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="87.4658"
+         x="421.943"
+         y="542.101"
+         id="text39">ProgramItem</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="365.27"
+         x2="534.8686"
+         y1="552.81"
+         y2="552.81"
+         id="line39" />
+      <ellipse
+         cx="375.27"
+         cy="566.5541"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse39" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="86.1191"
+         x="384.27"
+         y="570.3452"
+         id="text40">name: String</text>
+      <ellipse
+         cx="375.27"
+         cy="583.0424"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse40" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="124.9063"
+         x="384.27"
+         y="586.8334"
+         id="text41">description: String</text>
+      <ellipse
+         cx="375.27"
+         cy="599.5307"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse41" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="145.5986"
+         x="384.27"
+         y="603.3217"
+         id="text42">targetDate: DateTime</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="365.27"
+         x2="534.8686"
+         y1="610.2748"
+         y2="610.2748"
+         id="line42" />
+    </g>
+    <!--class Participant-->
+    <g
+       class="entity"
+       data-entity="Participant"
+       data-source-line="71"
+       data-uid="ent0013"
+       id="entity_Participant">
+      <rect
+         fill="#F1F1F1"
+         height="80.9766"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="165.0566"
+         x="579.54"
+         y="529.05"
+         id="rect42" />
+      <ellipse
+         cx="621.9403"
+         cy="545.05"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse42" />
+      <path
+         d="M624.9135,550.6931 Q624.3324,550.9919 623.6933,551.1413 Q623.0541,551.2907 622.3485,551.2907 Q619.8417,551.2907 618.5219,549.6389 Q617.2021,547.987 617.2021,544.8659 Q617.2021,541.7365 618.5219,540.0847 Q619.8417,538.4328 622.3485,538.4328 Q623.0541,538.4328 623.7016,538.5822 Q624.349,538.7316 624.9135,539.0305 L624.9135,541.7531 Q624.2826,541.1721 623.6891,540.9023 Q623.0956,540.6325 622.4648,540.6325 Q621.12,540.6325 620.4352,541.6992 Q619.7504,542.7658 619.7504,544.8659 Q619.7504,546.9577 620.4352,548.0244 Q621.12,549.091 622.4648,549.091 Q623.0956,549.091 623.6891,548.8212 Q624.2826,548.5515 624.9135,547.9704 Z "
+         fill="#000000"
+         id="path42" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="72.167"
+         x="642.0293"
+         y="550.341"
+         id="text43">Participant</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="580.54"
+         x2="743.5966"
+         y1="561.05"
+         y2="561.05"
+         id="line43" />
+      <ellipse
+         cx="590.54"
+         cy="574.7941"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse43" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="79.3242"
+         x="599.54"
+         y="578.5852"
+         id="text44">status: Bool</text>
+      <ellipse
+         cx="590.54"
+         cy="591.2824"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse44" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="139.0566"
+         x="599.54"
+         y="595.0734"
+         id="text45">createdAt: DateTime</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="580.54"
+         x2="743.5966"
+         y1="602.0266"
+         y2="602.0266"
+         id="line45" />
+    </g>
+    <!--class Task-->
+    <g
+       class="entity"
+       data-entity="Task"
+       data-source-line="79"
+       data-uid="ent0017"
+       id="entity_Task">
+      <rect
+         fill="#F1F1F1"
+         height="163.418"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="254.0537"
+         x="75.04"
+         y="487.83"
+         id="rect45" />
+      <ellipse
+         cx="181.8652"
+         cy="503.83"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse45" />
+      <path
+         d="M184.8383,509.4731 Q184.2573,509.7719 183.6181,509.9213 Q182.979,510.0707 182.2734,510.0707 Q179.7666,510.0707 178.4467,508.4189 Q177.1269,506.767 177.1269,503.6459 Q177.1269,500.5165 178.4467,498.8647 Q179.7666,497.2128 182.2734,497.2128 Q182.979,497.2128 183.6264,497.3622 Q184.2739,497.5116 184.8383,497.8105 L184.8383,500.5331 Q184.2075,499.9521 183.614,499.6823 Q183.0205,499.4125 182.3896,499.4125 Q181.0449,499.4125 180.3601,500.4792 Q179.6753,501.5458 179.6753,503.6459 Q179.6753,505.7377 180.3601,506.8044 Q181.0449,507.871 182.3896,507.871 Q183.0205,507.871 183.614,507.6012 Q184.2075,507.3315 184.8383,506.7504 Z "
+         fill="#000000"
+         id="path45" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="31.9033"
+         x="202.3652"
+         y="509.121"
+         id="text46">Task</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="76.04"
+         x2="328.0937"
+         y1="519.83"
+         y2="519.83"
+         id="line46" />
+      <ellipse
+         cx="86.04"
+         cy="533.5741"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse46" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="161.9707"
+         x="95.04"
+         y="537.3652"
+         id="text47">shortDescription: String</text>
+      <ellipse
+         cx="86.04"
+         cy="550.0624"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse47" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="124.9063"
+         x="95.04"
+         y="553.8534"
+         id="text48">description: String</text>
+      <ellipse
+         cx="86.04"
+         cy="566.5507"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse48" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="139.0566"
+         x="95.04"
+         y="570.3417"
+         id="text49">createdAt: DateTime</text>
+      <ellipse
+         cx="86.04"
+         cy="583.039"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse49" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="136.2061"
+         x="95.04"
+         y="586.83"
+         id="text50">startDate: DateTime</text>
+      <ellipse
+         cx="86.04"
+         cy="599.5273"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse50" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="130.4365"
+         x="95.04"
+         y="603.3183"
+         id="text51">dueDate: DateTime</text>
+      <ellipse
+         cx="86.04"
+         cy="616.0155"
+         fill="none"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1;"
+         id="ellipse51" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="143.1445"
+         x="95.04"
+         y="619.8066"
+         id="text52">finishedAt: DateTime</text>
+      <line
+         style="stroke:#181818;stroke-width:1;"
+         x1="76.04"
+         x2="328.0937"
+         y1="626.7597"
+         y2="626.7597"
+         id="line52" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="242.0537"
+         x="81.04"
+         y="644.2948"
+         id="text53">doOverlap(anotherTask: Task): Bool</text>
+    </g>
+    <!--class ParticipantTask-->
+    <g
+       class="entity"
+       data-entity="ParticipantTask"
+       data-source-line="93"
+       data-uid="ent0020"
+       id="entity_ParticipantTask">
+      <rect
+         fill="#F1F1F1"
+         height="48"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="136.0703"
+         x="359.03"
+         y="712.25"
+         id="rect53" />
+      <ellipse
+         cx="374.03"
+         cy="728.25"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1;"
+         id="ellipse53" />
+      <path
+         d="M377.0031,733.8931 Q376.4221,734.1919 375.7829,734.3413 Q375.1438,734.4907 374.4382,734.4907 Q371.9314,734.4907 370.6115,732.8389 Q369.2917,731.187 369.2917,728.0659 Q369.2917,724.9365 370.6115,723.2847 Q371.9314,721.6328 374.4382,721.6328 Q375.1438,721.6328 375.7912,721.7822 Q376.4387,721.9316 377.0031,722.2305 L377.0031,724.9531 Q376.3723,724.3721 375.7788,724.1023 Q375.1853,723.8325 374.5544,723.8325 Q373.2097,723.8325 372.5249,724.8992 Q371.8401,725.9658 371.8401,728.0659 Q371.8401,730.1577 372.5249,731.2244 Q373.2097,732.291 374.5544,732.291 Q375.1853,732.291 375.7788,732.0212 Q376.3723,731.7515 377.0031,731.1704 Z "
+         fill="#000000"
+         id="path53" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="104.0703"
+         x="388.03"
+         y="733.541"
+         id="text54">ParticipantTask</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="360.03"
+         x2="494.1003"
+         y1="744.25"
+         y2="744.25"
+         id="line54" />
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="360.03"
+         x2="494.1003"
+         y1="752.25"
+         y2="752.25"
+         id="line55" />
+    </g>
+    <!--link User to Role-->
+    <g
+       class="link"
+       data-entity-1="User"
+       data-entity-2="Role"
+       data-source-line="26"
+       data-uid="lnk5"
+       id="link_User_Role">
+      <path
+         codeLine="26"
+         d="M343.78,99.38 C417.64,120.76 506.46,152.89 578.06,197.95 C592.61,207.1 606.68,218.61 619.54,230.64"
+         fill="none"
+         id="User-Role"
+         style="stroke:#181818;stroke-width:1;" />
+      <polygon
+         fill="#000000"
+         points="530.1146,161.7542,523.2107,155.2131,520.6845,160.5204,530.1146,161.7542"
+         style="stroke:#000000;stroke-width:1;"
+         id="polygon55" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="21.874"
+         x="534.6"
+         y="164.5184"
+         id="text55">has</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="351.0857"
+         y="98.3075"
+         id="text56">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="590.2395"
+         y="220.2251"
+         id="text57">1..*</text>
+    </g>
+    <!--link User to Organization-->
+    <g
+       class="link"
+       data-entity-1="User"
+       data-entity-2="Organization"
+       data-source-line="27"
+       data-uid="lnk6"
+       id="link_User_Organization">
+      <path
+         codeLine="27"
+         d="M166.42,121.17 C140.82,168.12 105.25,233.36 84.34,271.7"
+         fill="none"
+         id="User-Organization"
+         style="stroke:#181818;stroke-width:1;" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="139.3882"
+         y="141.6418"
+         id="text58">0..*</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="78.9753"
+         y="261.3857"
+         id="text59">1</text>
+    </g>
+    <!--link Person to Drug-->
+    <g
+       class="link"
+       data-entity-1="Person"
+       data-entity-2="Drug"
+       data-source-line="60"
+       data-uid="lnk10"
+       id="link_Person_Drug">
+      <path
+         codeLine="60"
+         d="M887.06,394.48 C887.06,436.68 887.06,485.41 887.06,520.55"
+         fill="none"
+         id="Person-Drug"
+         style="stroke:#181818;stroke-width:1;" />
+      <polygon
+         fill="#000000"
+         points="892.06,454.4853,894.9989,445.4402,889.1211,445.4402,892.06,454.4853"
+         style="stroke:#000000;stroke-width:1;"
+         id="polygon59" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="33.5093"
+         x="901.06"
+         y="454.3984"
+         id="text60">takes</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="878.7498"
+         y="414.8372"
+         id="text61">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="863.5627"
+         y="510.1959"
+         id="text62">0..*</text>
+    </g>
+    <!--link Camp to ProgramItem-->
+    <g
+       class="link"
+       data-entity-1="Camp"
+       data-entity-2="ProgramItem"
+       data-source-line="68"
+       data-uid="lnk12"
+       id="link_Camp_ProgramItem">
+      <path
+         codeLine="68"
+         d="M440.5,411.29 C442.8,449.13 445.28,489.93 447.14,520.48"
+         fill="none"
+         id="Camp-ProgramItem"
+         style="stroke:#181818;stroke-width:1;" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="432.6713"
+         y="431.5549"
+         id="text63">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="423.2312"
+         y="510.1161"
+         id="text64">0..*</text>
+    </g>
+    <!--link Person to Participant-->
+    <g
+       class="link"
+       data-entity-1="Person"
+       data-entity-2="Participant"
+       data-source-line="75"
+       data-uid="lnk14"
+       id="link_Person_Participant">
+      <path
+         codeLine="75"
+         d="M818.94,394.78 C802.33,415.76 784.36,437.83 767.06,457.83 C746.19,481.98 721.7,507.92 701.63,528.62"
+         fill="none"
+         id="Person-Participant"
+         style="stroke:#181818;stroke-width:1;" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="805.4266"
+         y="414.8547"
+         id="text65">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="684.4195"
+         y="518.1948"
+         id="text66">0..*</text>
+    </g>
+    <!--link Camp to Participant-->
+    <g
+       class="link"
+       data-entity-1="Camp"
+       data-entity-2="Participant"
+       data-source-line="76"
+       data-uid="lnk15"
+       id="link_Camp_Participant">
+      <path
+         codeLine="76"
+         d="M525.82,411.29 C561.7,452.7 600.64,497.65 627.67,528.85"
+         fill="none"
+         id="Camp-Participant"
+         style="stroke:#181818;stroke-width:1;" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="523.7238"
+         y="431.5549"
+         id="text67">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="597.9283"
+         y="518.1627"
+         id="text68">0..*</text>
+    </g>
+    <!--link Role to Participant-->
+    <g
+       class="link"
+       data-entity-1="Role"
+       data-entity-2="Participant"
+       data-source-line="77"
+       data-uid="lnk16"
+       id="link_Role_Participant">
+      <path
+         codeLine="77"
+         d="M677.24,378.34 C673.36,427.02 668.4,489.14 665.23,528.9"
+         fill="none"
+         id="Role-Participant"
+         style="stroke:#181818;stroke-width:1;" />
+      <polygon
+         fill="#000000"
+         points="676.5324,454.4694,680.1813,445.6867,674.322,445.2193,676.5324,454.4694"
+         style="stroke:#000000;stroke-width:1;"
+         id="polygon68" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="72.6108"
+         x="685.93"
+         y="454.3984"
+         id="text69">roleInCamp</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="668.3449"
+         y="398.4309"
+         id="text70">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="641.944"
+         y="518.2213"
+         id="text71">0..*</text>
+    </g>
+    <!--link Camp to Task-->
+    <g
+       class="link"
+       data-entity-1="Camp"
+       data-entity-2="Task"
+       data-source-line="89"
+       data-uid="lnk18"
+       id="link_Camp_Task">
+      <path
+         codeLine="89"
+         d="M340.7,411.29 C318.29,436.71 294.71,463.46 273.47,487.55"
+         fill="none"
+         id="Camp-Task"
+         style="stroke:#181818;stroke-width:1;" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="326.166"
+         y="431.5549"
+         id="text72">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="256.8814"
+         y="477.1621"
+         id="text73">0..*</text>
+    </g>
+    <!--link User to Task-->
+    <g
+       class="link"
+       data-entity-1="User"
+       data-entity-2="Task"
+       data-source-line="90"
+       data-uid="lnk19"
+       id="link_User_Task">
+      <path
+         codeLine="90"
+         d="M197.62,121.27 C198.51,210.59 200.24,385.12 201.26,487.76"
+         fill="none"
+         id="User-Task"
+         style="stroke:#181818;stroke-width:1;" />
+      <polygon
+         fill="#000000"
+         points="205.5097,309.545,208.3586,300.4712,202.481,300.5296,205.5097,309.545"
+         style="stroke:#000000;stroke-width:1;"
+         id="polygon73" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="60.9565"
+         x="214.46"
+         y="309.4584"
+         id="text74">createdBy</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="189.2347"
+         y="141.3481"
+         id="text75">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="178.2044"
+         y="477.1123"
+         id="text76">0..*</text>
+    </g>
+    <!--link Participant to ParticipantTask-->
+    <g
+       class="link"
+       data-entity-1="Participant"
+       data-entity-2="ParticipantTask"
+       data-source-line="95"
+       data-uid="lnk21"
+       id="link_Participant_ParticipantTask">
+      <path
+         codeLine="95"
+         d="M609.22,610.48 C591.51,623.65 571.56,638.25 553.06,651.25 C523.17,672.26 488.59,695.22 463.23,711.82"
+         fill="none"
+         id="Participant-ParticipantTask"
+         style="stroke:#181818;stroke-width:1;" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="592.532"
+         y="630.4898"
+         id="text77">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="447.4507"
+         y="701.6433"
+         id="text78">0..*</text>
+    </g>
+    <!--link Task to ParticipantTask-->
+    <g
+       class="link"
+       data-entity-1="Task"
+       data-entity-2="ParticipantTask"
+       data-source-line="96"
+       data-uid="lnk22"
+       id="link_Task_ParticipantTask">
+      <path
+         codeLine="96"
+         d="M312.92,651.69 C343.09,673.78 373.42,695.98 395.22,711.94"
+         fill="none"
+         id="Task-ParticipantTask"
+         style="stroke:#181818;stroke-width:1;" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="8.2202"
+         x="313.7779"
+         y="671.6954"
+         id="text79">1</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="22.7119"
+         x="362.3321"
+         y="701.3968"
+         id="text80">0..*</text>
+    </g>
+    <!--SRC=[bLGxSjim4ErrYeqQKt7aILeMcOa_XGgFFOgJVaskAOn8W0Ci9TkP7247K5AfTE4BfALzhm2WA94YbKmQKVDs5tZxtYwEO3mUmxdAoYUf5kKJa6J13n3CbOmevw9Sfx9yVWUIu6BwPkJI1uCeHMFWIYSenIEoK1A-3G2E9MOq-5x7lnZI5LxOVouMmcVMGYOEemn5sW36kQrPAXqtiR7Bh0ENoD4is4yRXN2gLBgxTgfIsj7fd1QXl8W5ds6M1tLj1PzfGgORDFEzWCllWRyAMfxh8Z5x-9GY4WkQo3iLDDXvEOOVXfQ7_PoSl1rML4EOeO6Fc_Xx7_0fmvR2TNkEU6zxnp6PI8lS9JTXmwZvt7OMWlkz4TOZfx-Cks24EKRM_n0caYaXxK1DYJ1Cck8Md6iHKGl1X2w5x41utuIsBamtnmOvQUCeN_jlnyyAxczvVuYEyvcIRLAibdjoQ29krIWhKNgcudPXOXKYtKoyLLhkQRPbwGRXW2tAM1N-PPGzQDDeFIBL9FXpGs2SankIMXEj4etPX2dxhrcmev0GTtlmGzM-k775O704vS-N7sWO5i3b-bQzhWZ649VF_F8B1EGQ8xMm3yKS0ks6EdzTYTSLFf94Ms8V4wPxBgfQZQEw3JkP8X8vIgxQi4PmOHhRv5So_iGjkhr2DSxgRQSHzcjtC6pLTYrCf3zbAxbx03OaPyekLB_01tJlw-FmQiO5TS4x8OMPTSxmwnIhgmNf5FC0fU8PQKSsz9HtwzGZYajelqixtCgmONtwu5GuWkkjf-KpbB_dAYr06NLRhhFAuxakdzW6i-sCT7tUo6XDR2X-q0jFq9VyDUKF]-->
+  </g>
+</svg>

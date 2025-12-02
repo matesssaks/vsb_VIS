@@ -1,0 +1,233 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "BL" {
+	' DTOs
+	class UserDTO <<DTO>> {
+		-id: Long
+		-name: String
+		-email: String
+		-password: String
+	}
+	class PersonDTO <<DTO>> {
+		-id: Long
+		-userId: Long
+		-name: String
+		-email: String
+		-phone: String
+		-town: String
+		-street: String
+		-postalCode: Integer
+		-gender: String
+		-bornDate: Instant
+	}
+	class ParticipantDTO <<DTO>> {
+		-id: Long
+		-campId: Long
+		-personId
+		-roleId
+	}
+	class CampDTO <<DTO>> {
+		-id: Long
+		-name: String
+		-description: String
+		-imgUrl: String
+		-startDate: Instant
+		-endDate: Instant
+		-price: Long
+		-capacity: Long
+		-registered: Long
+	}
+	class TaskDTO <<DTO>> {
+		-id: Long
+		-shortDescription: String
+		-description: String
+		-createdAt: Instant
+		-startDate: Instant
+		-finishedAt: Instant
+		-dueDate: Instant
+	}
+
+	' Controllers
+	class UserController <<Controller>> {
+	}
+	UserController .down.> UserDTO
+
+	class PersonController <<Controller>> {
+	}
+	PersonController .down.> PersonDTO
+
+	class ParticipantController <<Controller>> {
+	}
+	ParticipantController .down.> ParticipantDTO
+
+	class CampController <<Controller>> {
+	}
+	CampController .down.> CampDTO
+
+	class TaskController <<Controller>> {
+	}
+	TaskController .down.> TaskDTO
+
+	' Entities
+	class User <<Entity>> {
+		-id: Long
+		-name: String
+		-email: String
+		-password: String
+	}
+	class Person<<Entity>> {
+		-id: Long
+		-userId: Long
+		-name: String
+		-email: String
+		-phone: String
+		-town: String
+		-street: String
+		-postalCode: Integer
+		-gender: String
+		-bornDate: Instant
+	}
+	class Participant<<Entity>> {
+		-id: Long
+		-campId: Long
+		-personId
+		-roleId
+	}
+	class Camp<<Entity>> {
+		-id: Long
+		-name: String
+		-description: String
+		-imgUrl: String
+		-startDate: Instant
+		-endDate: Instant
+		-price: Long
+		-capacity: Long
+		-registered: Long
+	}
+	class Task<<Entity>> {
+		-id: Long
+		-shortDescription: String
+		-description: String
+		-createdAt: Instant
+		-startDate: Instant
+		-finishedAt: Instant
+		-dueDate: Instant
+	}
+
+	' Services
+	class UserService <<Service>> {
+		+findById(Long): User
+		+delete(Long)
+		+save(User): User
+	}
+	UserService .down.> User
+	UserService .up.> UserDTO
+	UserController -down-> UserService
+
+	class PersonService <<Service>> {
+		+findById(Long): Person
+		+delete(Long)
+		+save(Person): Person
+	}
+	PersonService .down.> Person
+	PersonService .up.> PersonDTO
+	PersonController -down-> PersonService
+
+	class ParticipantService <<Service>> {
+		+findById(Long): Participant
+		+delete(Long)
+		+save(Participant): Participant
+	}
+	ParticipantService .down.> Participant
+	ParticipantService .up.> ParticipantDTO
+	ParticipantController -down-> ParticipantService
+
+	class CampService <<Service>> {
+		+findById(Long): Camp
+		+delete(Long)
+		+save(Camp): Camp
+	}
+	CampService .down.> Camp
+	CampService .up.> CampDTO
+	CampController -down-> CampService
+
+	class TaskService <<Service>> {
+		+findById(Long): Task
+		+delete(Long)
+		+save(Task): Task
+	}
+	TaskService .down.> Task
+	TaskService .up.> TaskDTO
+	TaskController -down-> TaskService
+
+	' Repositories
+	class UserRepository <<Repository>> {
+		+findById(Long): User
+		+delete(Long)
+		+save(User): User
+	}
+	UserRepository .up.> User
+	UserService -down-> UserRepository
+
+	class PersonRepository <<Repository>> {
+		+findById(Long): Person
+		+delete(Long)
+		+save(Person): Person
+	}
+	PersonRepository .up.> Person
+	PersonService -down-> PersonRepository
+
+	class ParticipantRepository <<Repository>> {
+		+findById(Long): Participant
+		+delete(Long)
+		+save(Participant): Participant
+	}
+	ParticipantRepository .up.> Participant
+	ParticipantService -down-> ParticipantRepository
+
+	class CampRepository <<Repository>> {
+		+findById(Long): Camp
+		+delete(Long)
+		+save(Camp): Camp
+	}
+	CampRepository .up.> Camp
+	CampService -down-> CampRepository
+
+	class TaskRepository <<Repository>> {
+		+findById(Long): Task
+		+delete(Long)
+		+save(Task): Task
+	}
+	TaskRepository .up.> Task
+	TaskService -down-> TaskRepository
+
+	' UoW
+	class UnitOfWork <<UoW>> {
+		+registerCreate(...)
+		+registerUpdate(...)
+		+registerDelete(...)
+		+commit()
+		+rollback()
+	}
+	UserRepository -down-> UnitOfWork
+	PersonRepository -down-> UnitOfWork
+	ParticipantRepository -down-> UnitOfWork
+	CampRepository -down-> UnitOfWork
+	TaskRepository -down-> UnitOfWork
+
+	' IdentityMap
+	class IdentityMap <<IdentityMap>> {
+	}
+	UnitOfWork -right-> IdentityMap
+}
+
+package "DAL" {
+	interface "Mapper<T>" <<DataMapper>> {
+		+findById(Long): T
+		+delete(Long)
+		+save(T)
+	}
+	UnitOfWork "1" o-down-- "0..*" "Mapper<T>"
+}
+@enduml

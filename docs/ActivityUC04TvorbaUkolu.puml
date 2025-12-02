@@ -1,0 +1,39 @@
+@startuml
+skinparam activity {
+	BackgroundColor White
+	BorderColor Black
+}
+
+|Aktér (Marketing / Vedoucí)|
+start
+
+:Zvolí "Nový úkol";
+:Vyplní název, popis, termín, prioritu, \na případně opakování;
+:Vybere řešitele (1..n) ze seznamu pracovníků;
+
+|Systém|
+:Ověří dostupnost řešitelů;
+
+if ("Ověření proběhlo?") then ([Ano])
+	if ("Zjištěna kolize úkolů?") then ([Ano])
+		:Zobrazí varování o kolizi;
+		:Připraví založení Úkolu \nse stavem "K přeplánování";
+	else ([Ne])
+		:Připraví založení Úkolu \na přiřazení se stavem "Přiděleno";
+	endif
+
+	:Persistovat Úkol a přiřazení;
+
+	if ("Uložení úkolu OK?") then ([Ano])
+		:UC03 – Odeslání notifikací;
+		stop
+	else ([Ne])
+		:Zobrazí chybovou hlášku \n(nelze založit úkol);
+		stop
+	endif
+
+else ([Ne])
+	:Zobrazí chybovou hlášku \n(interní chyba při ověření dostupnosti);
+	stop
+endif
+@enduml

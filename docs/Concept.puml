@@ -1,0 +1,98 @@
+@startuml
+
+' --- Doménové entity (konceptuální, ne ER!) ---
+
+class Organization {
+  +name
+}
+
+class User {
+  +username: String
+  +email: String
+  -password: String
+  --
+  +passwordMatch(password: String): Bool
+}
+
+class Role {
+  +name: String
+  --
+  +canEditCamp(): Bool
+  +canCreateTask(): Bool
+  +canEditTask(): Bool
+  +canViewDrugs(): Bool
+  +canReceiveInfo(): Bool
+}
+
+User "1" -- "1..*" Role : has >
+User "0..*" -- "1" Organization
+
+class Camp {
+  +name: String
+  +description: String
+  +startDate: DateTime
+  +endDate: DateTime
+  +capacity: Integer
+  +registered: Integer
+  +price: Integer
+  +ageMin: Integer
+  +ageMax: Integer
+  --
+  +canRegister(person: Person): Bool
+}
+
+class Person {
+  +name: String
+  +email: String
+  +phone: Integer
+  +town: String
+  +street: String
+  +postalCode: Integer
+  +gender: String
+  +bornDate: DateTime
+}
+
+class Drug {
+  +name: String
+  +dosage: String
+  +description: String
+}
+
+Person "1" -- "0..*" Drug : takes >
+
+class ProgramItem {
+  +name: String
+  +description: String
+  +targetDate: DateTime
+}
+
+Camp "1" -- "0..*" ProgramItem
+
+' Účast v táboře – dítě i pracovník (role přiřazena v kontextu tábora)
+class Participant {
+  +status: Bool
+  +createdAt: DateTime
+}
+Person "1" -- "0..*" Participant
+Camp "1" -- "0..*" Participant
+Role "1" -- "0..*" Participant : roleInCamp >
+
+class Task {
+  +shortDescription: String
+  +description: String
+  +createdAt: DateTime
+  +startDate: DateTime
+  +dueDate: DateTime
+  +finishedAt: DateTime
+  --
+  doOverlap(anotherTask: Task): Bool
+}
+Camp "1" -- "0..*" Task
+User "1" -- "0..*" Task : createdBy >
+
+' Přiřazení úkolu osobám v konkrétním táboře
+class ParticipantTask {
+}
+Participant "1" -- "0..*" ParticipantTask
+Task "1" -- "0..*" ParticipantTask
+@enduml

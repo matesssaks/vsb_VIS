@@ -1,0 +1,14 @@
+{
+	"properties": [
+		{
+			"name": "server.port",
+			"type": "java.lang.Integer",
+			"description": "Server port."
+		},
+		{
+			"name": "server.address",
+			"type": "java.lang.String",
+			"description": "Server address."
+		}
+	]
+}

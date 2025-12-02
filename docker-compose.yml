@@ -1,0 +1,40 @@
+    #volumes:
+    #    data:
+
+    services:
+        postgres:
+            image: postgres:16-alpine
+            container_name: campmanagement-postgres
+            environment:
+                POSTGRES_DB: campmanagement
+                POSTGRES_USER: campuser
+                POSTGRES_PASSWORD: camppass
+            ports:
+                - "5432:5432"
+            volumes:
+                - "./.data/postgresql:/var/lib/postgresql/data"
+            healthcheck:
+                test: ["CMD-SHELL", "pg_isready -U campuser -d campmanagement"]
+                interval: 10s
+                timeout: 5s
+                retries: 5
+            restart: unless-stopped
+
+        app:
+            build: .
+            container_name: campmanagement-app
+            depends_on:
+                postgres:
+                    condition: service_healthy
+            environment:
+                SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/campmanagement
+                SPRING_DATASOURCE_USERNAME: campuser
+                SPRING_DATASOURCE_PASSWORD: camppass
+                SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+                SPRING_SERVER_PORT: 3000
+                SPRING_SERVER_ADDRESS: localhost
+            ports:
+                - "3000:3000"
+            volumes:
+                - "./.data/app/tomcat:/app/tomcat"
+            restart: unless-stopped

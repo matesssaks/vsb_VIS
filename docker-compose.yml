@@ -27,7 +27,7 @@
                 postgres:
                     condition: service_healthy
             environment:
-                SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/campmanagement
+                SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/campmanagement
                 SPRING_DATASOURCE_USERNAME: campuser
                 SPRING_DATASOURCE_PASSWORD: camppass
                 SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver

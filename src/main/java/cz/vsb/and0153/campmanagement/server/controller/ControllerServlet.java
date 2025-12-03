@@ -64,6 +64,7 @@ public class ControllerServlet extends HttpServlet {
 			resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED); // Method isn't allowed
 		} catch (IOException | IllegalAccessException | InvocationTargetException e) {
 			try {
+				log.error("Error while processing request", e);
 				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			} catch (Exception ignore) { /* ignore */ }
 		}

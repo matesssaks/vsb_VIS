@@ -6,9 +6,9 @@
 			"description": "Server port."
 		},
 		{
-			"name": "server.address",
+			"name": "server.host",
 			"type": "java.lang.String",
-			"description": "Server address."
+			"description": "Server host."
 		}
 	]
 }

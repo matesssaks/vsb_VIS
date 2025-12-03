@@ -1,7 +1,9 @@
 package cz.vsb.and0153.campmanagement.server;
 
 import cz.vsb.and0153.campmanagement.server.controller.ControllerServlet;
+import cz.vsb.and0153.campmanagement.server.controller.GetMapping;
 import cz.vsb.and0153.campmanagement.server.controller.MappingMethod;
+import cz.vsb.and0153.campmanagement.server.controller.PostMapping;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.Context;
 import org.apache.catalina.Host;
@@ -12,8 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -67,20 +67,20 @@ public class WebServer {
 			Class<?> controllerClass = controller.getClass();
 
 			for (Method method : controllerClass.getMethods()) {
+				// GET method handler
 				GetMapping getMapping = method.getAnnotation(GetMapping.class);
-				if (getMapping != null && getMapping.value().length > 0) {
-					String path = getMapping.value()[0];
-					servlets.putIfAbsent(path, ControllerServlet.builder());
-					servlets.get(path).getMethod(new MappingMethod(controller, method));
+				if (getMapping != null) {
+					servlets.putIfAbsent(getMapping.value(), ControllerServlet.builder());
+					servlets.get(getMapping.value()).getMethod(new MappingMethod(controller, method));
 
 					continue;
 				}
 
+				// POST method handler
 				PostMapping postMapping = method.getAnnotation(PostMapping.class);
-				if (postMapping != null && postMapping.value().length > 0) {
-					String path = postMapping.value()[0];
-					servlets.putIfAbsent(path, ControllerServlet.builder());
-					servlets.get(path).postMethod(new MappingMethod(controller, method));
+				if (postMapping != null) {
+					servlets.putIfAbsent(postMapping.value(), ControllerServlet.builder());
+					servlets.get(postMapping.value()).postMethod(new MappingMethod(controller, method));
 				}
 			}
 		});

@@ -9,6 +9,11 @@
 			"name": "server.host",
 			"type": "java.lang.String",
 			"description": "Server host."
+		},
+		{
+			"name": "template.cache",
+			"type": "java.lang.Boolean",
+			"description": "Enable/disable template cache."
 		}
 	]
 }

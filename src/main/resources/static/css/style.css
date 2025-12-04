@@ -1,0 +1,95 @@
+:root, [data-bs-theme=light] {
+	--bs-font-sans-serif: "Open Sans", sans-serif;
+
+	--bs-primary: #6425FE;
+	--bs-primary-rgb: 100, 37, 254;
+	--bs-primary-bg-subtle: #F6F2FD;
+
+	--bs-body-bg: #ffffff;
+	--bs-body-bg-rgb: 255, 255, 255;
+	--bs-body-color: #000000;
+	--bs-body-color-rgb: 0, 0, 0;
+}
+
+.nav-pills {
+	--bs-nav-pills-link-active-bg: var(--bs-primary-bg-subtle);
+	--bs-nav-pills-link-active-color: var(--bs-primary);
+	--bs-nav-link-color: hsl(from var(--bs-primary) h s calc(l + 10));
+	--bs-nav-link-hover-color: var(--bs-primary);
+}
+
+.bi::before, [class*=" bi-"]::before, [class^="bi-"]::before {
+	vertical-align: top;
+}
+
+.btn-primary {
+	--bs-btn-bg: var(--bs-primary);
+	--bs-btn-border-color: var(--bs-primary);
+	--bs-btn-hover-bg: hsl(from var(--bs-primary) h s calc(l - 5));
+	--bs-btn-hover-border-color: hsl(from var(--bs-primary) h s calc(l - 10));
+	--bs-btn-active-bg: hsl(from var(--bs-primary) h s calc(l - 10));
+	--bs-btn-active-border-color: hsl(from var(--bs-primary) h s calc(l - 15));
+	--bs-btn-disabled-bg: var(--bs-primary);
+	--bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.btn-outline-primary {
+	--bs-btn-color: var(--bs-primary);
+	--bs-btn-border-color: var(--bs-primary);
+	--bs-btn-hover-bg: var(--bs-primary);
+	--bs-btn-hover-border-color: var(--bs-primary);
+	--bs-btn-active-bg: hsl(from var(--bs-primary) h s calc(l - 5));
+	--bs-btn-active-border-color: hsl(from var(--bs-primary) h s calc(l - 10));
+	--bs-btn-disabled-color: var(--bs-primary);
+	--bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.dropdown-menu {
+	--bs-btn-color: var(--bs-body-color);
+	--bs-btn-hover-color: var(--bs-body-color);
+	--bs-btn-active-color: #fff;
+	--bs-btn-disabled-color: var(--bs-tertiary-color);
+
+	--bs-btn-bg: transparent;
+	--bs-btn-hover-bg: var(--bs-tertiary-bg);
+	--bs-btn-active-bg: var(--bs-primary);
+	--bs-btn-disabled-bg: transparent;
+}
+
+.dropdown-item {
+	--bs-dropdown-link-color: var(--bs-btn-color);
+	--bs-dropdown-link-hover-color: var(--bs-btn-hover-color);
+	--bs-dropdown-link-active-color: var(--bs-btn-active-color);
+	--bs-dropdown-link-disabled-color: var(--bs-btn-disabled-color);
+
+	--bs-dropdown-link-bg: var(--bs-btn-bg);
+	--bs-dropdown-link-hover-bg: var(--bs-btn-hover-bg);
+	--bs-dropdown-link-active-bg: var(--bs-btn-active-bg);
+	--bs-dropdown-link-disabled-bg: var(--bs-btn-disabled-bg);
+}
+
+.dropdown-item {
+	background-color: var(--bs-dropdown-link-bg);
+	color: var(--bs-dropdown-link-color);
+}
+
+.dropdown-item:active {
+	background-color: var(--bs-dropdown-link-active-bg);
+	color: var(--bs-dropdown-link-active-color);
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.link-primary:hover, .link-primary:focus {
+	color: hsl(from var(--bs-primary) h s calc(l - 10)) !important;
+	-webkit-text-decoration-color: hsl(from var(--bs-primary) h s calc(l - 10)) !important;
+	text-decoration-color: hsl(from var(--bs-primary) h s calc(l - 10)) !important;
+}

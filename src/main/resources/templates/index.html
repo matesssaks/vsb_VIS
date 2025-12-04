@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_base}"
+>
+<head>
+	<title th:text="#{app.name}"></title>
+</head>
+<main layout:fragment="content"
+	  x-data="{ camps: [] }"
+	  x-init="camps = await (await fetch('/api/v1/camps')).json()">
+	<div class="w-75 row g-3">
+		<template x-for="camp in camps">
+			<a :href="'/camp/' + camp.id" class="col col-4 text-decoration-none text-reset">
+				<div class="bg-white d-flex flex-column p-3 rounded-3 align-items-center gap-3">
+					<div class="ratio ratio-4x3">
+						<img :src="camp.imgUrl" :alt="camp.name" class="img-fluid w-100 h-100 object-fit-cover rounded-3">
+					</div>
+					<span class="fs-5" x-text="camp.name"></span>
+					<b class="fs-5"><span x-text="camp.price"></span> Kč</b>
+				</div>
+			</a>
+		</template>
+	</div>
+</main>
+</html>

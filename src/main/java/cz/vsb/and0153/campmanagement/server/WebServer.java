@@ -4,16 +4,13 @@ import cz.vsb.and0153.campmanagement.server.controller.ControllerServlet;
 import cz.vsb.and0153.campmanagement.server.controller.GetMapping;
 import cz.vsb.and0153.campmanagement.server.controller.MappingMethod;
 import cz.vsb.and0153.campmanagement.server.controller.PostMapping;
+import jakarta.servlet.http.HttpServlet;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.Context;
 import org.apache.catalina.Host;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -22,30 +19,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-@Component
 public class WebServer {
 
-	private final ApplicationContext applicationContext;
 	private final Tomcat tomcat;
+	private final Context context;
 
-	public WebServer(
-		@Value("${server.host}") String host,
-		@Value("${server.port}") int port,
-		ApplicationContext applicationContext
-	) {
-		this.applicationContext = applicationContext;
-
+	public WebServer(String host, int port) {
 		this.tomcat = new Tomcat();
 		this.tomcat.setHostname(host);
 		this.tomcat.setPort(port);
 		this.tomcat.setBaseDir("tomcat");
 
-		// Set up Tomcat
+		// Create Tomcat context
 		String docBase = new File(".").getAbsolutePath();
-		Context ctx = tomcat.addContext("", docBase);
+		this.context = tomcat.addContext("", docBase);
 
-		// Register controllers
-		registerControllers(ctx);
+		// Add MIME mappings
+		Tomcat.addDefaultMimeTypeMappings(context);
 	}
 
 	public void startAndWait() throws LifecycleException {
@@ -57,9 +47,7 @@ public class WebServer {
 		this.tomcat.getServer().await();
 	}
 
-	private void registerControllers(Context context) {
-		Collection<Object> controllers = this.applicationContext.getBeansWithAnnotation(Controller.class).values();
-
+	public void registerControllers(Collection<Object> controllers) {
 		Map<String, ControllerServlet.ControllerServletBuilder> servlets = new HashMap<>();
 
 		// Build servlets for each path
@@ -86,13 +74,13 @@ public class WebServer {
 		});
 
 		// Register servlets
-		servlets.forEach((path, builder) -> {
-			ControllerServlet servlet = builder.build();
+		servlets.forEach((path, builder) -> registerServlet(path, builder.build()));
+	}
 
-			log.debug("Registering servlet '{}' for path '{}'", servlet, path);
+	public void registerServlet(String path, HttpServlet servlet) {
+		log.debug("Registering servlet '{}' for path '{}'", servlet, path);
 
-			Tomcat.addServlet(context, servlet.toString(), servlet);
-			context.addServletMappingDecoded(path, servlet.toString());
-		});
+		Tomcat.addServlet(this.context, servlet.toString(), servlet);
+		this.context.addServletMappingDecoded(path, servlet.toString());
 	}
 }

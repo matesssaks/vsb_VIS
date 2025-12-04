@@ -6,9 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.IOException;
 import java.io.Serial;
-import java.lang.reflect.InvocationTargetException;
 
 @Slf4j
 public class ControllerServlet extends HttpServlet {
@@ -61,8 +59,8 @@ public class ControllerServlet extends HttpServlet {
 				method.invoke(req, resp);
 				return;
 			}
-			resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED); // Method isn't allowed
-		} catch (IOException | IllegalAccessException | InvocationTargetException e) {
+			resp.sendError(HttpServletResponse.SC_NOT_FOUND); // Method isn't allowed
+		} catch (Exception e) {
 			try {
 				log.error("Error while processing request", e);
 				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

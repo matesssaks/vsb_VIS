@@ -1,10 +1,14 @@
 package cz.vsb.and0153.campmanagement.server.controller;
 
+import cz.vsb.and0153.campmanagement.server.WebServer;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.Cleanup;
 import lombok.RequiredArgsConstructor;
 import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
+import org.thymeleaf.context.WebContext;
+import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +18,7 @@ import java.util.Locale;
 public abstract class AbstractController {
 
 	private final TemplateEngine templateEngine;
+	private static JakartaServletWebApplication webApplication;
 
 	private static final Locale DEFAULT_LOCALE = Locale.ENGLISH;
 
@@ -21,18 +26,28 @@ public abstract class AbstractController {
 		return DEFAULT_LOCALE;
 	}
 
-	public Context getTemplateContext() {
-		return new Context(getLocale());
+	private static synchronized void setWebApplication(ServletContext servletContext) {
+		webApplication = JakartaServletWebApplication.buildApplication(servletContext);
 	}
 
-	public void render(String template, Context context, HttpServletResponse resp) throws IOException {
-		// Render template
-		String html = templateEngine.process(template, context);
+	public WebContext getTemplateContext(HttpServletRequest req, HttpServletResponse resp) {
+		if (
+			webApplication == null ||
+			webApplication.getNativeServletContextObject() != req.getServletContext()
+		) {
+			setWebApplication(req.getServletContext());
+		}
 
-		// Send response
-		resp.setContentType("text/html;charset=UTF-8");
+		return new WebContext(webApplication.buildExchange(req, resp), getLocale());
+	}
+
+	public void render(String template, WebContext context, HttpServletResponse resp) throws IOException {
 		resp.setStatus(HttpServletResponse.SC_OK);
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html");
+
+		// Render template
 		@Cleanup PrintWriter writer = resp.getWriter();
-		writer.write(html);
+		templateEngine.process(template, context, writer);
 	}
 }

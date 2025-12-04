@@ -8,8 +8,57 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title th:text="#{app.name}">CampManagement</title>
+	<title th:text="#{app.name}"></title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/static/css/style.css}">
 </head>
-<body layout:fragment="body">
+<body class="container-fluid min-vh-100 d-flex flex-column g-0">
+	<div class="flex-grow-1 d-flex flex-column">
+		<header class="d-flex justify-content-between px-3 py-2 align-items-center sticky-top bg-white">
+			<a href="/"
+			   class="fs-2 fw-semibold text-reset text-decoration-none"
+			   layout:fragment="header_title">
+				Summer Camps
+			</a>
+			<div class="d-flex gap-3" layout:fragment="header_buttons">
+				<template x-if="user">
+					<div class="dropdown">
+						<button class="btn icon-link p-1 fs-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<span x-text="user.username"></span><i class="bi bi-person-fill fs-2"></i>
+						</button>
+						<ul class="dropdown-menu">
+							<li x-show="user.instructor"><a class="dropdown-item" href="/instructor">Instructor</a></li>
+							<li><a class="dropdown-item" href="/persons">Persons</a></li>
+							<li><a class="dropdown-item" href="/registrations">Registrations</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<button type="button" class="dropdown-item btn-outline-danger" @click="logout">Log Out</button>
+							</li>
+						</ul>
+					</div>
+				</template>
+				<template x-if="!user">
+					<a class="btn btn-outline-primary" href="/login">Log In</a>
+				</template>
+			</div>
+		</header>
+		<div class="flex-grow-1 d-flex">
+			<div layout:fragment="side"></div>
+			<main class="flex-grow-1 bg-primary-subtle p-4 d-flex flex-column gap-3 align-items-center"
+				  layout:fragment="content">
+			</main>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js" integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 </html>

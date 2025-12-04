@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
+import org.thymeleaf.context.WebContext;
 
 import java.io.IOException;
 
@@ -19,9 +19,9 @@ public class AdministrationController extends AbstractController {
 		super(templateEngine);
 	}
 
-	@GetMapping("/")
+	@GetMapping("/administration")
 	public void index(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Context context = getTemplateContext();
+		WebContext context = getTemplateContext(req, resp);
 		context.setVariable("name", "Camp Management");
 
 		render("administration", context, resp);

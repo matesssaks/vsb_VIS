@@ -1,6 +1,5 @@
 package cz.vsb.and0153.campmanagement.server.controller;
 
-import cz.vsb.and0153.campmanagement.server.WebServer;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -8,6 +7,7 @@ import lombok.Cleanup;
 import lombok.RequiredArgsConstructor;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
+import org.thymeleaf.web.servlet.IServletWebExchange;
 import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
 import java.io.IOException;
@@ -26,7 +26,7 @@ public abstract class AbstractController {
 		return DEFAULT_LOCALE;
 	}
 
-	private static synchronized void setWebApplication(ServletContext servletContext) {
+	private static void setWebApplication(ServletContext servletContext) {
 		webApplication = JakartaServletWebApplication.buildApplication(servletContext);
 	}
 
@@ -41,7 +41,8 @@ public abstract class AbstractController {
 		return new WebContext(webApplication.buildExchange(req, resp), getLocale());
 	}
 
-	public void render(String template, WebContext context, HttpServletResponse resp) throws IOException {
+	public void render(String template, WebContext context) throws IOException {
+		HttpServletResponse resp = (HttpServletResponse) ((IServletWebExchange) context.getExchange()).getNativeResponseObject();
 		resp.setStatus(HttpServletResponse.SC_OK);
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html");

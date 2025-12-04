@@ -37,8 +37,6 @@ public class StaticFilesServlet extends HttpServlet {
 
 			// Resolve the resource path
 			Resource resource = staticFiles.createRelative(pathInfo);
-			log.debug("Resolved resource path: {}", staticFiles.getDescription());
-			log.debug("Resolved resource path: {}", resource.isReadable());
 			if (
 				!resource.exists() ||
 				!resource.isReadable() ||

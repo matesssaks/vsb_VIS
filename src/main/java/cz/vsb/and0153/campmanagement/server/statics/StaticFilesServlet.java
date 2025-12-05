@@ -21,7 +21,7 @@ public class StaticFilesServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-		log.debug("STATIC-FILE request received for '{}'", req.getRequestURI());
+		log.debug("STATIC-FILE - '{}'", req.getRequestURI());
 
 		try {
 			String pathInfo = req.getPathInfo();

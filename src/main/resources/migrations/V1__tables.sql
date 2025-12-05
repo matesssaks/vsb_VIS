@@ -79,7 +79,7 @@ CREATE TABLE drug (
 	drug_id serial PRIMARY KEY,
 	person_id int NOT NULL REFERENCES person (person_id),
 	name varchar(50) NOT NULL,
-	dosage varchar(50) NOT NULL,
+	dosage int NOT NULL,
 	description varchar(255)
 );
 

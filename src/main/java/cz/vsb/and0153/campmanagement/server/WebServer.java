@@ -1,9 +1,7 @@
 package cz.vsb.and0153.campmanagement.server;
 
 import cz.vsb.and0153.campmanagement.server.controller.ControllerServlet;
-import cz.vsb.and0153.campmanagement.server.controller.GetMapping;
 import cz.vsb.and0153.campmanagement.server.controller.MappingMethod;
-import cz.vsb.and0153.campmanagement.server.controller.PostMapping;
 import jakarta.servlet.http.HttpServlet;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.Context;
@@ -55,20 +53,20 @@ public class WebServer {
 			Class<?> controllerClass = controller.getClass();
 
 			for (Method method : controllerClass.getMethods()) {
-				// GET method handler
-				GetMapping getMapping = method.getAnnotation(GetMapping.class);
-				if (getMapping != null) {
-					servlets.putIfAbsent(getMapping.value(), ControllerServlet.builder());
-					servlets.get(getMapping.value()).getMethod(new MappingMethod(controller, method));
+				MappingMethod mappingMethod;
 
-					continue;
+				// GET method handler
+				mappingMethod = MappingMethod.MethodType.GET.getMapping(controller, method);
+				if (mappingMethod != null) {
+					servlets.putIfAbsent(mappingMethod.servletPath(), ControllerServlet.builder());
+					servlets.get(mappingMethod.servletPath()).getMethod(mappingMethod);
 				}
 
 				// POST method handler
-				PostMapping postMapping = method.getAnnotation(PostMapping.class);
-				if (postMapping != null) {
-					servlets.putIfAbsent(postMapping.value(), ControllerServlet.builder());
-					servlets.get(postMapping.value()).postMethod(new MappingMethod(controller, method));
+				mappingMethod = MappingMethod.MethodType.POST.getMapping(controller, method);
+				if (mappingMethod != null) {
+					servlets.putIfAbsent(mappingMethod.servletPath(), ControllerServlet.builder());
+					servlets.get(mappingMethod.servletPath()).postMethod(mappingMethod);
 				}
 			}
 		});
@@ -80,6 +78,7 @@ public class WebServer {
 	public void registerServlet(String path, HttpServlet servlet) {
 		log.debug("Registering servlet '{}' for path '{}'", servlet, path);
 
+		// Register Tomcat servlet
 		Tomcat.addServlet(this.context, servlet.toString(), servlet);
 		this.context.addServletMappingDecoded(path, servlet.toString());
 	}

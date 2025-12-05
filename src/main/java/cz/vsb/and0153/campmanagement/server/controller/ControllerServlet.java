@@ -43,22 +43,24 @@ public class ControllerServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-		log.debug("GET request received for '{}'", req.getRequestURI());
+		log.debug("GET - '{}'", req.getRequestURI());
 		call(getMethod, req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-		log.debug("POST request received for '{}'", req.getRequestURI());
+		log.debug("POST - '{}'", req.getRequestURI());
 		call(postMethod, req, resp);
 	}
 
 	private void call(MappingMethod method, HttpServletRequest req, HttpServletResponse resp) {
 		try {
-			if (method != null) {
-				method.invoke(req, resp);
+			// If the method is valid, invoke it
+			if (method != null && method.invoke(req, resp)) {
 				return;
 			}
+
+			// Otherwise, return 404
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND); // Method isn't allowed
 		} catch (Exception e) {
 			try {

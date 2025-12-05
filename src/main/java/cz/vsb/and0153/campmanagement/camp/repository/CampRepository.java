@@ -23,9 +23,9 @@ public class CampRepository {
 		return mapper.toEntity(gateway.findById(id));
 	}
 
-	public Camp save(Camp campRecord) {
-		gateway.save(mapper.toRecord(campRecord));
-		return campRecord;
+	public Camp save(Camp camp) {
+		gateway.save(mapper.toRecord(camp));
+		return camp;
 	}
 
 	public boolean delete(long id) {

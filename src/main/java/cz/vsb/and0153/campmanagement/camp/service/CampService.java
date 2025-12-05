@@ -23,8 +23,8 @@ public class CampService {
 		return mapper.toDTO(repository.findById(id));
 	}
 
-	public CampDTO save(CampDTO campRecord) {
-		return mapper.toDTO(repository.save(mapper.toEntity(campRecord)));
+	public CampDTO save(CampDTO camp) {
+		return mapper.toDTO(repository.save(mapper.toEntity(camp)));
 	}
 
 	public boolean delete(long id) {

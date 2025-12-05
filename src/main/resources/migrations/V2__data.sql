@@ -53,12 +53,12 @@ insert into person (user_id, name, email, phone, town, street, postal_code, gend
 insert into person (user_id, name, email, phone, town, street, postal_code, gender, born_date) values (8, 'Uriel Ternent', 'uternent15@hibu.com', '+420745949711', 'Quzhou', '18417 Dunning Parkway', 76930, 'Male', '2017-05-14');
 insert into person (user_id, name, email, phone, town, street, postal_code, gender, born_date) values (3, 'Sky Arnoll', 'sarnoll16@bing.com', '+420443754883', 'Baltimore', '68 Holmberg Parkway', 79430, 'Male', '2005-01-25');
 
-insert into drug (person_id, name, dosage, description) values (35, 'Stopangin', 'Vzít 80 ihned po jídle', 'Může se mu potom udělat blbě');
-insert into drug (person_id, name, dosage, description) values (29, 'Arthritis Pain and Joint Relief', 'Vzít 18', null);
-insert into drug (person_id, name, dosage, description) values (1, 'Medrol', 'Vzít 43', 'Kontrolovat poté teplotu');
-insert into drug (person_id, name, dosage, description) values (18, 'SKIN MOISTURIZING', 'Vzít 76', 'Nebrat v pondělí');
-insert into drug (person_id, name, dosage, description) values (39, 'Sulfamethoxazole a Trimethoprim', 'Vzít 97', null);
-insert into drug (person_id, name, dosage, description) values (36, 'Peppermint', 'Vzít 94', null);
+insert into drug (person_id, name, dosage, description) values (35, 'Stopangin', 12, 'Může se mu potom udělat blbě');
+insert into drug (person_id, name, dosage, description) values (29, 'Arthritis Pain and Joint Relief', 3, null);
+insert into drug (person_id, name, dosage, description) values (1, 'Medrol', 1, 'Kontrolovat poté teplotu');
+insert into drug (person_id, name, dosage, description) values (18, 'SKIN MOISTURIZING', 9, 'Nebrat v pondělí');
+insert into drug (person_id, name, dosage, description) values (39, 'Sulfamethoxazole a Trimethoprim', 24, null);
+insert into drug (person_id, name, dosage, description) values (36, 'Peppermint', 48, null);
 
 insert into role (role_id, name, can_edit_camp, can_create_task, can_edit_task, can_view_drugs, can_receive_info) values (1, 'Účastník', false, false, false, false, false);
 insert into role (role_id, name, can_edit_camp, can_create_task, can_edit_task, can_view_drugs, can_receive_info) values (2, 'Praktikant', false, false, true, false, false);

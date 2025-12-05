@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html
 	lang="en"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{_base}"
 >
 <head>
-	<title th:text="#{app.name}"></title>
+	<title><th:block th:text="#{app.name}"></th:block></title>
 </head>
 <main layout:fragment="content">
 	<div class="w-75 row g-3">
-		<a th:each="camp : ${camps}" href="/" class="col col-4 text-decoration-none text-reset">
+		<a th:each="camp : ${camps}" th:href="@{'/camp/' + ${camp.id}}" class="col col-4 text-decoration-none text-reset">
 			<div class="bg-white d-flex flex-column p-3 rounded-3 align-items-center gap-3">
 				<div class="ratio ratio-4x3">
 					<img th:src="${camp.getImgUrl()}" th:alt="${camp.getName()}" class="img-fluid w-100 h-100 object-fit-cover rounded-3">

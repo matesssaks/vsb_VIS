@@ -43,7 +43,6 @@ public abstract class AbstractController {
 	public void render(String template, WebContext context) throws IOException {
 		HttpServletResponse resp = (HttpServletResponse) ((IServletWebExchange) context.getExchange()).getNativeResponseObject();
 		resp.setStatus(HttpServletResponse.SC_OK);
-		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html");
 
 		// Render template

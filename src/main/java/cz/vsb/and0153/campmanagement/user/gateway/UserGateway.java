@@ -16,6 +16,8 @@ public record UserGateway(JdbcTemplate jdbcTemplate) implements RowMapper<UserRe
 		SELECT user_id, name, email, password FROM users
 		""";
 	private static final String FIND_BY_ID = FIND_ALL + " WHERE user_id = ?";
+	private static final String FIND_BY_EMAIL = FIND_ALL + " WHERE email = ?";
+
 	private static final String INSERT = """
 		INSERT INTO users (name, email, password)
 		VALUES (?, ?, ?)
@@ -24,6 +26,7 @@ public record UserGateway(JdbcTemplate jdbcTemplate) implements RowMapper<UserRe
 		UPDATE users SET name = ?, email = ?, password = ?
 		WHERE user_id = ?
 		""";
+
 	private static final String DELETE = "DELETE FROM users WHERE user_id = ?";
 
 	public List<UserRecord> findAll() {
@@ -34,16 +37,20 @@ public record UserGateway(JdbcTemplate jdbcTemplate) implements RowMapper<UserRe
 		return jdbcTemplate.queryForStream(FIND_BY_ID, this, id).findFirst().orElse(null);
 	}
 
+	public UserRecord findByEmail(String email) {
+		return jdbcTemplate.queryForStream(FIND_BY_EMAIL, this, email).findFirst().orElse(null);
+	}
+
 	public int save(UserRecord userRecord) {
 		if (userRecord.getId() != null) {
 			return jdbcTemplate.update(UPDATE,
-				userRecord.getName(), userRecord.getName(), userRecord.getEmail(), userRecord.getPassword(),
+				userRecord.getName(), userRecord.getEmail(), userRecord.getPassword(),
 				userRecord.getId()
 			);
 		}
 
 		return jdbcTemplate.update(INSERT,
-			userRecord.getName(), userRecord.getName(), userRecord.getEmail(), userRecord.getPassword()
+			userRecord.getName(), userRecord.getEmail(), userRecord.getPassword()
 		);
 	}
 

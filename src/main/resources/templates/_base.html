@@ -28,25 +28,22 @@
 				Summer Camps
 			</a>
 			<div class="d-flex gap-3" layout:fragment="header_buttons">
-				<template x-if="user">
-					<div class="dropdown">
-						<button class="btn icon-link p-1 fs-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<span x-text="user.username"></span><i class="bi bi-person-fill fs-2"></i>
-						</button>
-						<ul class="dropdown-menu">
-							<li x-show="user.instructor"><a class="dropdown-item" href="/instructor">Instructor</a></li>
-							<li><a class="dropdown-item" href="/persons">Persons</a></li>
-							<li><a class="dropdown-item" href="/registrations">Registrations</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li>
-								<button type="button" class="dropdown-item btn-outline-danger" @click="logout">Log Out</button>
-							</li>
-						</ul>
-					</div>
-				</template>
-				<template x-if="!user">
-					<a class="btn btn-outline-primary" href="/login">Log In</a>
-				</template>
+				<div class="dropdown" th:if="${session.user != null}">
+					<button class="btn icon-link p-1 fs-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<span th:text="${session.user.getUsername()}"></span><i class="bi bi-person-fill fs-2"></i>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" th:href="@{/persons}">Persons</a></li>
+						<li><a class="dropdown-item" th:href="@{/registrations}">Registrations</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<form method="post" th:action="@{/logout}">
+								<button type="submit" class="dropdown-item btn-outline-danger">Log Out</button>
+							</form>
+						</li>
+					</ul>
+				</div>
+				<a class="btn btn-outline-primary" th:if="${session.user == null}" th:href="@{/login}">Log In</a>
 			</div>
 		</header>
 		<div class="flex-grow-1 d-flex">

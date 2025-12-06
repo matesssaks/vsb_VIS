@@ -14,4 +14,9 @@ public class UnregisteredUser implements AuthUser {
 	public Collection<String> getPermissions() {
 		return AuthUser.super.getPermissions();
 	}
+
+	@Override
+	public String getUsername() {
+		return "anonymous";
+	}
 }

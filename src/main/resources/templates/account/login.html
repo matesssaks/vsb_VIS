@@ -12,23 +12,19 @@
 
 <main layout:fragment="content">
 	<div class="w-25 flex-grow-1 h-100 d-flex flex-column justify-content-center">
-		<form class="bg-white rounded-3 p-3 d-flex flex-column align-items-center gap-4">
+		<form class="bg-white rounded-3 p-3 d-flex flex-column align-items-center gap-4" method="post">
 			<span class="fs-2 fw-semibold lh-1">Log In</span>
 			<div class="form-floating w-100">
-				<input class="form-control" id="username" name="username" type="text" placeholder="Username" autofocus required>
-				<label for="username">Username</label>
+				<input class="form-control" id="email" name="email" type="email" placeholder="Email" autofocus required>
+				<label for="email">Email</label>
 			</div>
 			<div class="form-floating w-100">
 				<input class="form-control" id="password" name="password" type="password" placeholder="Password" required>
 				<label for="password">Password</label>
 			</div>
-			<!--
-			<div class="alert alert-danger m-0 w-100 text-center" x-show="errors">
-				<template x-for="error in errors">
-					<div x-text="error"></div>
-				</template>
+			<div class="alert alert-danger m-0 w-100 text-center" th:if="${!errors.isEmpty()}">
+				<div th:each="error : ${errors}" th:text="${error}"></div>
 			</div>
-			-->
 			<button class="btn btn-primary px-3 py-2" type="submit">Log In</button>
 			<span>Don't have an account yet? <a class="link-primary" th:href="@{/signup}">Create one.</a></span>
 		</form>

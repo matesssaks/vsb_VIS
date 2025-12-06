@@ -23,6 +23,10 @@ public class UserRepository {
 		return mapper.toEntity(gateway.findById(id));
 	}
 
+	public User findByEmail(String email) {
+		return mapper.toEntity(gateway.findByEmail(email));
+	}
+
 	public User save(User user) {
 		gateway.save(mapper.toRecord(user));
 		return user;

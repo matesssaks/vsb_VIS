@@ -1,11 +1,9 @@
 package cz.vsb.and0153.campmanagement.server.controller;
 
 import cz.vsb.and0153.campmanagement.server.security.AuthUser;
-import cz.vsb.and0153.campmanagement.server.security.UnregisteredUser;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serial;
@@ -13,20 +11,21 @@ import java.util.*;
 import java.util.regex.Matcher;
 
 @Slf4j
-@RequiredArgsConstructor
 public class ControllerServlet extends HttpServlet {
-
-	private final String unregisteredPath;
 
 	@Serial
 	private static final long serialVersionUID = 5394513874009973020L;
 
 	private final transient Map<Route.RouteType, List<Route>> routes = new EnumMap<>(Route.RouteType.class);
+	private final String unregisteredPath;
+
+	public ControllerServlet(String unregisteredPath) {
+		this.unregisteredPath = unregisteredPath;
+		Arrays.stream(Route.RouteType.values()).forEach(type -> routes.put(type, new ArrayList<>()));
+	}
 
 	public void registerRoute(Route route) {
 		log.debug("Registering route: {}", route.route());
-
-		routes.putIfAbsent(route.type(), new ArrayList<>());
 		routes.get(route.type()).add(route);
 	}
 
@@ -44,9 +43,13 @@ public class ControllerServlet extends HttpServlet {
 
 	private void call(Route.RouteType type, HttpServletRequest req, HttpServletResponse resp) {
 		// Get user from a session
-		AuthUser user = AuthUser.getUser(req.getSession(false));
+		AuthUser user = AuthUser.getUser(req);
 
 		try {
+			// Set encoding
+			req.setCharacterEncoding("UTF-8");
+			resp.setCharacterEncoding("UTF-8");
+
 			// Find valid method handler
 			for (Route route : routes.get(type)) {
 				Matcher matcher = route.matcher(req);

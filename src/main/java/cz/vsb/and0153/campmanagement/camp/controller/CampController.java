@@ -24,7 +24,7 @@ public class CampController extends AbstractController {
 		this.campService = campService;
 	}
 
-	@GetMapping(path = "", permissions = {})
+	@GetMapping(path = "", permissions = "logged")
 	public void camps(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		WebContext context = getTemplateContext(req, resp);
 		context.setVariable("camps", campService.findAll());
@@ -32,7 +32,7 @@ public class CampController extends AbstractController {
 		render("camps", context);
 	}
 
-	@GetMapping(path = "/camp/(\\d+)", permissions = {})
+	@GetMapping(path = "/camp/(\\d+)", permissions = "logged")
 	public void camp(HttpServletRequest req, HttpServletResponse resp, Matcher matcher) throws IOException {
 		WebContext context = getTemplateContext(req, resp);
 		context.setVariable("camp", campService.findById(Integer.parseInt(matcher.group(1))));

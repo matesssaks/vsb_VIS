@@ -1,13 +1,13 @@
-insert into users (name, email, password) values ('Nancey Pull', 'npull0@fastcompany.com', '$2a$04$NdiXmBz0MGrV9v0eFJsZxOyEAn.88OLW.0oftV1xTK/uSMdOcOPmK');
-insert into users (name, email, password) values ('Yard Trueman', 'ytrueman1@blogger.com', '$2a$04$jHChza4tCkolGQRpE.SplukX14MuEmFm.jhKqrDMSK.B3YzKQgW72');
-insert into users (name, email, password) values ('Adriano Heindrick', 'aheindrick2@icq.com', '$2a$04$zSG/og/4GS17hXFbmEjw3.hEPBUdNqEGsDh4gQV6CMG09qCSV9y22');
-insert into users (name, email, password) values ('Farrand Shuker', 'fshuker3@webeden.co.uk', '$2a$04$3y7ozj6jI8QwkDl2lv15h.6H264rJN3JZ9d8cxDo0J0EazgBknccC');
-insert into users (name, email, password) values ('Zola Desson', 'zdesson4@dropbox.com', '$2a$04$RnSq0D.NfficNfVAQbTeK.w/9YOoQ6oghhocLm3ReVxqhCXtMmInq');
-insert into users (name, email, password) values ('Klarrisa Cobain', 'kcobain5@salon.com', '$2a$04$sefmXH5ynJF0PssZR2JF8emsK3hU9Gqeg8o6PHBsQHtL3AqayCRaW');
-insert into users (name, email, password) values ('Alexi Keuning', 'akeuning6@nature.com', '$2a$04$UnnWL7ZNNaQLqiMUVm/klutjyP2HR1znC3N/sVSb4u8H3pe/DsaQK');
-insert into users (name, email, password) values ('Cherianne Beringer', 'cberinger7@facebook.com', '$2a$04$jEHbjFDHi7TKhxAEMqO9gulM7GMhVmKNQfkAGaWvnIebuqQvMs6oe');
-insert into users (name, email, password) values ('Hermann Ewbanche', 'hewbanche8@buzzfeed.com', '$2a$04$WmsnkvpK/ZGctpRNUZJr9OVWGHUbtjdKG6FhrvWcvGlU6NyECjC6i');
-insert into users (name, email, password) values ('Estrellita MacGorman', 'emacgorman9@biglobe.ne.jp', '$2a$04$fvkqvA9luxtc0A8N0qK.kuOSh6Vf/Kna2jsRZNre6GFQThlm0I9Jm');
+insert into users (name, email, password) values ('Nancey Pull', 'npull0@fastcompany.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Yard Trueman', 'ytrueman1@blogger.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Adriano Heindrick', 'aheindrick2@icq.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Farrand Shuker', 'fshuker3@webeden.co.uk', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Zola Desson', 'zdesson4@dropbox.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Klarrisa Cobain', 'kcobain5@salon.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Alexi Keuning', 'akeuning6@nature.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Cherianne Beringer', 'cberinger7@facebook.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Hermann Ewbanche', 'hewbanche8@buzzfeed.com', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
+insert into users (name, email, password) values ('Estrellita MacGorman', 'emacgorman9@biglobe.ne.jp', 'pbkdf2$120000$61xR0vw9g2215kABgSkvdQ==$hsPSp+Jz9iKJyFQjmVYvBpdF6jw1RWV+e/npqi2ymbM=');
 
 insert into person (user_id, name, email, phone, town, street, postal_code, gender, born_date) values (8, 'Gregor Astman', 'gastman0@netlog.com', '+420811697916', 'Ganlin', '8139 Artisan Pass', 79308, 'Male', '2024-02-20');
 insert into person (user_id, name, email, phone, town, street, postal_code, gender, born_date) values (7, 'Lowe Delaney', 'ldelaney1@cafepress.com', '+420279636969', 'Huayuanli', '0 Maple Wood Place', 79307, 'Male', '2023-07-18');

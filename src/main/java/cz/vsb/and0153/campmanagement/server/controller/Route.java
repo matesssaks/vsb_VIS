@@ -31,7 +31,7 @@ public record Route(
 	 * Checks if the user has the required permissions to access the route
 	 */
 	public boolean canAccess(AuthUser user) {
-		return Arrays.stream(permissions).anyMatch(user.getPermissions()::contains);
+		return Arrays.stream(permissions).anyMatch(user.permissions()::contains);
 	}
 
 	/**

@@ -11,8 +11,8 @@ public class UnregisteredUser implements AuthUser {
 	public static final UnregisteredUser INSTANCE = new UnregisteredUser();
 
 	@Override
-	public Collection<String> getPermissions() {
-		return AuthUser.super.getPermissions();
+	public Collection<String> permissions() {
+		return AuthUser.super.permissions();
 	}
 
 	@Override

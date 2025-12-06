@@ -4,6 +4,7 @@ import cz.vsb.and0153.campmanagement.server.controller.AbstractController;
 import cz.vsb.and0153.campmanagement.server.controller.GetMapping;
 import cz.vsb.and0153.campmanagement.server.controller.PostMapping;
 import cz.vsb.and0153.campmanagement.server.security.AuthUser;
+import cz.vsb.and0153.campmanagement.server.uow.UnitOfWorkException;
 import cz.vsb.and0153.campmanagement.user.exception.LoginException;
 import cz.vsb.and0153.campmanagement.user.service.LoginService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -66,7 +67,7 @@ public class LoginController extends AbstractController {
 	}
 
 	@PostMapping(path = "/signup", permissions = "*")
-	public void signup(HttpServletRequest req, HttpServletResponse resp) throws IOException, GeneralSecurityException {
+	public void signup(HttpServletRequest req, HttpServletResponse resp) throws IOException, GeneralSecurityException, UnitOfWorkException {
 		String email = req.getParameter("email");
 		String firstName = req.getParameter("firstname");
 		String lastName = req.getParameter("lastname");

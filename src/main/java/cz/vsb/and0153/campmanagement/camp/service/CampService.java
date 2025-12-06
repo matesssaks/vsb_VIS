@@ -22,12 +22,4 @@ public class CampService {
 	public CampDTO findById(int id) {
 		return mapper.toDTO(repository.findById(id));
 	}
-
-	public CampDTO save(CampDTO camp) {
-		return mapper.toDTO(repository.save(mapper.toEntity(camp)));
-	}
-
-	public boolean delete(long id) {
-		return repository.delete(id);
-	}
 }

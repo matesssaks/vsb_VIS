@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface AuthUser extends Serializable {
-	default Collection<String> getPermissions() {
+	default Collection<String> permissions() {
 		return List.of("*");
 	}
 

@@ -15,7 +15,7 @@ public class UserDTO implements AuthUser {
 	String email;
 
 	@Override
-	public Collection<String> getPermissions() {
+	public Collection<String> permissions() {
 		return List.of("*", "logged");
 	}
 

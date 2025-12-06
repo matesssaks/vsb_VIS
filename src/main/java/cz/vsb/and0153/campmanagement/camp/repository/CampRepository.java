@@ -3,6 +3,9 @@ package cz.vsb.and0153.campmanagement.camp.repository;
 import cz.vsb.and0153.campmanagement.camp.entity.Camp;
 import cz.vsb.and0153.campmanagement.camp.gateway.CampGateway;
 import cz.vsb.and0153.campmanagement.camp.mapper.CampMapper;
+import cz.vsb.and0153.campmanagement.server.repository.RepositoryInterface;
+import cz.vsb.and0153.campmanagement.server.uow.UnitOfWork;
+import cz.vsb.and0153.campmanagement.server.uow.UnitOfWorkException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -10,25 +13,39 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class CampRepository {
+public class CampRepository implements RepositoryInterface<Camp> {
 
 	private final CampGateway gateway;
 	private final CampMapper mapper;
+	private final UnitOfWork unitOfWork;
 
+	@Override
 	public List<Camp> findAll() {
-		return gateway.findAll().stream().map(mapper::toEntity).toList();
+		return unitOfWork.findAll(mapper, gateway);
 	}
 
+	@Override
 	public Camp findById(int id) {
-		return mapper.toEntity(gateway.findById(id));
+		return unitOfWork.findById(Camp.class, id, mapper, gateway);
 	}
 
-	public Camp save(Camp camp) {
-		gateway.save(mapper.toRecord(camp));
-		return camp;
+	@Override
+	public Camp save(Camp entity) {
+		return unitOfWork.save(entity, mapper, gateway);
 	}
 
-	public boolean delete(long id) {
-		return gateway.delete(id) > 0;
+	@Override
+	public void delete(int id) {
+		unitOfWork.delete(Camp.class, id, gateway);
+	}
+
+	@Override
+	public void commit() throws UnitOfWorkException {
+		unitOfWork.commit();
+	}
+
+	@Override
+	public void rollback() {
+		unitOfWork.rollback();
 	}
 }

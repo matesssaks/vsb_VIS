@@ -1,6 +1,7 @@
 package cz.vsb.and0153.campmanagement.user.service;
 
 import cz.vsb.and0153.campmanagement.server.security.PasswordEncryptor;
+import cz.vsb.and0153.campmanagement.server.uow.UnitOfWorkException;
 import cz.vsb.and0153.campmanagement.user.dto.UserDTO;
 import cz.vsb.and0153.campmanagement.user.entity.User;
 import cz.vsb.and0153.campmanagement.user.exception.LoginException;
@@ -29,7 +30,7 @@ public class LoginService {
 		String lastName,
 		String password,
 		String password2
-	) throws LoginException, GeneralSecurityException {
+	) throws LoginException, GeneralSecurityException, UnitOfWorkException {
 		List<String> errors = new ArrayList<>();
 
 		// Validate if all fields are filled
@@ -51,7 +52,12 @@ public class LoginService {
 		user.setEmail(email);
 		user.setName(firstName + " " + lastName);
 		user.setPassword(encryptor.hash(password));
-		return mapper.toDTO(repository.save(user));
+
+		// Save user
+		UserDTO dto = mapper.toDTO(repository.save(user));
+		repository.commit();
+
+		return dto;
 	}
 
 	public UserDTO login(String email, String password) throws LoginException, GeneralSecurityException {

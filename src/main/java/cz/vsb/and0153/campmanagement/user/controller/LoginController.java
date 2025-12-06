@@ -17,13 +17,13 @@ public class LoginController extends AbstractController {
 		super(templateEngine);
 	}
 
-	@GetMapping("/login")
+	@GetMapping(path = "/login", permissions = "*")
 	public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		WebContext context = getTemplateContext(request, response);
 		render("account/login", context);
 	}
 
-	@GetMapping("/signup")
+	@GetMapping(path = "/signup", permissions = "*")
 	public void signup(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		WebContext context = getTemplateContext(request, response);
 		render("account/signup", context);

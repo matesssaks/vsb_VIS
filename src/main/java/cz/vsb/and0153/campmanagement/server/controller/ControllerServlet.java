@@ -1,62 +1,67 @@
 package cz.vsb.and0153.campmanagement.server.controller;
 
+import cz.vsb.and0153.campmanagement.server.security.AuthUser;
+import cz.vsb.and0153.campmanagement.server.security.UnregisteredUser;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Builder;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serial;
+import java.util.*;
+import java.util.regex.Matcher;
 
 @Slf4j
+@RequiredArgsConstructor
 public class ControllerServlet extends HttpServlet {
+
+	private final String unregisteredPath;
 
 	@Serial
 	private static final long serialVersionUID = 5394513874009973020L;
 
-	private final transient MappingMethod getMethod;
-	private final transient MappingMethod postMethod;
-	private final String name;
+	private final transient Map<Route.RouteType, List<Route>> routes = new EnumMap<>(Route.RouteType.class);
 
-	@Builder()
-	public ControllerServlet(MappingMethod getMethod, MappingMethod postMethod) {
-		this.getMethod = getMethod;
-		this.postMethod = postMethod;
+	public void registerRoute(Route route) {
+		log.debug("Registering route: {}", route.route());
 
-		StringBuilder nameBuilder = new StringBuilder();
-		if (getMethod != null) {
-			nameBuilder.append(getMethod.controller().getClass().getSimpleName());
-			nameBuilder.append("_");
-			nameBuilder.append(getMethod.method().getName());
-		}
-		if (postMethod != null) {
-			if (getMethod != null) {
-				nameBuilder.append("-");
-			}
-			nameBuilder.append(postMethod.controller().getClass().getSimpleName());
-			nameBuilder.append("_");
-			nameBuilder.append(postMethod.method().getName());
-		}
-
-		this.name = nameBuilder.toString();
+		routes.putIfAbsent(route.type(), new ArrayList<>());
+		routes.get(route.type()).add(route);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		log.debug("GET - '{}'", req.getRequestURI());
-		call(getMethod, req, resp);
+		call(Route.RouteType.GET, req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 		log.debug("POST - '{}'", req.getRequestURI());
-		call(postMethod, req, resp);
+		call(Route.RouteType.POST, req, resp);
 	}
 
-	private void call(MappingMethod method, HttpServletRequest req, HttpServletResponse resp) {
+	private void call(Route.RouteType type, HttpServletRequest req, HttpServletResponse resp) {
+		// Get user from a session
+		AuthUser user = AuthUser.getUser(req.getSession(false));
+
 		try {
-			// If the method is valid, invoke it
-			if (method != null && method.invoke(req, resp)) {
+			// Find valid method handler
+			for (Route route : routes.get(type)) {
+				Matcher matcher = route.matcher(req);
+
+				// Check if the route matches the request
+				if (matcher == null || !matcher.matches()) continue;
+
+				// Check if the user has the required permissions
+				if (!route.canAccess(user)) {
+					resp.sendRedirect(unregisteredPath);
+					return;
+				}
+
+				// Invoke the route handler
+				route.invoke(req, resp, matcher);
 				return;
 			}
 
@@ -65,13 +70,11 @@ public class ControllerServlet extends HttpServlet {
 		} catch (Exception e) {
 			try {
 				log.error("Error while processing request", e);
+
+				// Try to send an error response, but when the response is committed, this does nothing
+				resp.reset();
 				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			} catch (Exception ignore) { /* ignore */ }
 		}
-	}
-
-	@Override
-	public String toString() {
-		return this.name;
 	}
 }

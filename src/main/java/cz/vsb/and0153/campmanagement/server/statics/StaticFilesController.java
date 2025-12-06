@@ -1,42 +1,36 @@
 package cz.vsb.and0153.campmanagement.server.statics;
 
-import jakarta.servlet.http.HttpServlet;
+import cz.vsb.and0153.campmanagement.server.controller.Route;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.AccessLevel;
 import lombok.Cleanup;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.regex.Matcher;
 
 @Slf4j
-public class StaticFilesServlet extends HttpServlet {
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+public class StaticFilesController {
 
-	private final transient Resource staticFiles;
+	private final Resource staticFiles;
 
-	public StaticFilesServlet(Resource staticFiles) {
-		this.staticFiles = staticFiles;
-	}
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-		log.debug("STATIC-FILE - '{}'", req.getRequestURI());
-
+	public void get(HttpServletRequest req, HttpServletResponse resp, Matcher matcher) {
 		try {
-			String pathInfo = req.getPathInfo();
+			String path = matcher.group(1);
 
-			// Invalid path info
-			if (pathInfo == null) {
+			// Validate the path
+			if (path.startsWith("/")) {
 				resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 				return;
 			}
 
-			// Clean up path info
-			if (pathInfo.startsWith("/")) pathInfo = pathInfo.substring(1);
-
 			// Resolve the resource path
-			Resource resource = staticFiles.createRelative(pathInfo);
+			Resource resource = staticFiles.createRelative(path);
 			if (
 				!resource.exists() ||
 				!resource.isReadable() ||
@@ -67,8 +61,18 @@ public class StaticFilesServlet extends HttpServlet {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "static";
+	public static Route getRoute(String route, Resource staticFiles) throws NoSuchMethodException {
+		return Route.getRoute(
+			route,
+			new String[] { "*" }, // All users can access static files
+			Route.RouteType.GET,
+			new StaticFilesController(staticFiles),
+			StaticFilesController.class.getMethod(
+				"get",
+				HttpServletRequest.class,
+				HttpServletResponse.class,
+				Matcher.class
+			)
+		);
 	}
 }

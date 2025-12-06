@@ -3,7 +3,6 @@ package cz.vsb.and0153.campmanagement.server.controller;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Cleanup;
 import lombok.RequiredArgsConstructor;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -48,7 +47,8 @@ public abstract class AbstractController {
 		resp.setContentType("text/html");
 
 		// Render template
-		@Cleanup PrintWriter writer = resp.getWriter();
+		PrintWriter writer = resp.getWriter();
 		templateEngine.process(template, context, writer);
+		writer.close();
 	}
 }

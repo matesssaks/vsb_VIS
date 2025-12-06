@@ -1,7 +1,8 @@
 package cz.vsb.and0153.campmanagement;
 
 import cz.vsb.and0153.campmanagement.server.WebServer;
-import cz.vsb.and0153.campmanagement.server.statics.StaticFilesServlet;
+import cz.vsb.and0153.campmanagement.server.controller.Route;
+import cz.vsb.and0153.campmanagement.server.statics.StaticFilesController;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +14,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
+
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Objects;
 
 @Slf4j
 @SpringBootApplication
@@ -36,16 +40,23 @@ public class CampManagementApplication {
 		return args -> {
 			log.info("Server starting with profiles: {}", String.join(", ", environment.getActiveProfiles()));
 
-			WebServer server = new WebServer(host, port);
+			WebServer server = new WebServer(host, port, "/login");
 
 			// Register controllers
-			server.registerControllers(this.context.getBeansWithAnnotation(Controller.class).values());
+			this.context.getBeansWithAnnotation(Controller.class).values().forEach(controller -> {
+				for (Method method : controller.getClass().getMethods()) {
+					// Register route in servlet
+					Arrays.stream(Route.RouteType.values())
+						.map(type -> type.getRoute(controller, method))
+						.filter(Objects::nonNull)
+						.forEach(server::registerRoute);
+				}
+			});
 
-			// Register static files
-			Resource staticFiles = this.context.getResource(
+			Resource staticFilesDir = this.context.getResource(
 				staticFilesPath.endsWith("/") ? staticFilesPath : staticFilesPath + "/"
 			);
-			server.registerServlet("/static/*", new StaticFilesServlet(staticFiles));
+			server.registerRoute(StaticFilesController.getRoute("/static/(.+)", staticFilesDir));
 
 			// Start WebServer
 			server.startAndWait();

@@ -27,6 +27,7 @@ package "DAL – Datová vrstva" {
 
 database "PostgreSQL" as Pg
 folder "XML úložiště" as XmlStore
+storage "CephFS" as CephFS
 rectangle "E-shop (externí systém)" as Eshop
 
 ' --- poskytované/požadované rozhraní ---
@@ -54,6 +55,7 @@ RepoUoW ..> XmlGw
 SqlGw ..> Conn
 SqlGw ..> Pg
 XmlGw ..> XmlStore
+XmlGw ..> CephFS
 
 ApiFacade --> AppServices
 @enduml

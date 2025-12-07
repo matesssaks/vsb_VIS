@@ -41,11 +41,11 @@ public record UserGateway(JdbcTemplate jdbcTemplate) implements RowMapper<UserRe
 
 	@Override
 	public UserRecord findById(int id) {
-		return jdbcTemplate.queryForStream(FIND_BY_ID, this, id).findFirst().orElse(null);
+		return jdbcTemplate.query(FIND_BY_ID, this, id).stream().findFirst().orElse(null);
 	}
 
 	public UserRecord findByEmail(String email) {
-		return jdbcTemplate.queryForStream(FIND_BY_EMAIL, this, email).findFirst().orElse(null);
+		return jdbcTemplate.query(FIND_BY_EMAIL, this, email).stream().findFirst().orElse(null);
 	}
 
 	@Override

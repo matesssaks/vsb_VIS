@@ -38,7 +38,7 @@ public record CampGateway(JdbcTemplate jdbcTemplate) implements RowMapper<CampRe
 
 	@Override
 	public CampRecord findById(int id) {
-		return jdbcTemplate.queryForStream(FIND_BY_ID, this, id).findFirst().orElse(null);
+		return jdbcTemplate.query(FIND_BY_ID, this, id).stream().findFirst().orElse(null);
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public record CampGateway(JdbcTemplate jdbcTemplate) implements RowMapper<CampRe
 		campRecord.setDescription(rs.getString("description"));
 		campRecord.setImgUrl(rs.getString("img_url"));
 		campRecord.setStartDate(rs.getObject("start_date", OffsetDateTime.class));
-		campRecord.setStartDate(rs.getObject("end_date", OffsetDateTime.class));
+		campRecord.setEndDate(rs.getObject("end_date", OffsetDateTime.class));
 		campRecord.setPrice(rs.getInt("price"));
 		campRecord.setCapacity(rs.getInt("capacity"));
 		campRecord.setRegistered(rs.getInt("registered"));

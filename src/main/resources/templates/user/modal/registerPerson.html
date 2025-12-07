@@ -1,0 +1,55 @@
+<div class="modal-dialog modal-dialog-centered modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title">Register person</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<form th:onsubmit="|return postModal('@{/persons/register}', event, this);|" method="post">
+			<div class="modal-body d-flex flex-column align-items-center gap-4">
+				<div class="d-flex gap-3 w-100">
+					<div class="flex-grow-1 w-50 form-floating">
+						<input class="form-control" id="name" name="name" type="text" placeholder="Name" th:value="${person.name}" autofocus required>
+						<label for="name">Name</label>
+					</div>
+					<div class="flex-grow-1 w-50 form-floating">
+						<input class="form-control" id="personalNumber" name="personalNumber" type="text" placeholder="Personal Number" th:value="${person.personalNumber}" required>
+						<label for="personalNumber">Personal Number</label>
+					</div>
+				</div>
+				<div class="d-flex gap-3 w-100">
+					<div class="flex-grow-1 w-50 form-floating">
+						<input class="form-control" id="town" name="town" type="text" placeholder="Town" th:value="${person.town}" required>
+						<label for="town">Town</label>
+					</div>
+					<div class="flex-grow-1 w-50 form-floating">
+						<input class="form-control" id="postal" name="postal" type="text" placeholder="Postal code" th:value="${person.postalCode}" required>
+						<label for="postal">Postal code</label>
+					</div>
+				</div>
+				<div class="form-floating w-100">
+					<input class="form-control" id="street" name="street" type="text" placeholder="Street" th:value="${person.street}" required>
+					<label for="street">Street</label>
+				</div>
+				<div class="form-floating w-100">
+					<input class="form-control" id="born" name="born" type="date" placeholder="Born date" th:value="${#temporals.format(person.bornDate, 'yyyy-MM-dd')}" required>
+					<label for="born">Born date</label>
+				</div>
+				<div class="form-floating w-100">
+					<select class="form-select" id="camp" name="camp" required>
+						<option th:each="camp : ${camps}"
+								th:value="${camp.id}"
+								th:text="${camp.name}">
+						</option>
+					</select>
+					<label for="camp">Camp</label>
+				</div>
+				<div class="alert alert-danger m-0 w-100 text-center" th:if="${!errors.isEmpty()}">
+					<div th:each="error : ${errors}" th:text="${error}"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary px-3 py-2">Save</button>
+			</div>
+		</form>
+	</div>
+</div>

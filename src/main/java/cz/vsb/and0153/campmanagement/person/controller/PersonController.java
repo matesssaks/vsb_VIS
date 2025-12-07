@@ -11,18 +11,19 @@ import cz.vsb.and0153.campmanagement.server.uow.UnitOfWorkException;
 import cz.vsb.and0153.campmanagement.user.dto.UserDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 
+@Slf4j
 @Controller
 public class PersonController extends AbstractController {
 
@@ -82,6 +83,7 @@ public class PersonController extends AbstractController {
 		try {
 			PersonDTO person = new PersonDTO();
 			person.setName(request.getParameter("name"));
+			person.setPersonalNumber(request.getParameter("personalNumber"));
 			person.setTown(request.getParameter("town"));
 			person.setStreet(request.getParameter("street"));
 			person.setPostalCode(request.getParameter("postal"));
@@ -105,6 +107,7 @@ public class PersonController extends AbstractController {
 			PersonDTO person = new PersonDTO();
 			person.setId(id);
 			person.setName(request.getParameter("name"));
+			person.setPersonalNumber(request.getParameter("personalNumber"));
 			person.setTown(request.getParameter("town"));
 			person.setStreet(request.getParameter("street"));
 			person.setPostalCode(request.getParameter("postal"));

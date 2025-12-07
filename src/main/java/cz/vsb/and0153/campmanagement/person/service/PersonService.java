@@ -30,6 +30,10 @@ public class PersonService {
 		return personMapper.toDTO(repository.findById(id));
 	}
 
+	public PersonDTO findPersonalNumber(String personalNumber) {
+		return personMapper.toDTO(repository.findByPersonalNumber(personalNumber));
+	}
+
 	public PersonDTO save(PersonDTO person, UserDTO user) throws ListException, UnitOfWorkException {
 		List<String> errors = new ArrayList<>();
 

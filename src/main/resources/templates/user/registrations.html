@@ -10,17 +10,15 @@
 </head>
 <main layout:fragment="content">
 	<a class="w-75 btn icon-link bg-white text-success text-center p-4 rounded-3 d-flex justify-content-center"
-	   href="/">
+	   th:href="@{/persons}">
 		<i class="bi bi-plus-lg fs-2"></i>
 	</a>
-	<template x-for="participant in participants">
-		<div class="w-75 row bg-white p-4 rounded-3 fs-5">
-			<span class="col col-6 fw-semibold">
-				<span x-text="participant.person.firstName"></span> <span x-text="participant.person.lastName"></span>
-			</span>
-			<a class="col col-6 btn btn-outline-primary" :href="'/camp/' + participant.camp.id">
-				<span x-text="participant.camp.name"></span> | <span x-text="new Date(participant.camp.startDate).toLocaleDateString('cs-CZ')"></span> - <span x-text="new Date(participant.camp.endDate).toLocaleDateString('cs-CZ')"></span>
-			</a>
-		</div>
-	</template>
+	<div th:each="participant : ${participants}" class="w-75 row bg-white p-4 rounded-3 fs-5">
+		<span class="col col-6 fw-semibold">
+			<span th:text="${participant.person.name}"></span>
+		</span>
+		<a class="col col-6 btn btn-outline-primary" th:href="@{'/camp/' + ${participant.camp.id}}">
+			<span th:text="${participant.camp.name}"></span> | <span th:text="${#temporals.format(participant.camp.startDate.toLocalDate(), 'SHORT', #locale)}"></span> - <span th:text="${#temporals.format(participant.camp.endDate.toLocalDate(), 'SHORT', #locale)}"></span>
+		</a>
+	</div>
 </main>

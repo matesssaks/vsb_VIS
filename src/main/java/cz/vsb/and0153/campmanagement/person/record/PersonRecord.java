@@ -10,6 +10,7 @@ import java.time.OffsetDateTime;
 public class PersonRecord {
 	private Integer id;
 	private Integer userId;
+	private String personalNumber;
 	private String name;
 	private String town;
 	private String street;

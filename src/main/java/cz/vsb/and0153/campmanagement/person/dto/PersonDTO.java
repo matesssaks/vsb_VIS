@@ -12,6 +12,7 @@ import java.util.List;
 public class PersonDTO {
 	private Integer id;
 	private UserDTO user;
+	private String personalNumber;
 	private String name;
 	private String town;
 	private String street;

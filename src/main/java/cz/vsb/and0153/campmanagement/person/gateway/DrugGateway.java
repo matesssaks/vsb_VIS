@@ -47,7 +47,7 @@ public record DrugGateway(JdbcTemplate jdbcTemplate) implements RowMapper<DrugRe
 
 	@Override
 	public DrugRecord findById(int id) {
-		return jdbcTemplate.queryForStream(FIND_BY_ID, this, id).findFirst().orElse(null);
+		return jdbcTemplate.query(FIND_BY_ID, this, id).stream().findFirst().orElse(null);
 	}
 
 	public Integer findPersonById(int id) {

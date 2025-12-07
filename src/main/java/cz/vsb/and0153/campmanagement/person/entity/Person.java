@@ -13,6 +13,7 @@ import java.util.List;
 public class Person implements Identifiable {
 	private Integer id;
 	private User user;
+	private String personalNumber;
 	private String name;
 	private String town;
 	private String street;

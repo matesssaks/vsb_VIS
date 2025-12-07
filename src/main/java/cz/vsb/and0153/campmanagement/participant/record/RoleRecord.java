@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class RoleRecord {
-	Integer id;
-	String name;
-	Boolean canEditCamp;
-	Boolean canCreateTask;
-	Boolean canEditTask;
-	Boolean canViewDrugs;
-	Boolean canReceiveInfo;
+	private Integer id;
+	private String name;
+	private Boolean canEditCamp;
+	private Boolean canCreateTask;
+	private Boolean canEditTask;
+	private Boolean canViewDrugs;
+	private Boolean canReceiveInfo;
 }

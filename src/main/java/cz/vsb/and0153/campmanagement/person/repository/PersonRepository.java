@@ -1,6 +1,10 @@
 package cz.vsb.and0153.campmanagement.person.repository;
 
 import cz.vsb.and0153.campmanagement.camp.entity.Camp;
+import cz.vsb.and0153.campmanagement.participant.entity.Participant;
+import cz.vsb.and0153.campmanagement.participant.gateway.ParticipantGateway;
+import cz.vsb.and0153.campmanagement.participant.record.ParticipantRecord;
+import cz.vsb.and0153.campmanagement.participant.repository.ParticipantRepository;
 import cz.vsb.and0153.campmanagement.person.entity.Drug;
 import cz.vsb.and0153.campmanagement.person.entity.Person;
 import cz.vsb.and0153.campmanagement.person.gateway.DrugGateway;
@@ -23,6 +27,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonRepository implements RepositoryInterface<Person> {
 
+	private final ParticipantGateway participantGateway;
+
 	private final PersonGateway personGateway;
 	private final PersonMapper personMapper;
 	private final DrugGateway drugGateway;
@@ -39,6 +45,10 @@ public class PersonRepository implements RepositoryInterface<Person> {
 	@Override
 	public Person findById(int id) {
 		return unitOfWork.findById(Person.class, id, personMapper, personGateway);
+	}
+
+	public Person findByPersonalNumber(String personalNumber) {
+		return identityMap.merge(personMapper.toEntity(personGateway.findByPersonalNumber(personalNumber)), personMapper);
 	}
 
 	public List<Person> findAllByUser(User user) {
@@ -76,6 +86,9 @@ public class PersonRepository implements RepositoryInterface<Person> {
 		// Delete children first
 		for (Drug drug : entity.getDrugs()) {
 			unitOfWork.delete(Drug.class, drug.getId(), drugGateway);
+		}
+		for (ParticipantRecord participant : participantGateway.findAllByPersonId(id)) {
+			unitOfWork.delete(Participant.class, participant.getId(), participantGateway);
 		}
 
 		// Then delete parent

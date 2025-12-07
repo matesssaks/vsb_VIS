@@ -9,6 +9,7 @@ CREATE TABLE users (
 CREATE TABLE person (
 	person_id serial PRIMARY KEY,
 	user_id int NOT NULL REFERENCES users (user_id),
+	personal_number varchar(20) UNIQUE NOT NULL,
 	name varchar(50) NOT NULL,
 	town varchar(50) NOT NULL,
 	street varchar(50) NOT NULL,

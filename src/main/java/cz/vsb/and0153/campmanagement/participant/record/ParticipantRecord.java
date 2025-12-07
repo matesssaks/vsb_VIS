@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ParticipantRecord {
-	Integer id;
-	Integer campId;
-	Integer personId;
-	Integer roleId;
+	private Integer id;
+	private Integer campId;
+	private Integer personId;
+	private Integer roleId;
 }

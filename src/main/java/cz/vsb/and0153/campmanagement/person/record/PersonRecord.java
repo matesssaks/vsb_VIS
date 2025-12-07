@@ -8,14 +8,11 @@ import java.time.OffsetDateTime;
 @Data
 @NoArgsConstructor
 public class PersonRecord {
-	Integer id;
-	Integer userId;
-	String name;
-	String email;
-	String phone;
-	String town;
-	String street;
-	Integer postalCode;
-	String gender;
-	OffsetDateTime birthDate;
+	private Integer id;
+	private Integer userId;
+	private String name;
+	private String town;
+	private String street;
+	private String postalCode;
+	private OffsetDateTime bornDate;
 }

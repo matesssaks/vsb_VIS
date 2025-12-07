@@ -25,7 +25,7 @@ public class ControllerServlet extends HttpServlet {
 	}
 
 	public void registerRoute(Route route) {
-		log.debug("Registering route: {}", route.route());
+		log.debug("Registering {} route: {}", route.type().name(), route.route());
 		routes.get(route.type()).add(route);
 	}
 

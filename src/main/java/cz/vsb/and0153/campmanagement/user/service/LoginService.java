@@ -4,7 +4,7 @@ import cz.vsb.and0153.campmanagement.server.security.PasswordEncryptor;
 import cz.vsb.and0153.campmanagement.server.uow.UnitOfWorkException;
 import cz.vsb.and0153.campmanagement.user.dto.UserDTO;
 import cz.vsb.and0153.campmanagement.user.entity.User;
-import cz.vsb.and0153.campmanagement.user.exception.LoginException;
+import cz.vsb.and0153.campmanagement.server.exception.ListException;
 import cz.vsb.and0153.campmanagement.user.mapper.UserMapper;
 import cz.vsb.and0153.campmanagement.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +30,7 @@ public class LoginService {
 		String lastName,
 		String password,
 		String password2
-	) throws LoginException, GeneralSecurityException, UnitOfWorkException {
+	) throws ListException, GeneralSecurityException, UnitOfWorkException {
 		List<String> errors = new ArrayList<>();
 
 		// Validate if all fields are filled
@@ -40,13 +40,13 @@ public class LoginService {
 		if (password == null || password.isBlank()) errors.add("Password is required.");
 		if (password2 == null || password2.isBlank()) errors.add("Password confirmation is required.");
 
-		if (!errors.isEmpty()) throw new LoginException(errors);
+		if (!errors.isEmpty()) throw new ListException(errors);
 
 		// Validate field data
 		if (!password.equals(password2)) errors.add("Passwords do not match.");
 		if (repository.findByEmail(email) != null) errors.add("Email is already registered.");
 
-		if (!errors.isEmpty()) throw new LoginException(errors);
+		if (!errors.isEmpty()) throw new ListException(errors);
 
 		User user = new User();
 		user.setEmail(email);
@@ -60,11 +60,11 @@ public class LoginService {
 		return dto;
 	}
 
-	public UserDTO login(String email, String password) throws LoginException, GeneralSecurityException {
+	public UserDTO login(String email, String password) throws ListException, GeneralSecurityException {
 		User user = repository.findByEmail(email);
 
 		if (user == null || !encryptor.verify(password, user.getPassword())) {
-			throw new LoginException(List.of("Invalid email or password."));
+			throw new ListException(List.of("Invalid email or password."));
 		}
 
 		return mapper.toDTO(user);

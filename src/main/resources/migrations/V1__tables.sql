@@ -10,16 +10,10 @@ CREATE TABLE person (
 	person_id serial PRIMARY KEY,
 	user_id int NOT NULL REFERENCES users (user_id),
 	name varchar(50) NOT NULL,
-	email varchar(50) NOT NULL,
-	phone varchar(13) NOT NULL,
 	town varchar(50) NOT NULL,
 	street varchar(50) NOT NULL,
-	postal_code int NOT NULL,
-	gender varchar(20) NOT NULL,
+	postal_code varchar(10) NOT NULL,
 	born_date timestamptz NOT NULL,
-	CHECK (email LIKE '%_@_%._%'),
-	CHECK (phone ~ '^\+[0-9]{12}$'),
-	CHECK (postal_code BETWEEN 10000 AND 99999),
 	CHECK (born_date < current_timestamp)
 );
 

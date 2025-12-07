@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class User implements Identifiable {
-	Integer id;
-	String name;
-	String email;
-	String password;
+	private Integer id;
+	private String name;
+	private String email;
+	private String password;
 }

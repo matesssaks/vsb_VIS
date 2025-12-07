@@ -74,6 +74,7 @@ public class UnitOfWork {
 		for (UnitOfWorkAction action : actions) {
 			action.apply();
 		}
+		actions.clear();
 	}
 
 	public void rollback() {

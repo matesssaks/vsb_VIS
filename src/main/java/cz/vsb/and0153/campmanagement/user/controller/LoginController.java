@@ -5,7 +5,7 @@ import cz.vsb.and0153.campmanagement.server.controller.GetMapping;
 import cz.vsb.and0153.campmanagement.server.controller.PostMapping;
 import cz.vsb.and0153.campmanagement.server.security.AuthUser;
 import cz.vsb.and0153.campmanagement.server.uow.UnitOfWorkException;
-import cz.vsb.and0153.campmanagement.user.exception.LoginException;
+import cz.vsb.and0153.campmanagement.server.exception.ListException;
 import cz.vsb.and0153.campmanagement.user.service.LoginService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -58,7 +58,7 @@ public class LoginController extends AbstractController {
 
 		try {
 			AuthUser.setUser(req, service.login(email, password));
-		} catch (LoginException e) {
+		} catch (ListException e) {
 			renderPage("account/login", req, resp, e.getErrors());
 			return;
 		}
@@ -76,7 +76,7 @@ public class LoginController extends AbstractController {
 
 		try {
 			AuthUser.setUser(req, service.register(email, firstName, lastName, password, password2));
-		} catch (LoginException e) {
+		} catch (ListException e) {
 			renderPage("account/signup", req, resp, e.getErrors());
 			return;
 		}

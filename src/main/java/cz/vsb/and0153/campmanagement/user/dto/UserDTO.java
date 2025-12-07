@@ -10,9 +10,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class UserDTO implements AuthUser {
-	Integer id;
-	String name;
-	String email;
+	private Integer id;
+	private String name;
+	private String email;
 
 	@Override
 	public Collection<String> permissions() {

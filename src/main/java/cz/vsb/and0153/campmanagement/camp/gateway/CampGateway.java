@@ -55,7 +55,7 @@ public record CampGateway(JdbcTemplate jdbcTemplate) implements RowMapper<CampRe
 
 		// Update the record and get the generated ID
 		int rows = jdbcTemplate.update(conn -> {
-			PreparedStatement ps = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement ps = conn.prepareStatement(INSERT, new String[] { "camp_id" });
 			ps.setString(1, campRecord.getName());
 			ps.setString(2, campRecord.getDescription());
 			ps.setString(3, campRecord.getImgUrl());

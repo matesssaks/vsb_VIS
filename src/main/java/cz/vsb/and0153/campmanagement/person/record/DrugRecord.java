@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class DrugRecord {
-	Integer id;
-	Integer personId;
-	String name;
-	Integer dosage;
-	String description;
+	private Integer id;
+	private Integer personId;
+	private String name;
+	private Integer dosage;
+	private String description;
 }

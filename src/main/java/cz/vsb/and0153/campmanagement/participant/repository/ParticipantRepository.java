@@ -40,6 +40,11 @@ public class ParticipantRepository implements RepositoryInterface<Participant> {
 			.map(rec -> identityMap.merge(participantMapper.toEntity(rec), participantMapper)).toList();
 	}
 
+	public List<Participant> findAllByCamp(Camp camp) {
+		return participantGateway.findAllByCampId(camp.getId()).stream()
+			.map(rec -> identityMap.merge(participantMapper.toEntity(rec), participantMapper)).toList();
+	}
+
 	public List<Participant> findAllByPerson(Person person) {
 		return participantGateway.findAllByPersonId(person.getId()).stream()
 			.map(rec -> identityMap.merge(participantMapper.toEntity(rec), participantMapper)).toList();

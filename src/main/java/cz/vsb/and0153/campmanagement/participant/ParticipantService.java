@@ -1,6 +1,7 @@
 package cz.vsb.and0153.campmanagement.participant;
 
 import cz.vsb.and0153.campmanagement.camp.dto.CampDTO;
+import cz.vsb.and0153.campmanagement.camp.mapper.CampMapper;
 import cz.vsb.and0153.campmanagement.participant.dto.ParticipantDTO;
 import cz.vsb.and0153.campmanagement.participant.mapper.ParticipantMapper;
 import cz.vsb.and0153.campmanagement.participant.mapper.RoleMapper;
@@ -21,11 +22,20 @@ public class ParticipantService {
 	private final ParticipantMapper participantMapper;
 	private final UserMapper userMapper;
 	private final RoleMapper roleMapper;
+	private final CampMapper campMapper;
 
 	private final ParticipantRepository repository;
 
+	public ParticipantDTO findById(int id) {
+		return participantMapper.toDTO(repository.findById(id));
+	}
+
 	public List<ParticipantDTO> findAllByUser(UserDTO user) {
 		return repository.findAllByUser(userMapper.toEntity(user)).stream().map(participantMapper::toDTO).toList();
+	}
+
+	public List<ParticipantDTO> findAllByCamp(CampDTO camp) {
+		return repository.findAllByCamp(campMapper.toEntity(camp)).stream().map(participantMapper::toDTO).toList();
 	}
 
 	public ParticipantDTO register(PersonDTO person, CampDTO camp) throws UnitOfWorkException {

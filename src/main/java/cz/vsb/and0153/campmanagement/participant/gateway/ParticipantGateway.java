@@ -25,6 +25,7 @@ public record ParticipantGateway(JdbcTemplate jdbcTemplate) implements RowMapper
 		JOIN person ON person.person_id = participant.person_id WHERE person.user_id = ?
 		""";
 	private static final String FIND_ALL_BY_PERSON_ID = FIND_ALL + " WHERE person_id = ?";
+	private static final String FIND_ALL_BY_CAMP_ID = FIND_ALL + " WHERE camp_id = ?";
 	private static final String FIND_BY_ID = FIND_ALL + " WHERE participant_id = ?";
 
 	private static final String INSERT = """
@@ -45,6 +46,10 @@ public record ParticipantGateway(JdbcTemplate jdbcTemplate) implements RowMapper
 
 	public List<ParticipantRecord> findAllByUserId(int userId) {
 		return jdbcTemplate.query(FIND_ALL_BY_USER_ID, this, userId);
+	}
+
+	public List<ParticipantRecord> findAllByCampId(int campId) {
+		return jdbcTemplate.query(FIND_ALL_BY_CAMP_ID, this, campId);
 	}
 
 	public List<ParticipantRecord> findAllByPersonId(int userId) {

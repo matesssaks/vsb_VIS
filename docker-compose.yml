@@ -37,4 +37,5 @@
                 - "3000:3000"
             volumes:
                 - "./.data/app/tomcat:/app/tomcat"
+                - "./.data/app/xml:/app/xml"
             restart: unless-stopped

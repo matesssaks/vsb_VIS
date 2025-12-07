@@ -60,9 +60,14 @@ public class PersonRepository implements RepositoryInterface<Person> {
 	public Person save(Person entity) {
 		if (entity.getDrugs() != null) {
 			// Get IDs of stored drugs
-			List<Integer> drugsToDelete = new ArrayList<>(
-				drugGateway.findAllByPersonId(entity.getId()).stream().map(DrugRecord::getId).toList()
-			);
+			List<Integer> drugsToDelete;
+			if (entity.getId() == null) {
+				drugsToDelete = new ArrayList<>();
+			} else {
+				drugsToDelete = new ArrayList<>(
+					drugGateway.findAllByPersonId(entity.getId()).stream().map(DrugRecord::getId).toList()
+				);
+			}
 
 			for (Drug drug : entity.getDrugs()) {
 				drugsToDelete.remove(drug.getId()); // Keep only Drugs that haven't been deleted from the Person

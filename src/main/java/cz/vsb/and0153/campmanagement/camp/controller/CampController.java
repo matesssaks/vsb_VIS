@@ -34,9 +34,6 @@ public class CampController extends AbstractController {
 
 	@GetMapping(path = "/camp/(\\d+)", permissions = "logged")
 	public void camp(HttpServletRequest req, HttpServletResponse resp, Matcher matcher) throws IOException {
-		WebContext context = getTemplateContext(req, resp);
-		context.setVariable("camp", campService.findById(Integer.parseInt(matcher.group(1))));
-
-		render("camp", context);
+		resp.sendRedirect("/camp/" + matcher.group(1) + "/tasks");
 	}
 }

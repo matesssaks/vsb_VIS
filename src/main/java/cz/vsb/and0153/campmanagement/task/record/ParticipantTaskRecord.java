@@ -6,6 +6,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ParticipantTaskRecord {
-	Integer participantId;
-	Integer taskId;
+	private Integer participantId;
+	private Integer taskId;
 }

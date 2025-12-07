@@ -41,7 +41,7 @@ public class PersonService {
 		if (person.getName() == null || person.getName().isBlank()) errors.add("Name is required.");
 		if (person.getTown() == null || person.getTown().isBlank()) errors.add("Town is required.");
 		if (person.getStreet() == null || person.getStreet().isBlank()) errors.add("Street is required.");
-		if (person.getPostalCode() == null) errors.add("Postal code is required.");
+		if (person.getPostalCode() == null || person.getPostalCode().isBlank()) errors.add("Postal code is required.");
 		if (person.getBornDate() == null) errors.add("Born data is required.");
 
 		if (!errors.isEmpty()) throw new ListException(errors);

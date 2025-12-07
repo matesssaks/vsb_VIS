@@ -8,11 +8,11 @@ import java.time.OffsetDateTime;
 @Data
 @NoArgsConstructor
 public class TaskRecord {
-	Integer id;
-	String shortDescription;
-	String description;
-	OffsetDateTime createdAt;
-	OffsetDateTime finishAt;
-	OffsetDateTime startDate;
-	OffsetDateTime dueDate;
+	private Integer id;
+	private String shortDescription;
+	private String description;
+	private OffsetDateTime createdAt;
+	private OffsetDateTime finishAt;
+	private OffsetDateTime startDate;
+	private OffsetDateTime dueDate;
 }

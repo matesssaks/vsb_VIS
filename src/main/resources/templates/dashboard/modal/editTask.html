@@ -1,0 +1,45 @@
+<div class="modal-dialog modal-dialog-centered modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title">Edit task</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<form th:onsubmit="|return postModal('@{${action}}', event, this);|" method="post">
+			<div class="modal-body d-flex flex-column align-items-center gap-4">
+				<div class="flex-grow-1 w-100 form-floating">
+					<input class="form-control" id="short" name="short" type="text" placeholder="Short description" th:value="${task.shortDescription}" autofocus required>
+					<label for="short">Short description</label>
+				</div>
+				<div class="flex-grow-1 w-100 form-floating">
+					<input class="form-control" id="description" name="description" type="text" placeholder="Description" th:value="${task.description}" required>
+					<label for="description">Description</label>
+				</div>
+				<div class="d-flex gap-3 w-100">
+					<div class="flex-grow-1 w-50 form-floating">
+						<input class="form-control" id="start" name="start" type="date" placeholder="Start date" th:value="${#temporals.format(task.startDate, 'yyyy-MM-dd')}" required>
+						<label for="start">Start date</label>
+					</div>
+					<div class="flex-grow-1 w-50 form-floating">
+						<input class="form-control" id="due" name="due" type="date" placeholder="Due date" th:value="${#temporals.format(task.dueDate, 'yyyy-MM-dd')}" required>
+						<label for="due">Due date</label>
+					</div>
+				</div>
+				<div class="form-floating w-100">
+					<select class="form-select" id="assignee" name="assignee" multiple required>
+						<option th:each="participant : ${participants}"
+								th:value="${participant.id}"
+								th:text="${participant.person.name}">
+						</option>
+					</select>
+					<label for="assignee">Assignee</label>
+				</div>
+				<div class="alert alert-danger m-0 w-100 text-center" th:if="${!errors.isEmpty()}">
+					<div th:each="error : ${errors}" th:text="${error}"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary px-3 py-2">Save</button>
+			</div>
+		</form>
+	</div>
+</div>

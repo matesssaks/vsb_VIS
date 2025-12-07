@@ -1,0 +1,179 @@
+@startuml
+card Datacenter {
+	node "pve-01" <<device>> {
+
+		node "vm-lb-01" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-lb-01-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-lb-01-docker-haproxy <<executionEnvironment>> {
+					node "haproxy-lb-01" <<container>> {
+					}
+				}
+			}
+		}
+
+		node "vm-proxy-01" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-proxy-01-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-app-01-docker-nginx <<executionEnvironment>> {
+					node "nginx-proxy-01" <<container>> {
+					}
+				}
+			}
+		}
+
+		node "vm-app-01" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-app-01-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-app-01-docker-campis <<executionEnvironment>> {
+					node "campis-app-01" <<container>> {
+						artifact "campis.jar" as "vm-app-01-docker-artefact-campis" {
+						}
+					}
+				}
+			}
+		}
+
+		node "vm-data-01" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-data-01-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-data-01-docker-pgsql <<executionEnvironment>> {
+					node "pgsql-01" <<container>> {
+						database "PostgreSQL 16" as vm-data-01-docker-pgsql-pgsql {
+						}
+					}
+					node "ceph-01" <<container>> {
+						storage CephFS as vm-data-01-docker-ceph-cephfs  {
+						}
+					}
+				}
+			}
+		}
+	}
+
+	node "pve-02" <<device>> {
+
+		node "vm-lb-02" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-lb-02-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-lb-02-docker-haproxy <<executionEnvironment>> {
+					node "haproxy-lb-02" <<container>> {
+					}
+				}
+			}
+		}
+
+		node "vm-proxy-02" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-proxy-02-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-app-02-docker-nginx <<executionEnvironment>> {
+					node "nginx-proxy-02" <<container>> {
+					}
+				}
+			}
+		}
+
+		node "vm-app-02" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-app-02-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-app-02-docker-campis <<executionEnvironment>> {
+					node "campis-app-02" <<container>> {
+						artifact "campis.jar" as "vm-app-02-docker-artefact-campis" {
+						}
+					}
+				}
+			}
+		}
+
+		node "vm-data-02" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-data-02-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-data-02-docker-pgsql <<executionEnvironment>> {
+					node "pgsql-02" <<container>> {
+						database "PostgreSQL 16" as vm-data-02-docker-pgsql-pgsql {
+						}
+					}
+					node "ceph-02" <<container>> {
+						storage CephFS as vm-data-02-docker-ceph-cephfs  {
+						}
+					}
+				}
+			}
+		}
+	}
+
+	node "pve-03" <<device>> {
+
+		node "vm-lb-03" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-lb-03-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-lb-03-docker-haproxy <<executionEnvironment>> {
+					node "haproxy-lb-03" <<container>> {
+					}
+				}
+			}
+		}
+
+		node "vm-proxy-03" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-proxy-03-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-app-03-docker-nginx <<executionEnvironment>> {
+					node "nginx-proxy-03" <<container>> {
+					}
+				}
+			}
+		}
+
+		node "vm-app-03" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-app-03-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-app-03-docker-campis <<executionEnvironment>> {
+					node "campis-app-03" <<container>> {
+						artifact "campis.jar" as "vm-app-03-docker-artefact-campis" {
+						}
+					}
+				}
+			}
+		}
+		node "vm-data-03" <<vm>> {
+			node "Ubuntu Server 24 LTS" as vm-data-03-os <<os>> {
+				node "Docker Engine (Swarm)" as vm-data-03-docker-pgsql <<executionEnvironment>> {
+					node "pgsql-03" <<container>> {
+						database "PostgreSQL 16" as vm-data-03-docker-pgsql-pgsql {
+						}
+					}
+					node "ceph-03" <<container>> {
+						storage CephFS as vm-data-03-docker-ceph-cephfs  {
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+cloud Azure {
+ component "Azure Communication Services - Email" {
+ }
+}
+
+' layout-global:
+
+' layout-connections:
+' "nginx-proxy-01" ---> "campis-app-01" : <<protocol>> \n HTTP: 8080
+' "nginx-proxy-01" ---> "campis-app-02" : <<protocol>> \n HTTP: 8080
+' "nginx-proxy-01" ---> "campis-app-03" : <<protocol>> \n HTTP: 8080
+
+' "nginx-proxy-02" ---> "campis-app-01" : <<protocol>> \n HTTP: 8080
+' "nginx-proxy-02" ---> "campis-app-02" : <<protocol>> \n HTTP: 8080
+' "nginx-proxy-02" ---> "campis-app-03" : <<protocol>> \n HTTP: 8080
+
+' "nginx-proxy-03" ---> "campis-app-01" : <<protocol>> \n HTTP: 8080
+' "nginx-proxy-03" ---> "campis-app-02" : <<protocol>> \n HTTP: 8080
+' "nginx-proxy-03" ---> "campis-app-03" : <<protocol>> \n HTTP: 8080
+
+' layout-ordering:
+"Azure" -[hidden]down- "Datacenter"
+
+"vm-lb-01" -[hidden]down- "vm-proxy-01"
+"vm-proxy-01" -[hidden]down- "vm-app-01"
+"vm-app-01" -[hidden]down- "vm-data-01"
+
+"vm-lb-02" -[hidden]down- "vm-proxy-02"
+"vm-proxy-02" -[hidden]down- "vm-app-02"
+"vm-app-02" -[hidden]down- "vm-data-02"
+
+"vm-lb-03" -[hidden]down- "vm-proxy-03"
+"vm-proxy-03" -[hidden]down- "vm-app-03"
+"vm-app-03" -[hidden]down- "vm-data-03"
+
+@enduml

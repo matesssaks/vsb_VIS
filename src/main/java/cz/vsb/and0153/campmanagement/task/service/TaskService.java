@@ -2,7 +2,6 @@ package cz.vsb.and0153.campmanagement.task.service;
 
 import cz.vsb.and0153.campmanagement.camp.dto.CampDTO;
 import cz.vsb.and0153.campmanagement.camp.mapper.CampMapper;
-import cz.vsb.and0153.campmanagement.person.dto.PersonDTO;
 import cz.vsb.and0153.campmanagement.server.exception.ListException;
 import cz.vsb.and0153.campmanagement.server.uow.UnitOfWorkException;
 import cz.vsb.and0153.campmanagement.task.dto.TaskDTO;

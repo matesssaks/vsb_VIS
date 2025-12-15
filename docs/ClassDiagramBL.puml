@@ -4,158 +4,196 @@ skinparam classAttributeIconSize 0
 package "BL" {
 	' DTOs
 	class UserDTO <<DTO>> {
-		-id: Long
-		-name: String
-		-email: String
-		-password: String
+		+id : Integer
+		+name : String
+		+email : String
+		+password : String
 	}
 	class PersonDTO <<DTO>> {
-		-id: Long
-		-userId: Long
-		-name: String
-		-email: String
-		-phone: String
-		-town: String
-		-street: String
-		-postalCode: Integer
-		-gender: String
-		-bornDate: Instant
+		+id : Integer
+		+user: UserDTO
+		+personalNumber : String
+		+name : String
+		+town : String
+		+street : String
+		+postalCode : String
+		+bornDate : OffsetDateTime
+		+drugs : List<DrugDTO>
 	}
 	class ParticipantDTO <<DTO>> {
-		-id: Long
-		-campId: Long
-		-personId
-		-roleId
+		+id : Integer
+		+camp : CampDTO
+		+person: PersonDTO
+		+role : RoleDTO
 	}
 	class CampDTO <<DTO>> {
-		-id: Long
-		-name: String
-		-description: String
-		-imgUrl: String
-		-startDate: Instant
-		-endDate: Instant
-		-price: Long
-		-capacity: Long
-		-registered: Long
+		+id : Integer
+		+name : String
+		+description : String
+		+imgUrl : String
+		+startDate : OffsetDateTime
+		+endDate : OffsetDateTime
+		+price : Integer
+		+capacity : Integer
 	}
 	class TaskDTO <<DTO>> {
-		-id: Long
-		-shortDescription: String
-		-description: String
-		-createdAt: Instant
-		-startDate: Instant
-		-finishedAt: Instant
-		-dueDate: Instant
+		+id : Integer
+		+shortDescription : String
+		+description : String
+		+createdAt : OffsetDateTime
+		+finishAt : OffsetDateTime
+		+startDate : OffsetDateTime
+		+dueDate : OffsetDateTime
+		+participants : List<ParticipantDTO>
 	}
 
 	' Controllers
-	class UserController <<Controller>> {
+	class LoginController <<Controller>> {
+		-renderPage(...)
+		+loginPage(...)
+		+signupPage(...)
+		+login(...)
+		+signup(...)
+		+logout(...)
 	}
-	UserController .down.> UserDTO
+	LoginController .down.> UserDTO
 
 	class PersonController <<Controller>> {
+		-renderEditModal(...)
+		+persons(...)
+		+newPersonModal(...)
+		+editPersonModal(...)
+		+deletePersonModal(...)
+		+newPerson(...)
+		+editPerson(...)
+		+deletePerson(...)
 	}
 	PersonController .down.> PersonDTO
 
 	class ParticipantController <<Controller>> {
+		-renderRegisterModal(...)
+		+registrations(...)
+		+editPersonModal(...)
+		+editPerson(...)
 	}
 	ParticipantController .down.> ParticipantDTO
+	ParticipantController .down.> PersonDTO
+	ParticipantController .down.> CampDTO
 
 	class CampController <<Controller>> {
+		+camps(...)
+		+camp(...)
 	}
 	CampController .down.> CampDTO
 
 	class TaskController <<Controller>> {
+		-renderEditModal(...)
+		+tasks(...)
+		+medic(...)
+		+generateDrugPlan(...)
+		+newTaskModal(...)
+		+editTaskModal(...)
+		+newTask(...)
+		+editTask(...)
 	}
 	TaskController .down.> TaskDTO
+	TaskController .down.> CampDTO
+	TaskController .down.> ParticipantDTO
+
+	TaskController -down-> CampService
+	TaskController -down-> ParticipantService
 
 	' Entities
 	class User <<Entity>> {
-		-id: Long
-		-name: String
-		-email: String
-		-password: String
+		+id : Integer
+		+name : String
+		+email : String
+		+password : String
 	}
-	class Person<<Entity>> {
-		-id: Long
-		-userId: Long
-		-name: String
-		-email: String
-		-phone: String
-		-town: String
-		-street: String
-		-postalCode: Integer
-		-gender: String
-		-bornDate: Instant
+	class Person <<Entity>> {
+		+id : Integer
+		+user: User
+		+personalNumber : String
+		+name : String
+		+town : String
+		+street : String
+		+postalCode : String
+		+bornDate : OffsetDateTime
+		+drugs : List<Drug>
 	}
-	class Participant<<Entity>> {
-		-id: Long
-		-campId: Long
-		-personId
-		-roleId
+	class Participant <<Entity>> {
+		+id : Integer
+		+camp : Camp
+		+person: Person
+		+role : Role
 	}
-	class Camp<<Entity>> {
-		-id: Long
-		-name: String
-		-description: String
-		-imgUrl: String
-		-startDate: Instant
-		-endDate: Instant
-		-price: Long
-		-capacity: Long
-		-registered: Long
+	class Camp <<Entity>> {
+		+id : Integer
+		+name : String
+		+description : String
+		+imgUrl : String
+		+startDate : OffsetDateTime
+		+endDate : OffsetDateTime
+		+price : Integer
+		+capacity : Integer
+		+registered : Integer
 	}
-	class Task<<Entity>> {
-		-id: Long
-		-shortDescription: String
-		-description: String
-		-createdAt: Instant
-		-startDate: Instant
-		-finishedAt: Instant
-		-dueDate: Instant
+	class Task <<Entity>> {
+		+id : Integer
+		+shortDescription : String
+		+description : String
+		+createdAt : OffsetDateTime
+		+finishAt : OffsetDateTime
+		+startDate : OffsetDateTime
+		+dueDate : OffsetDateTime
+		+participants : List<Participant>
 	}
 
 	' Services
-	class UserService <<Service>> {
-		+findById(Long): User
-		+delete(Long)
-		+save(User): User
+	class LoginService <<Service>> {
+		+register(...) : UserDTO
+		+login(String, String) : UserDTO
 	}
-	UserService .down.> User
-	UserService .up.> UserDTO
-	UserController -down-> UserService
+	LoginService .down.> User
+	LoginService .up.> UserDTO
+	LoginController -down-> LoginService
 
 	class PersonService <<Service>> {
-		+findById(Long): Person
-		+delete(Long)
-		+save(Person): Person
+		+findAllByUser(UserDTO) : List<PersonDTO>
+		+findById(int) : PersonDTO
+		+findPersonalNumber(String) : PersonDTO
+		+save(PersonDTO, UserDTO) : PersonDTO
+		+delete(int)
 	}
 	PersonService .down.> Person
 	PersonService .up.> PersonDTO
 	PersonController -down-> PersonService
+	ParticipantController -down-> PersonService
 
 	class ParticipantService <<Service>> {
-		+findById(Long): Participant
-		+delete(Long)
-		+save(Participant): Participant
+		+findById(int) : ParticipantDTO
+		+findAllByUser(UserDTO) : List<ParticipantDTO>
+		+findAllByCamp(CampDTO) : List<ParticipantDTO>
+		+register(PersonDTO, CampDTO) : ParticipantDTO
 	}
 	ParticipantService .down.> Participant
 	ParticipantService .up.> ParticipantDTO
 	ParticipantController -down-> ParticipantService
 
 	class CampService <<Service>> {
-		+findById(Long): Camp
-		+delete(Long)
-		+save(Camp): Camp
+		+findAll() : List<CampDTO>
+		+findById(int) : CampDTO
 	}
 	CampService .down.> Camp
 	CampService .up.> CampDTO
 	CampController -down-> CampService
+	ParticipantController -down-> CampService
 
 	class TaskService <<Service>> {
-		+findById(Long): Task
-		+delete(Long)
-		+save(Task): Task
+		+findById(int) : TaskDTO
+		+findAllTasksByCamp(CampDTO) : List<TaskDTO>
+		+generateDrugPlan(CampDTO) : List<TaskDTO>
+		+save(TaskDTO) : TaskDTO
 	}
 	TaskService .down.> Task
 	TaskService .up.> TaskDTO
@@ -163,50 +201,73 @@ package "BL" {
 
 	' Repositories
 	class UserRepository <<Repository>> {
-		+findById(Long): User
-		+delete(Long)
-		+save(User): User
+		+findByEmail(String email) : User
+		+findAll() : List<User>
+		+findById(int) : User
+		+save(User) : User
+		+delete(int id)
+		+commit()
+		+rollback()
 	}
 	UserRepository .up.> User
-	UserService -down-> UserRepository
+	LoginService -down-> UserRepository
 
 	class PersonRepository <<Repository>> {
-		+findById(Long): Person
-		+delete(Long)
-		+save(Person): Person
+		+findAll() : List<Person>
+		+findById(int) : Person
+		+findByPersonalNumber(String) : Person
+		+findAllByUser(User) : List<Person>
+		+save(Person entity) : Person
+		+delete(int)
+		+commit()
+		+rollback()
 	}
 	PersonRepository .up.> Person
 	PersonService -down-> PersonRepository
 
 	class ParticipantRepository <<Repository>> {
-		+findById(Long): Participant
-		+delete(Long)
-		+save(Participant): Participant
+		+findAllByUser(User) : List<Participant>
+		+findAllByCamp(Camp) : List<Participant>
+		+findAllByPerson(Person) : List<Participant>
+		+findById(int) : Participant
+		+getDefaultRole() : Role
+		+save(Participant) : Participant
+		+delete(int)
+		+commit()
+		+rollback()
 	}
 	ParticipantRepository .up.> Participant
 	ParticipantService -down-> ParticipantRepository
 
 	class CampRepository <<Repository>> {
-		+findById(Long): Camp
-		+delete(Long)
-		+save(Camp): Camp
+		+findAll() : List<Camp>
+		+findById(int) : Camp
+		+save(Camp) : Camp
+		+delete(int)
+		+commit()
+		+rollback()
 	}
 	CampRepository .up.> Camp
 	CampService -down-> CampRepository
 
 	class TaskRepository <<Repository>> {
-		+findById(Long): Task
-		+delete(Long)
-		+save(Task): Task
+		+findAll() : List<Task>
+		+findAllByCampId(Camp) : List<Task>
+		+findById(int) : Task
+		+save(Task entity) : Task
+		+delete(int id)
+		+commit()
+		+rollback()
 	}
 	TaskRepository .up.> Task
 	TaskService -down-> TaskRepository
 
 	' UoW
 	class UnitOfWork <<UoW>> {
-		+registerCreate(...)
-		+registerUpdate(...)
-		+registerDelete(...)
+		+findAll(Mapper, Gateway) : List<Entity>
+		+findById(Class, int, Mapper, Gateway) : Entity
+		+save(Entity, Mapper, Gateway) : Entity
+		+delete(Class, int, Gateway)
 		+commit()
 		+rollback()
 	}
@@ -218,16 +279,10 @@ package "BL" {
 
 	' IdentityMap
 	class IdentityMap <<IdentityMap>> {
+		+get(Class, int) : Entity
+		+merge(Entity, Mapper) : Entity
+		+delete(Class, int)
 	}
 	UnitOfWork -right-> IdentityMap
-}
-
-package "DAL" {
-	interface "Mapper<T>" <<DataMapper>> {
-		+findById(Long): T
-		+delete(Long)
-		+save(T)
-	}
-	UnitOfWork "1" o-down-- "0..*" "Mapper<T>"
 }
 @enduml

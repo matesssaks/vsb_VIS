@@ -4,7 +4,6 @@ import cz.vsb.and0153.campmanagement.camp.entity.Camp;
 import cz.vsb.and0153.campmanagement.participant.entity.Participant;
 import cz.vsb.and0153.campmanagement.participant.gateway.ParticipantGateway;
 import cz.vsb.and0153.campmanagement.participant.record.ParticipantRecord;
-import cz.vsb.and0153.campmanagement.participant.repository.ParticipantRepository;
 import cz.vsb.and0153.campmanagement.person.entity.Drug;
 import cz.vsb.and0153.campmanagement.person.entity.Person;
 import cz.vsb.and0153.campmanagement.person.gateway.DrugGateway;

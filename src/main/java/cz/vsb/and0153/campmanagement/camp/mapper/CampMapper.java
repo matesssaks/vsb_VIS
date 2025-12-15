@@ -18,6 +18,5 @@ public interface CampMapper extends EntityMapper<CampRecord, Camp> {
 	Camp toEntity(CampRecord campRecord);
 
 	CampDTO toDTO(Camp camp);
-	@Mapping(target = "registered", ignore = true)
 	Camp toEntity(CampDTO campDTO);
 }

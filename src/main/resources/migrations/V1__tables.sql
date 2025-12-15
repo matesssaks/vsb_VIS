@@ -52,18 +52,6 @@ CREATE TABLE participant (
 	UNIQUE ("camp_id", "person_id")
 );
 
-/*
-CREATE TABLE task (
-	task_id serial PRIMARY KEY,
-	short_description varchar(20) NOT NULL,
-	description varchar(255),
-	created_at timestampz NOT NULL DEFAULT (getdate()),
-	start_date timestamptz,
-	finished_at timestamptz,
-	due_date timestampz
-);
- */
-
 CREATE TABLE participant_task (
 	participant_id int NOT NULL REFERENCES participant (participant_id),
 	task_id int NOT NULL,

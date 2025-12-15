@@ -80,10 +80,10 @@ public class ParticipantController extends AbstractController {
 	}
 
 	@PostMapping(path = "/persons/register", permissions = "logged")
-	public void newPerson(HttpServletRequest request, HttpServletResponse response) throws IOException, UnitOfWorkException {
+	public void editPerson(HttpServletRequest request, HttpServletResponse response) throws IOException, UnitOfWorkException {
 		try {
 			// Find existing person or create new one
-			PersonDTO person = personService.findPersonalNumber(request.getParameter("personalNumber"));
+			PersonDTO person = personService.findByPersonalNumber(request.getParameter("personalNumber"));
 			if (person == null) person = new PersonDTO();
 
 			// Update person data

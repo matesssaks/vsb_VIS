@@ -1,0 +1,168 @@
+@startuml
+hide footbox
+
+actor "Uživatel" as Actor
+participant "TaskController" as Controller
+participant "CampService" as CampService
+participant "ParticipantService" as ParticipantService
+participant "TaskService" as TaskService
+participant "CampRepository" as CampRepository
+participant "ParticipantRepository" as ParticipantRepository
+participant "TaskRepository" as TaskRepository
+participant "CampMapper" as CampMapper
+participant "ParticipantMapper" as ParticipantMapper
+participant "TaskMapper" as TaskMapper
+participant "UnitOfWork" as UoW
+participant "IdentityMap" as Map
+participant "CampGateway" as CampGateway
+participant "ParticipantGateway" as ParticipantGateway
+participant "TaskGateway" as TaskGateway
+participant "ParticipantTaskGateway" as ParticipantTaskGateway
+
+Actor -> Controller : Nový úkol (název, popis, termín, řešitelé)
+activate Actor
+activate Controller
+Controller -> CampService : findById(id)
+activate CampService
+CampService -> CampRepository : findById(id)
+activate CampRepository
+CampRepository -> UoW : findById(class, id, mapper, gateway)
+activate UoW
+UoW -> Map : get(class, id)
+activate Map
+Map --> UoW : [Camp]
+deactivate Map
+alt Nenalezen v IdentityMap
+	UoW -> CampGateway : findById(id)
+	activate CampGateway
+	CampGateway --> UoW : [CampRecord]
+	deactivate CampGateway
+	UoW -> CampMapper : toEntity(record)
+	activate CampMapper
+	CampMapper --> UoW : [Camp]
+	deactivate CampMapper
+	UoW -> Map : merge(entity, mapper)
+	activate Map
+	Map --> UoW : [Camp]
+	deactivate Map
+end
+	UoW --> CampRepository : [Camp]
+deactivate UoW
+CampRepository --> CampService : [Camp]
+deactivate CampRepository
+CampService -> CampMapper : toDTO(entity)
+activate CampMapper
+CampMapper --> CampService : [CampDTO]
+deactivate CampMapper
+CampService --> Controller : [CampDTO]
+deactivate CampService
+loop Pro každého řešitele
+	Controller -> ParticipantService : findById(id)
+	activate ParticipantService
+	ParticipantService -> ParticipantRepository : findById(id)
+	activate ParticipantRepository
+	ParticipantRepository-> UoW : findById(class, id, mapper, gateway)
+	activate UoW
+	UoW -> Map : get(class, id)
+	activate Map
+	Map --> UoW : [Participant]
+	deactivate Map
+	alt Nenalezen v IdentityMap
+		UoW -> ParticipantGateway : findById(id)
+		activate ParticipantGateway
+		ParticipantGateway --> UoW : [ParticipantRecord]
+		deactivate ParticipantGateway
+		UoW -> ParticipantMapper : toEntity(record)
+		activate ParticipantMapper
+		ParticipantMapper --> UoW : [Participant]
+		deactivate ParticipantMapper
+		UoW -> Map : merge(entity, mapper)
+		activate Map
+		Map --> UoW : [Participant]
+		deactivate Map
+	end
+		UoW --> ParticipantRepository : [Participant]
+	deactivate UoW
+	ParticipantRepository --> ParticipantService : [Participant]
+	deactivate ParticipantRepository
+	ParticipantService -> ParticipantMapper : toDTO(entity)
+	activate ParticipantMapper
+	ParticipantMapper --> ParticipantService : [ParticipantDTO]
+	deactivate ParticipantMapper
+	ParticipantService --> Controller : [ParticipantDTO]
+	deactivate ParticipantService
+end
+Controller -> TaskService : save(dto)
+activate TaskService
+alt Chybná data nebo se úkoly překrývají
+	TaskService --> Controller : [Errors]
+	Controller --> Actor : Ukázat formulář s chybami
+else
+	TaskService -> TaskMapper : toEntity(dto)
+	activate TaskMapper
+	TaskMapper --> TaskService : [Task]
+	deactivate TaskMapper
+	TaskService -> TaskRepository : save(entity)
+	activate TaskRepository
+	TaskRepository -> TaskMapper : toRecord(entity)
+	activate TaskMapper
+	TaskMapper --> TaskRepository : [TaskRecord]
+	deactivate TaskMapper
+	TaskRepository -> TaskGateway : save(record)
+	activate TaskGateway
+	TaskGateway --> TaskRepository
+	deactivate TaskGateway
+	TaskRepository -> ParticipantTaskGateway : findAllByTaskId(id)
+	activate ParticipantTaskGateway
+	ParticipantTaskGateway --> TaskRepository : List<ParticipantTaskRecord>
+	deactivate ParticipantTaskGateway
+	loop Nové Task-Participant spojení
+		TaskRepository -> ParticipantTaskGateway : save(record)
+		activate ParticipantTaskGateway
+		ParticipantTaskGateway --> TaskRepository
+		deactivate ParticipantTaskGateway
+	end
+	loop Staré neplatné Task-Participant spojení
+		TaskRepository -> ParticipantTaskGateway : deleteByTaskIdAndParticipantId(taskId, participantId)
+		activate ParticipantTaskGateway
+		ParticipantTaskGateway --> TaskRepository
+		deactivate ParticipantTaskGateway
+	end
+	TaskRepository -> TaskMapper : toEntity(record)
+	activate TaskMapper
+	TaskMapper --> TaskRepository : [Task]
+	deactivate TaskMapper
+	TaskRepository -> Map : merge(entity, mapper)
+	activate Map
+	alt Nalezen starý záznam v IdentityMap
+		Map -> TaskMapper : merge(into, from)
+		activate TaskMapper
+		TaskMapper --> Map : [Task]
+		deactivate TaskMapper
+	else
+		Map -> Map : put(entity)
+	end
+	Map --> TaskRepository : [Task]
+	deactivate Map
+	TaskRepository --> TaskService : [Task]
+	deactivate TaskRepository
+	TaskService -> TaskMapper : toDTO(entity)
+	activate TaskMapper
+	TaskMapper --> TaskService : TaskDTO
+	deactivate TaskMapper
+	TaskService -> TaskRepository : commit()
+	activate TaskRepository
+	TaskRepository -> UoW : commit()
+	activate UoW
+	UoW --> TaskRepository
+	deactivate UoW
+	TaskRepository --> TaskService
+	deactivate TaskRepository
+	TaskService --> Controller
+	deactivate TaskService
+	Controller --> Actor : Přesměrovat na stránku uživatelů
+	deactivate Controller
+	deactivate Actor
+end
+
+@enduml

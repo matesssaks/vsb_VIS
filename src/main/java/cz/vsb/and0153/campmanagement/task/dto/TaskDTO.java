@@ -1,14 +1,14 @@
 package cz.vsb.and0153.campmanagement.task.dto;
 
 import cz.vsb.and0153.campmanagement.participant.dto.ParticipantDTO;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
+@Builder
 public class TaskDTO {
 	private Integer id;
 	private String shortDescription;

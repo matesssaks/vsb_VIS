@@ -91,7 +91,7 @@ public class TaskController extends AbstractController {
 		context.setVariable("errors", errors);
 		if (task == null) {
 			context.setVariable("action", "/camp/" + camp.getId() + "/task/new");
-			context.setVariable("task", new TaskDTO());
+			context.setVariable("task", TaskDTO.builder().build());
 		} else {
 			context.setVariable("action", "/camp/" + camp.getId() + "/task/edit/" + task.getId());
 			context.setVariable("task", task);
@@ -101,14 +101,14 @@ public class TaskController extends AbstractController {
 	}
 
 	@GetMapping(path = "/camp/(\\d+)/task/new", permissions = "logged")
-	public void newPersonModal(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException {
+	public void newTaskModal(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException {
 		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
 
 		renderEditModal(request, response, Collections.emptyList(), null, camp);
 	}
 
 	@GetMapping(path = "/camp/(\\d+)/task/edit/(\\d+)", permissions = "logged")
-	public void editPersonModal(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException {
+	public void editTaskModal(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException {
 		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
 
 		renderEditModal(
@@ -120,23 +120,23 @@ public class TaskController extends AbstractController {
 	}
 
 	@PostMapping(path = "/camp/(\\d+)/task/new", permissions = "logged")
-	public void newPerson(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException, UnitOfWorkException {
+	public void newTask(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException, UnitOfWorkException {
 		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
 
 		try {
-			TaskDTO task = new TaskDTO();
-			task.setShortDescription(request.getParameter("short"));
-			task.setDescription(request.getParameter("description"));
-			task.setStartDate(LocalDate.parse(request.getParameter("start")).atStartOfDay().atOffset(ZoneOffset.UTC));
-			task.setDueDate(LocalDate.parse(request.getParameter("due")).atStartOfDay().atOffset(ZoneOffset.UTC));
-			task.setCreatedAt(OffsetDateTime.now());
+			TaskDTO.TaskDTOBuilder builder = TaskDTO.builder()
+				.shortDescription(request.getParameter("short"))
+				.description(request.getParameter("description"))
+				.startDate(LocalDate.parse(request.getParameter("start")).atStartOfDay().atOffset(ZoneOffset.UTC))
+				.dueDate(LocalDate.parse(request.getParameter("due")).atStartOfDay().atOffset(ZoneOffset.UTC))
+				.createdAt(OffsetDateTime.now());
 
 			List<ParticipantDTO> participants = Arrays.stream(request.getParameterValues("assignee"))
 				.map(val -> participantService.findById(Integer.parseInt(val))).toList();
 
-			task.setParticipants(participants);
+			builder.participants(participants);
 
-			taskService.save(task);
+			taskService.save(builder.build());
 		} catch (ListException e) {
 			renderEditModal(request, response, e.getErrors(), null, camp);
 		}
@@ -145,13 +145,13 @@ public class TaskController extends AbstractController {
 	}
 
 	@PostMapping(path = "/camp/(\\d+)/task/edit/(\\d+)", permissions = "logged")
-	public void editPerson(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException, UnitOfWorkException {
+	public void editTask(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException, UnitOfWorkException {
 		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
 
 		int id = Integer.parseInt(matcher.group(2));
 
 		try {
-			TaskDTO task = new TaskDTO();
+			TaskDTO task = TaskDTO.builder().build();
 			task.setId(id);
 			task.setShortDescription(request.getParameter("short"));
 			task.setDescription(request.getParameter("description"));

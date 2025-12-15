@@ -1,0 +1,271 @@
+@startuml
+hide footbox
+
+actor "Uživatel" as Actor
+participant "ParticipantController" as Controller
+participant "ParticipantService" as ParticipantService
+participant "PersonService" as PersonService
+participant "CampService" as CampService
+participant "ParticipantRepository" as ParticipantRepository
+participant "PersonRepository" as PersonRepository
+participant "CampRepository" as CampRepository
+participant "ParticipantMapper" as ParticipantMapper
+participant "PersonMapper" as PersonMapper
+participant "CampMapper" as CampMapper
+participant "DrugMapper" as DrugMapper
+participant "RoleMapper" as RoleMapper
+participant "UnitOfWork" as UoW
+participant "IdentityMap" as Map
+participant "ParticipantGateway" as ParticipantGateway
+participant "PersonGateway" as PersonGateway
+participant "CampGateway" as CampGateway
+participant "DrugGateway" as DrugGateway
+participant "RoleGateway" as RoleGateway
+
+Actor -> Controller : Nový registrace (jméno, RČ, .., tábor)
+activate Actor
+activate Controller
+Controller -> PersonService : findByPersonalNumber(number)
+activate PersonService
+PersonService -> PersonRepository : findByPersonalNumber(number)
+activate PersonRepository
+PersonRepository -> PersonGateway : findByPersonalNumber(number)
+activate PersonGateway
+PersonGateway --> PersonRepository : [PersonRecord]
+deactivate PersonGateway
+PersonRepository -> PersonMapper : toEntity(record, mapper)
+activate PersonMapper
+PersonMapper --> PersonRepository : [Person]
+deactivate PersonMapper
+PersonRepository -> Map : merge(entity, mapper)
+activate Map
+alt Nalezen starý záznam v IdentityMap
+	Map -> PersonMapper : merge(into, from)
+	activate PersonMapper
+	PersonMapper --> Map : [Person]
+	deactivate PersonMapper
+else
+	Map -> Map : put(entity)
+end
+Map --> PersonRepository : [Person]
+deactivate Map
+PersonRepository --> PersonService : [Person]
+deactivate PersonRepository
+PersonService -> PersonMapper : toDTO(entity)
+activate PersonMapper
+PersonMapper --> PersonService : [PersonDTO]
+deactivate PersonMapper
+PersonService --> Controller : [PersonDTO]
+deactivate PersonService
+Controller -> PersonService : save(personDto)
+activate PersonService
+alt Chybná data osoby nalezena
+	PersonService --> Controller : [Errors]
+	Controller --> Actor : Ukázat formulář s chybami
+else
+	PersonService -> PersonMapper : toEntity(dto)
+	activate PersonMapper
+	PersonMapper --> PersonService : [Person]
+	deactivate PersonMapper
+	PersonService -> PersonRepository : save(entity)
+	activate PersonRepository
+	PersonRepository -> DrugGateway : findAllByPersonId(id)
+	activate DrugGateway
+	DrugGateway --> PersonRepository : List<DrugRecord>
+	deactivate DrugGateway
+	loop Nové Drug prvky
+		PersonRepository -> UoW : save(drugEntity, drugMapper, drugGateway)
+		activate UoW
+		UoW -> Map : merge(entity, mapper)
+		activate Map
+		alt Nalezen starý záznam v IdentityMap
+			Map -> DrugMapper : merge(into, from)
+			activate DrugMapper
+			DrugMapper --> Map : [Drug]
+			deactivate DrugMapper
+		else
+			Map -> Map : put(entity)
+		end
+		Map --> UoW : [Drug]
+		deactivate Map
+		UoW -> UoW : register(action)
+		UoW --> PersonRepository
+		deactivate UoW
+	end
+	loop Staré neplatné Drug prvky
+		PersonRepository -> UoW : delete(drugClass, drugId, drugGateway)
+		activate UoW
+		UoW -> Map : delete(class, id)
+		activate Map
+		Map --> UoW
+		deactivate Map
+		UoW -> UoW : register(action)
+		UoW --> PersonRepository
+		deactivate UoW
+	end
+	PersonRepository -> UoW : save(personEntity, personMapper, personGateway)
+	activate UoW
+	UoW -> Map : merge(entity, mapper)
+	activate Map
+	alt Nalezen starý záznam v IdentityMap
+		Map -> PersonMapper : merge(into, from)
+		activate PersonMapper
+		PersonMapper --> Map : [Person]
+		deactivate PersonMapper
+	else
+		Map -> Map : put(entity)
+	end
+	Map --> UoW : [Person]
+	deactivate Map
+	UoW -> UoW : register(action)
+	UoW --> PersonRepository
+	deactivate UoW
+	PersonRepository --> PersonService
+	deactivate PersonRepository
+	PersonService -> PersonRepository : commit()
+	activate PersonRepository
+	PersonRepository -> UoW : commit()
+	activate UoW
+	UoW --> PersonRepository
+	deactivate UoW
+	PersonRepository --> PersonService
+	deactivate PersonRepository
+	PersonService --> Controller
+	deactivate PersonService
+	Controller -> CampService : findById(campId)
+	activate CampService
+	CampService -> CampRepository : findById(id)
+	activate CampRepository
+	CampRepository -> UoW : findById(class, id, mapper, gateway)
+	activate UoW
+	UoW -> Map : get(class, id)
+	activate Map
+	Map --> UoW : [Camp]
+	deactivate Map
+	alt Nenalezen v IdentityMap
+		UoW -> CampGateway : findById(id)
+		activate CampGateway
+		CampGateway --> UoW : [CampRecord]
+		deactivate CampGateway
+		UoW -> CampMapper : toEntity(record)
+		activate CampMapper
+		CampMapper --> UoW : [Camp]
+		deactivate CampMapper
+		UoW -> Map : merge(entity, mapper)
+		activate Map
+		Map --> UoW : [Camp]
+		deactivate Map
+	end
+	UoW --> CampRepository : [Camp]
+	deactivate UoW
+	CampRepository --> CampService : [Camp]
+	deactivate CampRepository
+	CampService -> CampMapper : toDTO(entity)
+	activate CampMapper
+	CampMapper --> CampService : [CampDTO]
+	deactivate CampMapper
+	CampService --> Controller : [CampDTO]
+	deactivate CampService
+	Controller -> ParticipantService : register(personDto, campDto)
+	activate ParticipantService
+	alt Tábor je plný nebo osoba nesplňuje požadavky
+		ParticipantService --> Controller : [Errors]
+		Controller --> Actor : Ukázat formulář s chybami
+	else
+		ParticipantService -> ParticipantRepository : getDefaultRole()
+		activate ParticipantRepository
+		ParticipantRepository -> UoW : findById(class, id, mapper, gateway)
+		activate UoW
+		UoW -> Map : get(class, id)
+		activate Map
+		Map --> UoW : [Role]
+		deactivate Map
+		alt Nenalezen v IdentityMap
+			UoW -> RoleGateway : findById(id)
+			activate RoleGateway
+			RoleGateway --> UoW : [RoleRecord]
+			deactivate RoleGateway
+			UoW -> RoleMapper : toEntity(record)
+			activate RoleMapper
+			RoleMapper --> UoW : [Role]
+			deactivate RoleMapper
+			UoW -> Map : merge(entity, mapper)
+			activate Map
+			Map --> UoW : [Role]
+			deactivate Map
+		end
+		UoW --> ParticipantRepository : [Role]
+		deactivate UoW
+		ParticipantRepository --> ParticipantService : [Role]
+		deactivate ParticipantRepository
+		ParticipantService -> RoleMapper : toDTO(roleEntity)
+		activate RoleMapper
+		RoleMapper --> ParticipantService : RoleDTO
+		deactivate RoleMapper
+		ParticipantService -> ParticipantMapper : toEntity(participantDTO)
+		activate ParticipantMapper
+		ParticipantMapper --> ParticipantService : [Participant]
+		deactivate ParticipantMapper
+		ParticipantService --> ParticipantRepository : save(participant)
+		activate ParticipantRepository
+		ParticipantRepository -> UoW : save(entity, mapper, gateway)
+		activate UoW
+		UoW -> Map : merge(entity, mapper)
+		activate Map
+		alt Nalezen starý záznam v IdentityMap
+			Map -> ParticipantMapper : merge(into, from)
+			activate ParticipantMapper
+			ParticipantMapper --> Map : [Participant]
+			deactivate ParticipantMapper
+		else
+			Map -> Map : put(entity)
+		end
+		Map --> UoW : [Participant]
+		deactivate Map
+		UoW -> UoW : register(action)
+		UoW --> ParticipantRepository
+		deactivate UoW
+		ParticipantRepository --> ParticipantService
+		deactivate ParticipantRepository
+		ParticipantService -> CampMapper : toEntity(campDto)
+		activate CampMapper
+		CampMapper --> ParticipantService : Camp
+		deactivate CampMapper
+		ParticipantService -> ParticipantService : Camp.registered += 1
+		ParticipantService -> CampRepository : save(campEntity)
+		activate CampRepository
+		CampRepository -> UoW : save(entity, mapper, gateway)
+		activate UoW
+		UoW -> Map : merge(entity, mapper)
+		activate Map
+		alt Nalezen starý záznam v IdentityMap
+			Map -> CampMapper : merge(into, from)
+			activate CampMapper
+			CampMapper --> Map : [Camp]
+			deactivate CampMapper
+		else
+			Map -> Map : put(entity)
+		end
+		Map --> UoW : [Camp]
+		deactivate Map
+		UoW -> UoW : register(action)
+		UoW --> CampRepository
+		deactivate UoW
+		CampRepository --> ParticipantService
+		deactivate CampRepository
+		ParticipantService -> ParticipantRepository : commit()
+		activate ParticipantRepository
+		ParticipantRepository -> UoW : commit()
+		activate UoW
+		UoW --> ParticipantRepository
+		deactivate UoW
+		ParticipantRepository --> ParticipantService
+		deactivate ParticipantRepository
+		ParticipantService --> Controller
+		deactivate ParticipantService
+		Controller --> Actor : Přesměrovat na stránku registrací
+		deactivate Controller
+		deactivate Actor
+	end
+end
+@enduml

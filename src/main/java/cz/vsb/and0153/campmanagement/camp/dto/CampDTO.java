@@ -15,4 +15,5 @@ public class CampDTO {
 	private OffsetDateTime endDate;
 	private Integer price;
 	private Integer capacity;
+	private Integer registered;
 }

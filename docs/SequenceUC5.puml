@@ -1,0 +1,134 @@
+@startuml
+hide footbox
+
+actor "Uživatel" as Actor
+participant "TaskController" as Controller
+participant "CampService" as CampService
+participant "TaskService" as TaskService
+participant "CampRepository" as CampRepository
+participant "ParticipantRepository" as ParticipantRepository
+participant "TaskRepository" as TaskRepository
+participant "CampMapper" as CampMapper
+participant "TaskMapper" as TaskMapper
+participant "ParticipantMapper" as ParticipantMapper
+participant "UnitOfWork" as UoW
+participant "IdentityMap" as Map
+participant "CampGateway" as CampGateway
+participant "TaskGateway" as TaskGateway
+participant "ParticipantGateway" as ParticipantGateway
+
+Actor -> Controller : Generace plánů léků pro daný tábor
+activate Actor
+activate Controller
+Controller -> CampService : findById(id)
+activate CampService
+CampService -> CampRepository : findById(id)
+activate CampRepository
+CampRepository -> UoW : findById(class, id, mapper, gateway)
+activate UoW
+UoW -> Map : get(class, id)
+activate Map
+Map --> UoW : [Camp]
+deactivate Map
+alt Nenalezen v IdentityMap
+	UoW -> CampGateway : findById(id)
+	activate CampGateway
+	CampGateway --> UoW : [CampRecord]
+	deactivate CampGateway
+	UoW -> CampMapper : toEntity(record)
+	activate CampMapper
+	CampMapper --> UoW : [Camp]
+	deactivate CampMapper
+	UoW -> Map : merge(entity, mapper)
+	activate Map
+	Map --> UoW : [Camp]
+	deactivate Map
+end
+	UoW --> CampRepository : [Camp]
+deactivate UoW
+CampRepository --> CampService : [Camp]
+deactivate CampRepository
+CampService -> CampMapper : toDTO(entity)
+activate CampMapper
+CampMapper --> CampService : [CampDTO]
+deactivate CampMapper
+CampService --> Controller : [CampDTO]
+deactivate CampService
+Controller -> TaskService : generateDrugPlan(campDto)
+activate TaskService
+TaskService -> CampMapper : toEntity(campDto)
+activate CampMapper
+CampMapper -> TaskService : [Camp]
+deactivate CampMapper
+TaskService -> TaskRepository : findAllByCamp(campEntity)
+activate TaskRepository
+TaskRepository -> TaskRepository : findAll()
+activate TaskRepository
+TaskRepository -> UoW : findAll(mapper, gateway)
+activate UoW
+UoW -> TaskGateway : findAll()
+activate TaskGateway
+TaskGateway --> UoW : [List<TaskRecord>]
+deactivate TaskGateway
+loop Pro každý TaskRecord
+	UoW -> TaskMapper : toEntity(record)
+	activate TaskMapper
+	TaskMapper --> UoW : [Task]
+	deactivate TaskMapper
+	UoW -> Map : merge(entity, mapper)
+	activate Map
+	alt Nalezen starý záznam v IdentityMap
+		Map -> TaskMapper : merge(into, from)
+		activate TaskMapper
+		TaskMapper --> Map : [Task]
+		deactivate TaskMapper
+	else
+		Map -> Map : put(entity)
+	end
+	Map --> UoW : [Task]
+	deactivate Map
+end
+UoW --> TaskRepository : [List<Task>]
+deactivate UoW
+deactivate TaskRepository
+TaskRepository --> TaskService : List<Task>
+deactivate TaskRepository
+TaskService -> ParticipantRepository : findAllByCamp(campEntity)
+activate ParticipantRepository
+ParticipantRepository -> ParticipantGateway : findAllByCampId(campId)
+activate ParticipantGateway
+ParticipantGateway --> ParticipantRepository : [List<ParticipantRecord>]
+deactivate ParticipantGateway
+loop Pro každý ParticipantRecord
+	ParticipantRepository -> ParticipantMapper : toEntity(record)
+	activate ParticipantMapper
+	ParticipantMapper --> ParticipantRepository : [Participant]
+	deactivate ParticipantMapper
+	ParticipantRepository -> Map : merge(entity, mapper)
+	activate Map
+	alt Nalezen starý záznam v IdentityMap
+		Map -> ParticipantMapper : merge(into, from)
+		activate ParticipantMapper
+		ParticipantMapper --> Map : [Participant]
+		deactivate ParticipantMapper
+	else
+		Map -> Map : put(entity)
+	end
+	Map --> ParticipantRepository : [Participant]
+	deactivate Map
+end
+ParticipantRepository --> TaskService : [List<Participant>]
+deactivate ParticipantRepository
+alt Nelze vytvořit plán léků
+	TaskService --> Controller : [Errors]
+	Controller --> Actor : Ukázat formulář s chybami
+else
+	TaskService --> Controller : List<TaskDTO>
+	Controller --> Actor : Ukázat návrh úkolů dávkování
+end
+deactivate TaskService
+deactivate Controller
+
+Actor -> Controller : Nové úkoly (název, popis, termín, řešitelé)\n**Dále pokračuje stějne jak popsáno v UC4**
+activate Controller
+@enduml

@@ -10,7 +10,6 @@ import cz.vsb.and0153.campmanagement.user.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class PersonService {
 		return personMapper.toDTO(repository.findById(id));
 	}
 
-	public PersonDTO findPersonalNumber(String personalNumber) {
+	public PersonDTO findByPersonalNumber(String personalNumber) {
 		return personMapper.toDTO(repository.findByPersonalNumber(personalNumber));
 	}
 

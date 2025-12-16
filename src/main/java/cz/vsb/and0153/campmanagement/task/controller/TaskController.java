@@ -19,6 +19,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -56,28 +57,6 @@ public class TaskController extends AbstractController {
 		context.setVariable("camp", camp);
 		context.setVariable("tasks", taskService.findAllTasksByCamp(camp));
 		render("dashboard/tasks", context);
-	}
-
-	@GetMapping(path = "/camp/(\\d+)/medic", permissions = "logged")
-	public void medic(HttpServletRequest req, HttpServletResponse resp, Matcher matcher) throws IOException {
-		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
-
-		WebContext context = getTemplateContext(req, resp);
-		context.setVariable("page", "medic");
-		context.setVariable("camp", camp);
-		context.setVariable("tasks", Collections.<TaskDTO>emptyList());
-		render("dashboard/medic", context);
-	}
-
-	@PostMapping(path = "/camp/(\\d+)/medic", permissions = "logged")
-	public void generateDrugPlan(HttpServletRequest req, HttpServletResponse resp, Matcher matcher) throws IOException {
-		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
-
-		WebContext context = getTemplateContext(req, resp);
-		context.setVariable("page", "medic");
-		context.setVariable("camp", camp);
-		context.setVariable("tasks", taskService.generateDrugPlan(camp));
-		render("dashboard/medic", context);
 	}
 
 	private void renderEditModal(
@@ -127,8 +106,8 @@ public class TaskController extends AbstractController {
 			TaskDTO.TaskDTOBuilder builder = TaskDTO.builder()
 				.shortDescription(request.getParameter("short"))
 				.description(request.getParameter("description"))
-				.startDate(LocalDate.parse(request.getParameter("start")).atStartOfDay().atOffset(ZoneOffset.UTC))
-				.dueDate(LocalDate.parse(request.getParameter("due")).atStartOfDay().atOffset(ZoneOffset.UTC))
+				.startDate(LocalDateTime.parse(request.getParameter("start")).atOffset(ZoneOffset.UTC))
+				.dueDate(LocalDateTime.parse(request.getParameter("due")).atOffset(ZoneOffset.UTC))
 				.createdAt(OffsetDateTime.now());
 
 			List<ParticipantDTO> participants = Arrays.stream(request.getParameterValues("assignee"))
@@ -139,6 +118,7 @@ public class TaskController extends AbstractController {
 			taskService.save(builder.build());
 		} catch (ListException e) {
 			renderEditModal(request, response, e.getErrors(), null, camp);
+			return;
 		}
 
 		response.sendRedirect("/camp/" + camp.getId() + "/tasks");
@@ -147,17 +127,13 @@ public class TaskController extends AbstractController {
 	@PostMapping(path = "/camp/(\\d+)/task/edit/(\\d+)", permissions = "logged")
 	public void editTask(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws IOException, UnitOfWorkException {
 		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
-
-		int id = Integer.parseInt(matcher.group(2));
+		TaskDTO task = taskService.findById(Integer.parseInt(matcher.group(2)));
 
 		try {
-			TaskDTO task = TaskDTO.builder().build();
-			task.setId(id);
 			task.setShortDescription(request.getParameter("short"));
 			task.setDescription(request.getParameter("description"));
-			task.setStartDate(LocalDate.parse(request.getParameter("start")).atStartOfDay().atOffset(ZoneOffset.UTC));
-			task.setDueDate(LocalDate.parse(request.getParameter("due")).atStartOfDay().atOffset(ZoneOffset.UTC));
-			task.setCreatedAt(OffsetDateTime.now());
+			task.setStartDate(LocalDateTime.parse(request.getParameter("start")).atOffset(ZoneOffset.UTC));
+			task.setDueDate(LocalDateTime.parse(request.getParameter("due")).atOffset(ZoneOffset.UTC));
 
 			List<ParticipantDTO> participants = Arrays.stream(request.getParameterValues("assignee"))
 				.map(val -> participantService.findById(Integer.parseInt(val))).toList();
@@ -166,9 +142,103 @@ public class TaskController extends AbstractController {
 
 			taskService.save(task);
 		} catch (ListException e) {
-			renderEditModal(request, response, e.getErrors(), taskService.findById(id), camp);
+			renderEditModal(request, response, e.getErrors(), task, camp);
+			return;
 		}
 
 		response.sendRedirect("/camp/" + camp.getId() + "/tasks");
+	}
+
+	@GetMapping(path = "/camp/(\\d+)/task/toggle/(\\d+)", permissions = "logged")
+	public void toggleTask(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws UnitOfWorkException, ListException, IOException {
+		int campId = Integer.parseInt(matcher.group(1));
+		TaskDTO task = taskService.findById(Integer.parseInt(matcher.group(2)));
+
+		// Toggle state
+		if (task.getFinishAt() == null) {
+			task.setFinishAt(OffsetDateTime.now());
+		} else {
+			task.setFinishAt(null);
+		}
+
+		taskService.save(task);
+
+		response.sendRedirect("/camp/" + campId + "/tasks");
+	}
+
+	@GetMapping(path = "/camp/(\\d+)/medic", permissions = "logged")
+	public void medic(HttpServletRequest req, HttpServletResponse resp, Matcher matcher) throws IOException {
+		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
+
+		WebContext context = getTemplateContext(req, resp);
+		context.setVariable("page", "medic");
+		context.setVariable("camp", camp);
+		context.setVariable("tasks", Collections.<TaskDTO>emptyList());
+		render("dashboard/medic", context);
+	}
+
+	@PostMapping(path = "/camp/(\\d+)/medic", permissions = "logged")
+	public void generateDrugPlan(HttpServletRequest req, HttpServletResponse resp, Matcher matcher) throws IOException, UnitOfWorkException {
+		CampDTO camp = campService.findById(Integer.parseInt(matcher.group(1)));
+
+		// Web template context
+		WebContext context = getTemplateContext(req, resp);
+		context.setVariable("page", "medic");
+		context.setVariable("camp", camp);
+		List<ParticipantDTO> medics = participantService.findAllByCamp(camp).stream()
+			.filter(p -> p.getRole() != null && Boolean.TRUE.equals(p.getRole().getCanViewDrugs()))
+			.toList();
+		context.setVariable("participants", medics);
+
+		// If we're saving instead of generating
+		boolean hasMedicParams = req.getParameterMap().keySet().stream().anyMatch(k -> k != null && k.startsWith("medic[") && k.endsWith("]"));
+		if (hasMedicParams) {
+			try {
+				for (String key : req.getParameterMap().keySet()) {
+					if (key == null || !key.startsWith("medic[") || !key.endsWith("]")) continue; // Take medic[] as key
+					String idStr = key.substring("medic[".length(), key.length() - 1);
+
+					String medicIdStr = req.getParameter(key);
+					String shortDesc = req.getParameter("shortDescription[" + idStr + "]");
+					String description = req.getParameter("description[" + idStr + "]");
+					String startStr = req.getParameter("startDate[" + idStr + "]");
+					String dueStr = req.getParameter("dueDate[" + idStr + "]");
+
+					ParticipantDTO medic = participantService.findById(Integer.parseInt(medicIdStr));
+
+					TaskDTO task = TaskDTO.builder()
+						.shortDescription(shortDesc)
+						.description(description)
+						.startDate(LocalDateTime.parse(startStr).atOffset(ZoneOffset.UTC))
+						.dueDate(LocalDateTime.parse(dueStr).atOffset(ZoneOffset.UTC))
+						.participants(List.of(medic))
+						.build();
+
+					taskService.save(task);
+				}
+
+				resp.sendRedirect("/camp/" + camp.getId() + "/tasks");
+				return;
+			} catch (ListException e) {
+				context.setVariable("tasks", Collections.<TaskDTO>emptyList());
+				context.setVariable("errors", e.getErrors());
+				render("dashboard/medic", context);
+				return;
+			}
+		}
+
+		try {
+			context.setVariable("tasks", taskService.generateDrugPlan(camp));
+		} catch (ListException e) {
+			context.setVariable("tasks", Collections.<TaskDTO>emptyList());
+			context.setVariable("errors", e.getErrors());
+		}
+		render("dashboard/medic", context);
+	}
+
+	@GetMapping(path = "/camp/(\\d+)/task/delete/(\\d+)", permissions = "logged")
+	public void deleteTask(HttpServletRequest request, HttpServletResponse response, Matcher matcher) throws UnitOfWorkException, IOException {
+		taskService.delete(Integer.parseInt(matcher.group(2)));
+		response.sendRedirect("/camp/" + Integer.parseInt(matcher.group(1)) + "/tasks");
 	}
 }

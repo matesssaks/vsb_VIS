@@ -19,8 +19,11 @@
 			<button class="btn icon-link p-1 fs-2 text-primary" type="button" th:onclick="|getModal('@{/camp/{campid}/task/edit/{taskid}(campid=${camp.id},taskid=${task.id})}')|">
 				<i class="bi bi-pen"></i>
 			</button>
-			<button class="btn icon-link p-1 fs-2 text-success" type="button">
-				<i class="bi bi-check-square"></i>
+			<button class="btn icon-link p-1 fs-2 text-danger" type="button" th:onclick="|getModal('@{/camp/{campid}/task/delete/{taskid}(campid=${camp.id},taskid=${task.id})}')|">
+				<i class="bi bi-trash"></i>
+			</button>
+			<button class="btn icon-link p-1 fs-2 text-success" type="button" th:onclick="|getModal('@{/camp/{campid}/task/toggle/{taskid}(campid=${camp.id},taskid=${task.id})}')|">
+				<i th:class="'bi' + (${task.finishAt} == null ? ' bi-check-square' : ' bi-check-square-fill')"></i>
 			</button>
 		</div>
 	</div>

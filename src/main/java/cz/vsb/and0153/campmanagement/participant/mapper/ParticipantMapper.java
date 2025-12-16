@@ -32,6 +32,7 @@ public abstract class ParticipantMapper implements EntityMapper<ParticipantRecor
 
 	@Override
 	@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+	@Mapping(target = "person", expression = "java(from.getPerson())")
 	public abstract Participant merge(@MappingTarget Participant into, Participant from);
 
 	@Override

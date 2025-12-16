@@ -81,7 +81,11 @@ public class TaskRepository implements RepositoryInterface<Task> {
 
 	@Override
 	public void delete(int id) {
-		unitOfWork.delete(Camp.class, id, taskGateway);
+		// Delete all associations with participants
+		participantTaskGateway.delete(id);
+
+		// Delete the Task
+		unitOfWork.delete(Task.class, id, taskGateway);
 	}
 
 	@Override

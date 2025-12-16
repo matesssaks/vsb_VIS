@@ -16,11 +16,11 @@
 				</div>
 				<div class="d-flex gap-3 w-100">
 					<div class="flex-grow-1 w-50 form-floating">
-						<input class="form-control" id="start" name="start" type="date" placeholder="Start date" th:value="${#temporals.format(task.startDate, 'yyyy-MM-dd')}" required>
+						<input class="form-control" id="start" name="start" type="datetime-local" placeholder="Start date" th:value="${#temporals.format(task.startDate, 'yyyy-MM-dd''T''HH:mm')}" required>
 						<label for="start">Start date</label>
 					</div>
 					<div class="flex-grow-1 w-50 form-floating">
-						<input class="form-control" id="due" name="due" type="date" placeholder="Due date" th:value="${#temporals.format(task.dueDate, 'yyyy-MM-dd')}" required>
+						<input class="form-control" id="due" name="due" type="datetime-local" placeholder="Due date" th:value="${#temporals.format(task.dueDate, 'yyyy-MM-dd''T''HH:mm')}" required>
 						<label for="due">Due date</label>
 					</div>
 				</div>
@@ -28,7 +28,8 @@
 					<select class="form-select" id="assignee" name="assignee" multiple required>
 						<option th:each="participant : ${participants}"
 								th:value="${participant.id}"
-								th:text="${participant.person.name}">
+								th:text="${participant.person.name}"
+								th:selected="${task.participants != null and task.participants.?[id == #vars.participant.id].size() > 0}">
 						</option>
 					</select>
 					<label for="assignee">Assignee</label>

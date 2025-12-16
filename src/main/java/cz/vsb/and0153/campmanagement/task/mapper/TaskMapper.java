@@ -29,7 +29,7 @@ public abstract class TaskMapper implements EntityMapper<TaskRecord, Task> {
 	private ParticipantTaskGateway participantTaskGateway;
 
 	@Override
-	@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+	//@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 	public abstract Task merge(@MappingTarget Task into, Task from);
 
 	// toRecord
